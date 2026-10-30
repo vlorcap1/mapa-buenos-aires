@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { LocateFixed, Loader2, Search, MapPin, ArrowDownUp, List, Map as MapIcon } from 'lucide-react';
+import { LocateFixed, Loader2, Search, ArrowDownUp, List, Map as MapIcon } from 'lucide-react';
 import Mapa from './components/Mapa';
 import Filtros from './components/Filtros';
 import TarjetaLugar from './components/TarjetaLugar';
@@ -27,7 +27,20 @@ export default function App() {
   const [ordenarPorCercania, setOrdenarPorCercania] = useState(false);
   const [centrarEnUsuario, setCentrarEnUsuario] = useState(0);
   const [vistaMovil, setVistaMovil] = useState<'mapa' | 'lista'>('mapa');
+  const [avisoOffline, setAvisoOffline] = useState(false);
   const { estado, posicion, activar } = useGeolocalizacion();
+
+  // El service worker avisa cuando la app, las fotos y el mapa quedaron guardados para usar sin conexión.
+  useEffect(() => {
+    const mostrar = () => { setAvisoOffline(true); window.setTimeout(() => setAvisoOffline(false), 6000); };
+    window.addEventListener('offline-listo', mostrar);
+    const porMensaje = (e: MessageEvent) => { if (e.data?.tipo === 'offline-listo') mostrar(); };
+    navigator.serviceWorker?.addEventListener('message', porMensaje);
+    return () => {
+      window.removeEventListener('offline-listo', mostrar);
+      navigator.serviceWorker?.removeEventListener('message', porMensaje);
+    };
+  }, []);
 
   const conteo = useMemo(() => {
     const c: Record<string, number> = {};
@@ -91,13 +104,7 @@ export default function App() {
   return (
     <div className={`app app--${vistaMovil} ${seleccionado ? 'app--detalle' : ''}`}>
       <header className="cabecera">
-        <div className="cabecera__marca">
-          <MapPin size={22} aria-hidden="true" />
-          <div>
-            <h1>Turista en Buenos Aires</h1>
-            <p>Mapa de lugares para recorrer la ciudad, sin alojamientos.</p>
-          </div>
-        </div>
+        <h1 className="visualmente-oculto">Turista en Buenos Aires</h1>
         <label className="buscador">
           <Search size={18} aria-hidden="true" />
           <input
@@ -156,6 +163,7 @@ export default function App() {
             {estado === 'buscando' ? <Loader2 size={22} className="girar" aria-hidden="true" /> : <LocateFixed size={22} aria-hidden="true" />}
           </button>
 
+          {avisoOffline && <div className="toast toast--ok" role="status">Mapa y fotos guardados: la app ya funciona sin conexión.</div>}
           {estado !== 'inactivo' && estado !== 'activo' && <div className="toast" role="status">{MENSAJE_GPS[estado]}</div>}
           {gpsActivo && posicion && (
             <div className="toast toast--ok" role="status">

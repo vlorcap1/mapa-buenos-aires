@@ -3,8 +3,9 @@
 import { chromium } from 'playwright-core';
 import path from 'node:path';
 
-const [url = 'http://localhost:4177/', salida = '.'] = process.argv.slice(2);
-const browser = await chromium.launch({ executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe', headless: true });
+const [url = 'http://localhost:4177/mapa-buenos-aires/', salida = '.'] = process.argv.slice(2);
+// WebGL por software para que MapLibre renderice en modo headless.
+const browser = await chromium.launch({ executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe', headless: true, args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
 
 async function capturar(nombre, opciones, acciones = async () => {}) {
   const ctx = await browser.newContext(opciones);
