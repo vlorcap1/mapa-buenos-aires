@@ -9,7 +9,11 @@ if (-not $?) { Write-Error 'Primero ejecuta: gh auth login'; exit 1 }
 $owner = gh api user --jq .login
 
 # 1) Crear el repo remoto si no existe y subir main
-$existe = gh repo view "$owner/$repo" 2>$null
+# (gh escribe en stderr cuando el repo no existe; con ErrorActionPreference=Stop eso cortaría el script)
+$ErrorActionPreference = 'Continue'
+cmd /c "gh repo view $owner/$repo --json name >nul 2>&1"
+$existe = ($LASTEXITCODE -eq 0)
+$ErrorActionPreference = 'Stop'
 if (-not $existe) {
   gh repo create $repo --public --source=. --remote=origin --push
 } else {
