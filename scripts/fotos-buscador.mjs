@@ -33,6 +33,7 @@ const CONSULTAS = {
   'niceto-club': 'Niceto Club Buenos Aires',
   'galeria-bond-street': 'Galería Bond Street Santa Fe skate Buenos Aires',
   'pizzeria-banchero': 'Pizzería Banchero La Boca Buenos Aires',
+  'floreria-atlantico': 'Florería Atlántico bar Arroyo 872 Retiro Buenos Aires',
 };
 
 async function buscarImagenes(q) {
