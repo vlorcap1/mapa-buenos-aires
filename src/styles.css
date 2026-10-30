@@ -81,6 +81,36 @@ button { cursor: pointer; }
 .buscador input::placeholder { color: rgba(255, 255, 255, 0.6); }
 .buscador input::-webkit-search-cancel-button { filter: invert(1); }
 
+/* Botón de instalar como app y guía de instalación */
+.btn-instalar {
+  flex: 0 0 auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12); color: #fff;
+  font-weight: 500; white-space: nowrap;
+}
+.btn-instalar:hover { background: rgba(255, 255, 255, 0.22); }
+.guia {
+  position: fixed; inset: 0; z-index: 2000;
+  display: grid; place-items: end center;
+  background: rgba(20, 33, 61, 0.45);
+  padding: 16px;
+}
+.guia__caja {
+  position: relative;
+  width: min(440px, 100%);
+  background: var(--superficie); color: var(--texto);
+  border-radius: 18px;
+  padding: 20px 20px 18px;
+  box-shadow: var(--sombra);
+}
+.guia__caja h2 { font-family: var(--fuente-titulo); font-size: 22px; margin: 0 28px 8px 0; }
+.guia__caja p { margin: 0 0 12px; color: var(--texto-suave); }
+.guia__caja ol { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+.guia__caja li svg { vertical-align: -3px; margin: 0 2px; }
+@media (min-width: 861px) { .guia { place-items: center; } }
+
 /* Chips de filtro */
 .filtros {
   display: flex;
@@ -307,8 +337,10 @@ button { cursor: pointer; }
 
 @media (max-width: 860px) {
   .app { grid-template-rows: auto auto minmax(0, 1fr) auto; }
-  .cabecera { padding-block: 6px; }
+  .cabecera { padding-block: 6px; gap: 8px; }
   .buscador { max-width: none; padding: 6px 12px; }
+  .btn-instalar { padding: 7px 10px; }
+  .btn-instalar span { display: none; } /* en el celular solo el ícono, para dejarle lugar al buscador */
   .filtros { padding-block: 8px; }
   .chip { padding: 5px 10px; font-size: 13px; }
   .cuerpo { grid-template-columns: minmax(0, 1fr); }

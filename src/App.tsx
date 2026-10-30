@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { LocateFixed, Loader2, Search, ArrowDownUp, List, Map as MapIcon } from 'lucide-react';
+import { LocateFixed, Loader2, Search, ArrowDownUp, List, Map as MapIcon, Download, Share, SquarePlus, X, MoreVertical } from 'lucide-react';
+import { useInstalacion } from './hooks/useInstalacion';
 import Mapa from './components/Mapa';
 import Filtros from './components/Filtros';
 import TarjetaLugar from './components/TarjetaLugar';
@@ -28,7 +29,14 @@ export default function App() {
   const [centrarEnUsuario, setCentrarEnUsuario] = useState(0);
   const [vistaMovil, setVistaMovil] = useState<'mapa' | 'lista'>('mapa');
   const [avisoOffline, setAvisoOffline] = useState(false);
+  const [guiaInstalacion, setGuiaInstalacion] = useState(false);
   const { estado, posicion, activar } = useGeolocalizacion();
+  const instalacion = useInstalacion();
+
+  const onInstalar = async () => {
+    const abrioDialogo = await instalacion.instalar();
+    if (!abrioDialogo) setGuiaInstalacion(true); // sin diálogo nativo (iPhone, o ya descartado): mostrar los pasos
+  };
 
   // El service worker avisa cuando la app, las fotos y el mapa quedaron guardados para usar sin conexión.
   useEffect(() => {
@@ -116,7 +124,46 @@ export default function App() {
             autoComplete="off"
           />
         </label>
+        {!instalacion.instalada && (
+          <button type="button" className="btn-instalar" onClick={onInstalar} title="Instalar como app para usar sin conexión">
+            <Download size={18} aria-hidden="true" />
+            <span>Instalar</span>
+          </button>
+        )}
       </header>
+
+      {guiaInstalacion && (
+        <div className="guia" role="dialog" aria-modal="true" aria-label="Cómo instalar la app" onClick={() => setGuiaInstalacion(false)}>
+          <div className="guia__caja" onClick={(e) => e.stopPropagation()}>
+            <button type="button" className="detalle__cerrar" onClick={() => setGuiaInstalacion(false)} aria-label="Cerrar">
+              <X size={20} aria-hidden="true" />
+            </button>
+            <h2>Instalar como app</h2>
+            <p>Queda en la pantalla de inicio, a pantalla completa, y funciona sin conexión con el mapa y las fotos guardados.</p>
+            {instalacion.esIOS ? (
+              <ol>
+                <li>
+                  Tocá el botón <strong>Compartir</strong> <Share size={16} aria-hidden="true" /> en la barra de Safari.
+                </li>
+                <li>
+                  Elegí <strong>Agregar a pantalla de inicio</strong> <SquarePlus size={16} aria-hidden="true" />.
+                </li>
+                <li>Confirmá con <strong>Agregar</strong>.</li>
+              </ol>
+            ) : (
+              <ol>
+                <li>
+                  Abrí el menú del navegador <MoreVertical size={16} aria-hidden="true" /> (los tres puntos).
+                </li>
+                <li>
+                  Elegí <strong>Instalar app</strong> o <strong>Agregar a la pantalla principal</strong>.
+                </li>
+                <li>Confirmá con <strong>Instalar</strong>.</li>
+              </ol>
+            )}
+          </div>
+        </div>
+      )}
 
       <Filtros activas={activas} conteo={conteo} onToggle={toggleCategoria} onTodas={() => setActivas(new Set())} />
 
