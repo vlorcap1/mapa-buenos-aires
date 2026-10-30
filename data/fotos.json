@@ -459,16 +459,6 @@
     "titulo": "Commons: File:Canoeing at the 2018 Summer Youth Olympics – Boys' K1 slalom Gold Medal Race 092.jpg",
     "articulo": "https://commons.wikimedia.org/wiki/File:Canoeing_at_the_2018_Summer_Youth_Olympics_%E2%80%93_Boys%27_K1_slalom_Gold_Medal_Race_092.jpg"
   },
-  "mishiguene": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Outdoor_Cafe_%28Unsplash%29.jpg/960px-Outdoor_Cafe_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "ancho": 900,
-    "alto": 600,
-    "autor": "Henrique Félix henriquefelix",
-    "licencia": "CC0",
-    "archivo": "https://commons.wikimedia.org/wiki/File:Outdoor_Cafe_(Unsplash).jpg",
-    "titulo": "Commons: File:Outdoor Cafe (Unsplash).jpg",
-    "articulo": "https://commons.wikimedia.org/wiki/File:Outdoor_Cafe_(Unsplash).jpg"
-  },
   "la-mezzetta": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/LaMezzetta_marzo2016.JPG/960px-LaMezzetta_marzo2016.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "ancho": 900,
@@ -1328,5 +1318,105 @@
     "archivo": "https://www.librosdelpasaje.com.ar/",
     "titulo": "web: Tienda Online de Libros del Pasaje",
     "fuente": "sitio oficial"
+  },
+  "cafe-san-juan": {
+    "url": "fotos/cafe-san-juan.jpg",
+    "ancho": 800,
+    "alto": 540,
+    "autor": "salpimenta.com.ar",
+    "licencia": "",
+    "archivo": "https://salpimenta.com.ar/cafe-san-juan-comida-de-primera-en-san-telmo/",
+    "titulo": "buscador: Café San Juan: comida de primera en San Telmo | SalPimenta",
+    "fuente": "buscador de imágenes"
+  },
+  "sacro": {
+    "url": "fotos/sacro.jpg",
+    "ancho": 900,
+    "alto": 601,
+    "autor": "amazingarchitecture.com",
+    "licencia": "",
+    "archivo": "https://amazingarchitecture.com/restaurant/sacro-buenos-aires-argentina-by-vang-studios",
+    "titulo": "buscador: Sacro, Buenos Aires, Argentina by Vang S|Restaurant",
+    "fuente": "buscador de imágenes"
+  },
+  "pizzeria-banchero": {
+    "url": "fotos/pizzeria-banchero.jpg",
+    "ancho": 720,
+    "alto": 481,
+    "autor": "clarin.com",
+    "licencia": "",
+    "archivo": "https://www.clarin.com/informacion-general/italia-buenos-aires-pais-historia-pizza-argentina_0_7UmxV76tcB.html",
+    "titulo": "buscador: De Italia a Buenos Aires y a todo el país: ¿cuál es la historia de la ...",
+    "fuente": "buscador de imágenes"
+  },
+  "siga-la-vaca": {
+    "url": "fotos/siga-la-vaca.jpg",
+    "ancho": 900,
+    "alto": 588,
+    "autor": "lamejorparrilla.com",
+    "licencia": "",
+    "archivo": "https://lamejorparrilla.com/parrillas/siga-la-vaca/",
+    "titulo": "buscador: Siga La Vaca - La Mejor Parrilla",
+    "fuente": "buscador de imágenes"
+  },
+  "tres-monos": {
+    "url": "fotos/tres-monos.jpg",
+    "ancho": 750,
+    "alto": 562,
+    "autor": "timeout.com",
+    "licencia": "",
+    "archivo": "https://www.timeout.com/es/buenos-aires/bar-tres-monos-palermo",
+    "titulo": "buscador: Bar Tres Monos en Palermo",
+    "fuente": "buscador de imágenes"
+  },
+  "boticario": {
+    "url": "fotos/boticario.jpg",
+    "ancho": 900,
+    "alto": 506,
+    "autor": "cntraveler.com",
+    "licencia": "",
+    "archivo": "https://www.cntraveler.com/bars/buenos-aires/boticario",
+    "titulo": "buscador: Boticario, Buenos Aires, Argentina - Bar Review | Condé Nast Traveler",
+    "fuente": "buscador de imágenes"
+  },
+  "verne-club": {
+    "url": "fotos/verne-club.jpg",
+    "ancho": 900,
+    "alto": 648,
+    "autor": "vernecocktailclub.com",
+    "licencia": "",
+    "archivo": "http://vernecocktailclub.com/",
+    "titulo": "buscador: Verne Cocktail Club | Bar de cocktails en Palermo, Buenos Aires",
+    "fuente": "buscador de imágenes"
+  },
+  "milonga-la-catedral": {
+    "url": "fotos/milonga-la-catedral.jpg",
+    "ancho": 900,
+    "alto": 532,
+    "autor": "aguiarbuenosaires.com",
+    "licencia": "",
+    "archivo": "https://aguiarbuenosaires.com/la-catedral/",
+    "titulo": "buscador: La Catedral: Conheça a milonga no coração de Almagro",
+    "fuente": "buscador de imágenes"
+  },
+  "napoles": {
+    "url": "fotos/napoles.jpg",
+    "ancho": 900,
+    "alto": 491,
+    "autor": "tripadvisor.com",
+    "licencia": "",
+    "archivo": "https://www.tripadvisor.com/Restaurant_Review-g312741-d12339482-Reviews-Napoles_Bar-Buenos_Aires_Capital_Federal_District.html",
+    "titulo": "buscador: NAPOLES BAR, Buenos Aires - San Telmo - Restaurant Reviews, Photos ...",
+    "fuente": "buscador de imágenes"
+  },
+  "patio-del-liceo": {
+    "url": "fotos/patio-del-liceo.jpg",
+    "ancho": 900,
+    "alto": 675,
+    "autor": "lovingbsas.blogspot.com",
+    "licencia": "",
+    "archivo": "https://lovingbsas.blogspot.com/2016/04/galeria-patio-del-liceo-oasis-cultural.html",
+    "titulo": "buscador: Galeria Patio del Liceo: oasis cultural en pleno Santa Fe - Loving ...",
+    "fuente": "buscador de imágenes"
   }
 }

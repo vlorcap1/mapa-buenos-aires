@@ -200,7 +200,7 @@ const ARCHIVOS_FIJOS = {
   'tranvia-historico-de-caballito': 'Tranvía Histórico de Buenos Aires 02.jpg',
 };
 // Lugares para los que ninguna búsqueda da una foto correcta (nombres demasiado genéricos): mejor sin foto que con una ajena.
-const SIN_BUSCAR = new Set(['sacro', 'napoles', 'la-brigada', 'presidente-bar', 'boticario', 'uptown']);
+const SIN_BUSCAR = new Set(['sacro', 'napoles', 'la-brigada', 'presidente-bar', 'boticario', 'uptown', 'mishiguene', 'cafe-san-juan', 'parrilla-pena', 'siga-la-vaca', 'tres-monos', 'verne-club', 'el-nino-gordo', 'teatro-nacional', 'patio-del-liceo', 'centro-cultural-matienzo', 'niceto-club', 'galeria-bond-street', 'pizzeria-banchero', 'los-infernales-de-guemes', 'milonga-la-catedral', 'libros-del-pasaje', 'rapanui']);
 const REHACER = new Set((process.argv.find((a) => a.startsWith('--rehacer='))?.slice(10) ?? '').split(',').filter(Boolean));
 
 const UA = { 'User-Agent': 'mapa-buenos-aires-dev/1.0 (fotos para mapa turistico; contacto via GitHub)' };
