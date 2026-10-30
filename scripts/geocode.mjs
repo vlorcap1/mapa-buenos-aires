@@ -20,8 +20,15 @@ const distKm = (a, b, c, d) => {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const slug = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
+// Los lugares ya geocodificados se conservan (incluidas correcciones manuales); con --todo se rehacen todos.
+const salida = path.join(root, 'data', 'lugares.json');
+const previos = fs.existsSync(salida) && !process.argv.includes('--todo') ? JSON.parse(fs.readFileSync(salida, 'utf8')) : [];
+const previoPorId = new Map(previos.map((p) => [p.id, p]));
+
 const out = [];
 for (const r of rows) {
+  const previo = previoPorId.get(slug(r.name));
+  if (previo) { out.push({ ...previo, cat: r.cat, barrio: r.barrio, desc: r.desc }); continue; }
   const lat0 = Number(r.lat), lng0 = Number(r.lng);
   let lat = lat0, lng = lng0, from = 'estimada';
   try {
@@ -41,5 +48,5 @@ for (const r of rows) {
   console.log(`${from.padEnd(30)} ${r.name}`);
   await sleep(1100);
 }
-fs.writeFileSync(path.join(root, 'data', 'lugares.json'), JSON.stringify(out, null, 2));
+fs.writeFileSync(salida, JSON.stringify(out, null, 2));
 console.log(`\n${out.length} lugares → data/lugares.json`);

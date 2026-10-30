@@ -1148,5 +1148,145 @@
     "lng": -58.58028,
     "desc": "Tren Mitre desde Retiro hasta Tigre en una hora, luego lancha colectiva por el delta.",
     "src": "osm (0.45 km)"
+  },
+  {
+    "id": "el-nino-gordo",
+    "cat": "restaurant",
+    "name": "El Niño Gordo",
+    "barrio": "Palermo",
+    "lat": -34.586476,
+    "lng": -58.428932,
+    "desc": "Parrilla asiática con luces rojas y ambiente de película: carnes a la brasa con sabores japoneses, coreanos y tailandeses. Reservar.",
+    "src": "osm (0.00 km)"
+  },
+  {
+    "id": "napoles",
+    "cat": "restaurant",
+    "name": "Nápoles",
+    "barrio": "San Telmo",
+    "lat": -34.626552,
+    "lng": -58.371696,
+    "desc": "Bar restaurante italiano dentro de una casa de antigüedades, frente al Parque Lezama. Pastas caseras y aperitivo en la vereda.",
+    "src": "osm (0.16 km)"
+  },
+  {
+    "id": "microteatro",
+    "cat": "culture",
+    "name": "Microteatro",
+    "barrio": "Villa Crespo",
+    "lat": -34.592025,
+    "lng": -58.435009,
+    "desc": "Obras de 15 minutos para 15 espectadores en salas diminutas, con bar en el patio. Entrada por obra, ideal para probar varias en una noche.",
+    "src": "osm (0.00 km)"
+  },
+  {
+    "id": "teatro-opera",
+    "cat": "culture",
+    "name": "Teatro Ópera",
+    "barrio": "San Nicolás",
+    "lat": -34.603658,
+    "lng": -58.378892,
+    "desc": "Sala art déco de 1936 con 2.000 butacas, hoy escenario de musicales y recitales en plena calle Corrientes.",
+    "src": "osm (0.04 km)"
+  },
+  {
+    "id": "teatro-nacional",
+    "cat": "culture",
+    "name": "Teatro Nacional",
+    "barrio": "San Nicolás",
+    "lat": -34.603968,
+    "lng": -58.380276,
+    "desc": "Teatro de 1906 con fachada clásica, de los más antiguos de Corrientes. Comedias y obras de gran elenco.",
+    "src": "osm (0.03 km)"
+  },
+  {
+    "id": "teatro-broadway",
+    "cat": "culture",
+    "name": "Teatro Broadway",
+    "barrio": "San Nicolás",
+    "lat": -34.603835,
+    "lng": -58.383465,
+    "desc": "Sala de 1930 con marquesina luminosa, dedicada a comedias musicales y espectáculos de humor.",
+    "src": "osm (0.09 km)"
+  },
+  {
+    "id": "teatro-lola-membrives",
+    "cat": "culture",
+    "name": "Teatro Lola Membrives",
+    "barrio": "San Nicolás",
+    "lat": -34.604337,
+    "lng": -58.384777,
+    "desc": "Teatro de 1928 que lleva el nombre de la gran actriz; sede habitual de obras de texto y musicales.",
+    "src": "osm (0.05 km)"
+  },
+  {
+    "id": "multiteatro",
+    "cat": "culture",
+    "name": "Multiteatro",
+    "barrio": "San Nicolás",
+    "lat": -34.604637,
+    "lng": -58.384777,
+    "desc": "Complejo con cuatro salas en un mismo edificio: la programación más variada de la calle Corrientes.",
+    "src": "manual (frente a Lola Membrives)"
+  },
+  {
+    "id": "teatro-metropolitan",
+    "cat": "culture",
+    "name": "Teatro Metropolitan",
+    "barrio": "San Nicolás",
+    "lat": -34.603642,
+    "lng": -58.385873,
+    "desc": "Antiguo cine de 1936 convertido en tres salas de teatro comercial. Entre Talcahuano y Uruguay.",
+    "src": "osm (0.05 km)"
+  },
+  {
+    "id": "teatro-apolo",
+    "cat": "culture",
+    "name": "Teatro Apolo",
+    "barrio": "San Nicolás",
+    "lat": -34.604093,
+    "lng": -58.386093,
+    "desc": "Pequeño teatro de 1892, el más antiguo en actividad de Corrientes, restaurado en 2013.",
+    "src": "osm (0.04 km)"
+  },
+  {
+    "id": "teatro-politeama",
+    "cat": "culture",
+    "name": "Teatro Politeama",
+    "barrio": "San Nicolás",
+    "lat": -34.60419,
+    "lng": -58.387711,
+    "desc": "Sala histórica reabierta en 2024 tras décadas cerrada, con fachada de principios del siglo XX.",
+    "src": "osm (0.03 km)"
+  },
+  {
+    "id": "teatro-astral",
+    "cat": "culture",
+    "name": "Teatro Astral",
+    "barrio": "San Nicolás",
+    "lat": -34.604166,
+    "lng": -58.390002,
+    "desc": "Teatro de 1943 en la esquina de Montevideo; musicales, humor y shows de gran convocatoria.",
+    "src": "osm (0.05 km)"
+  },
+  {
+    "id": "paseo-la-plaza",
+    "cat": "culture",
+    "name": "Paseo La Plaza",
+    "barrio": "San Nicolás",
+    "lat": -34.604466,
+    "lng": -58.390402,
+    "desc": "Complejo cultural con varias salas, bares y patios al aire libre en un antiguo mercado de 1892.",
+    "src": "manual (Av. Corrientes 1660)"
+  },
+  {
+    "id": "teatro-maipo",
+    "cat": "culture",
+    "name": "Teatro Maipo",
+    "barrio": "San Nicolás",
+    "lat": -34.602767,
+    "lng": -58.377968,
+    "desc": "Templo de la revista porteña desde 1908, a media cuadra de Corrientes. Hoy musicales y conciertos.",
+    "src": "osm (0.09 km)"
   }
 ]
