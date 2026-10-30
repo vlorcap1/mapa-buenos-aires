@@ -278,7 +278,6 @@ button { cursor: pointer; }
   .panel { border-right: 0; }
   .app--mapa .panel { display: none; }
   .app--lista .zona-mapa { display: none; }
-  .btn-gps { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
   .detalle { left: 8px; right: 8px; width: auto; bottom: 8px; }
   .barra-movil {
     display: grid;
