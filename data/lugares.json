@@ -1,0 +1,1152 @@
+[
+  {
+    "id": "obelisco",
+    "cat": "sightseeing",
+    "name": "Obelisco",
+    "barrio": "Microcentro",
+    "lat": -34.603709,
+    "lng": -58.38163,
+    "desc": "El ícono de la ciudad en el cruce de Corrientes y 9 de Julio. Ideal al atardecer, cuando se encienden las luces de la avenida.",
+    "src": "osm (0.00 km)"
+  },
+  {
+    "id": "casa-rosada",
+    "cat": "sightseeing",
+    "name": "Casa Rosada",
+    "barrio": "Monserrat",
+    "lat": -34.608069,
+    "lng": -58.370276,
+    "desc": "Sede del Gobierno nacional. Visitas guiadas gratuitas los fines de semana con reserva previa.",
+    "src": "osm (0.00 km)"
+  },
+  {
+    "id": "plaza-de-mayo",
+    "cat": "sightseeing",
+    "name": "Plaza de Mayo",
+    "barrio": "Monserrat",
+    "lat": -34.608445,
+    "lng": -58.372179,
+    "desc": "Corazón político e histórico de la Argentina desde 1580. Pirámide de Mayo y pañuelos de las Madres pintados en el suelo.",
+    "src": "osm (0.02 km)"
+  },
+  {
+    "id": "catedral-metropolitana",
+    "cat": "sightseeing",
+    "name": "Catedral Metropolitana",
+    "barrio": "Monserrat",
+    "lat": -34.607474,
+    "lng": -58.373277,
+    "desc": "Fachada neoclásica que parece un templo griego. Dentro está el mausoleo del general San Martín.",
+    "src": "osm (0.01 km)"
+  },
+  {
+    "id": "cabildo",
+    "cat": "sightseeing",
+    "name": "Cabildo",
+    "barrio": "Monserrat",
+    "lat": -34.60888,
+    "lng": -58.373673,
+    "desc": "Edificio colonial de 1725, testigo de la Revolución de Mayo. Museo gratuito y patio con feria de artesanos.",
+    "src": "osm (0.02 km)"
+  },
+  {
+    "id": "teatro-colon",
+    "cat": "sightseeing",
+    "name": "Teatro Colón",
+    "barrio": "San Nicolás",
+    "lat": -34.601086,
+    "lng": -58.383187,
+    "desc": "Uno de los teatros líricos con mejor acústica del mundo. Las visitas guiadas duran 50 minutos.",
+    "src": "osm (0.01 km)"
+  },
+  {
+    "id": "caminito",
+    "cat": "sightseeing",
+    "name": "Caminito",
+    "barrio": "La Boca",
+    "lat": -34.639359,
+    "lng": -58.362569,
+    "desc": "Calle museo de casas de chapa pintadas, tango en la vereda y artistas. Ir de día y mantenerse en la zona turística.",
+    "src": "osm (0.03 km)"
+  },
+  {
+    "id": "la-bombonera",
+    "cat": "sightseeing",
+    "name": "La Bombonera",
+    "barrio": "La Boca",
+    "lat": -34.635517,
+    "lng": -58.364916,
+    "desc": "Estadio de Boca Juniors. El museo y el tour al campo de juego valen la pena aunque no seas fanático.",
+    "src": "osm (0.02 km)"
+  },
+  {
+    "id": "cementerio-de-la-recoleta",
+    "cat": "sightseeing",
+    "name": "Cementerio de la Recoleta",
+    "barrio": "Recoleta",
+    "lat": -34.587657,
+    "lng": -58.393595,
+    "desc": "Laberinto de bóvedas y esculturas. Aquí descansa Eva Perón. Entrada paga para extranjeros.",
+    "src": "osm (0.04 km)"
+  },
+  {
+    "id": "floralis-generica",
+    "cat": "sightseeing",
+    "name": "Floralis Genérica",
+    "barrio": "Recoleta",
+    "lat": -34.581689,
+    "lng": -58.394002,
+    "desc": "Flor de acero de 23 metros que abre sus pétalos de día y los cierra de noche. Plaza Naciones Unidas.",
+    "src": "osm (0.03 km)"
+  },
+  {
+    "id": "puente-de-la-mujer",
+    "cat": "sightseeing",
+    "name": "Puente de la Mujer",
+    "barrio": "Puerto Madero",
+    "lat": -34.608016,
+    "lng": -58.365129,
+    "desc": "Puente giratorio de Calatrava inspirado en una pareja bailando tango. Vista perfecta de los diques.",
+    "src": "osm (0.20 km)"
+  },
+  {
+    "id": "palacio-barolo",
+    "cat": "sightseeing",
+    "name": "Palacio Barolo",
+    "barrio": "Monserrat",
+    "lat": -34.609662,
+    "lng": -58.385728,
+    "desc": "Rascacielos de 1923 inspirado en la Divina Comedia. Subí al faro para ver la ciudad desde los 100 metros.",
+    "src": "osm (0.04 km)"
+  },
+  {
+    "id": "congreso-de-la-nacion",
+    "cat": "sightseeing",
+    "name": "Congreso de la Nación",
+    "barrio": "Balvanera",
+    "lat": -34.609797,
+    "lng": -58.39271,
+    "desc": "Palacio con cúpula de 80 metros frente a la plaza del Congreso. Visitas guiadas gratuitas de lunes a viernes.",
+    "src": "osm (0.02 km)"
+  },
+  {
+    "id": "basilica-del-pilar",
+    "cat": "sightseeing",
+    "name": "Basílica del Pilar",
+    "barrio": "Recoleta",
+    "lat": -34.590484,
+    "lng": -58.394446,
+    "desc": "Iglesia colonial de 1732 junto al cementerio. Claustros con museo y vista a la plaza.",
+    "src": "osm direccion (0.33 km)"
+  },
+  {
+    "id": "torre-monumental",
+    "cat": "sightseeing",
+    "name": "Torre Monumental",
+    "barrio": "Retiro",
+    "lat": -34.592182,
+    "lng": -58.37374,
+    "desc": "La antigua Torre de los Ingleses, regalo de la comunidad británica en 1916. Plaza Fuerza Aérea Argentina.",
+    "src": "osm (0.05 km)"
+  },
+  {
+    "id": "fragata-sarmiento",
+    "cat": "sightseeing",
+    "name": "Fragata Sarmiento",
+    "barrio": "Puerto Madero",
+    "lat": -34.608025,
+    "lng": -58.366504,
+    "desc": "Buque escuela de 1897 convertido en museo flotante. Dique 3.",
+    "src": "osm direccion (0.22 km)"
+  },
+  {
+    "id": "monumento-a-los-espanoles",
+    "cat": "sightseeing",
+    "name": "Monumento a los Españoles",
+    "barrio": "Palermo",
+    "lat": -34.574966,
+    "lng": -58.415056,
+    "desc": "Monumento de mármol y bronce en la rotonda de Libertador y Sarmiento. Punto de partida para los Bosques.",
+    "src": "osm (0.91 km)"
+  },
+  {
+    "id": "planetario-galileo-galilei",
+    "cat": "sightseeing",
+    "name": "Planetario Galileo Galilei",
+    "barrio": "Palermo",
+    "lat": -34.569649,
+    "lng": -58.411721,
+    "desc": "Edificio futurista de 1966 en medio de los Bosques de Palermo. Funciones de domo y meteorito real en la entrada.",
+    "src": "osm (0.02 km)"
+  },
+  {
+    "id": "palacio-paz",
+    "cat": "sightseeing",
+    "name": "Palacio Paz",
+    "barrio": "Retiro",
+    "lat": -34.595562,
+    "lng": -58.377302,
+    "desc": "La residencia privada más grande de la ciudad, estilo francés, hoy sede del Círculo Militar. Frente a Plaza San Martín.",
+    "src": "osm (0.15 km)"
+  },
+  {
+    "id": "manzana-de-las-luces",
+    "cat": "sightseeing",
+    "name": "Manzana de las Luces",
+    "barrio": "Monserrat",
+    "lat": -34.610524,
+    "lng": -58.374738,
+    "desc": "Conjunto jesuita del siglo XVII con túneles coloniales. Visitas guiadas los fines de semana.",
+    "src": "osm (0.12 km)"
+  },
+  {
+    "id": "estadio-monumental",
+    "cat": "sightseeing",
+    "name": "Estadio Monumental",
+    "barrio": "Núñez",
+    "lat": -34.545293,
+    "lng": -58.449739,
+    "desc": "Estadio de River Plate y el más grande del país. Museo y tour por vestuarios y túnel.",
+    "src": "osm (0.01 km)"
+  },
+  {
+    "id": "galeria-guemes",
+    "cat": "sightseeing",
+    "name": "Galería Güemes",
+    "barrio": "San Nicolás",
+    "lat": -34.606387,
+    "lng": -58.374797,
+    "desc": "Pasaje art nouveau de 1915 entre Florida y San Martín. Tiene un mirador en el piso 14.",
+    "src": "osm (0.24 km)"
+  },
+  {
+    "id": "confiteria-ideal",
+    "cat": "sightseeing",
+    "name": "Confitería Ideal",
+    "barrio": "San Nicolás",
+    "lat": -34.603893,
+    "lng": -58.379726,
+    "desc": "Confitería de 1912 restaurada con sus vitrales y mármoles originales. Clases y milongas de tango arriba.",
+    "src": "osm (0.12 km)"
+  },
+  {
+    "id": "pasaje-lanin",
+    "cat": "photospot",
+    "name": "Pasaje Lanín",
+    "barrio": "Barracas",
+    "lat": -34.640289,
+    "lng": -58.379729,
+    "desc": "Dos cuadras de fachadas intervenidas con mosaicos de colores por el artista Marino Santa María.",
+    "src": "osm direccion (0.72 km)"
+  },
+  {
+    "id": "mirador-de-galeria-guemes",
+    "cat": "photospot",
+    "name": "Mirador de Galería Güemes",
+    "barrio": "San Nicolás",
+    "lat": -34.606387,
+    "lng": -58.374797,
+    "desc": "Vista 360 del Microcentro desde el piso 14, mucho menos concurrido que el Barolo.",
+    "src": "osm (0.24 km)"
+  },
+  {
+    "id": "barrancas-de-belgrano",
+    "cat": "photospot",
+    "name": "Barrancas de Belgrano",
+    "barrio": "Belgrano",
+    "lat": -34.558595,
+    "lng": -58.44993,
+    "desc": "Plaza en pendiente diseñada por Thays, con glorieta donde se baila tango los fines de semana.",
+    "src": "osm (0.21 km)"
+  },
+  {
+    "id": "plaza-dorrego-y-feria-de-san-telmo",
+    "cat": "area",
+    "name": "Plaza Dorrego y feria de San Telmo",
+    "barrio": "San Telmo",
+    "lat": -34.620492,
+    "lng": -58.371781,
+    "desc": "Los domingos la calle Defensa se llena de antigüedades, artesanos y tango callejero. Llegar temprano.",
+    "src": "osm (0.02 km)"
+  },
+  {
+    "id": "palermo-soho",
+    "cat": "area",
+    "name": "Palermo Soho",
+    "barrio": "Palermo",
+    "lat": -34.588755,
+    "lng": -58.430167,
+    "desc": "Calles de casas bajas con tiendas de diseño, bares y murales alrededor de Plaza Serrano.",
+    "src": "osm (0.02 km)"
+  },
+  {
+    "id": "barrio-chino",
+    "cat": "area",
+    "name": "Barrio Chino",
+    "barrio": "Belgrano",
+    "lat": -34.556331,
+    "lng": -58.451391,
+    "desc": "Tres cuadras de la calle Arribeños con supermercados asiáticos, restaurantes y el arco de entrada.",
+    "src": "osm (0.25 km)"
+  },
+  {
+    "id": "puerto-madero",
+    "cat": "area",
+    "name": "Puerto Madero",
+    "barrio": "Puerto Madero",
+    "lat": -34.610376,
+    "lng": -58.362207,
+    "desc": "Antiguos docks de ladrillo convertidos en paseo gastronómico junto al agua. Caminata ideal al atardecer.",
+    "src": "osm (0.14 km)"
+  },
+  {
+    "id": "villa-crespo",
+    "cat": "area",
+    "name": "Villa Crespo",
+    "barrio": "Villa Crespo",
+    "lat": -34.598395,
+    "lng": -58.442474,
+    "desc": "Barrio de outlets de ropa y bodegones tradicionales, vecino de Palermo y más barato.",
+    "src": "osm (0.28 km)"
+  },
+  {
+    "id": "cafe-tortoni",
+    "cat": "cafe",
+    "name": "Café Tortoni",
+    "barrio": "Monserrat",
+    "lat": -34.608693,
+    "lng": -58.378143,
+    "desc": "El café más antiguo de la ciudad, de 1858. Churros con chocolate y show de tango en el subsuelo.",
+    "src": "osm (0.04 km)"
+  },
+  {
+    "id": "las-violetas",
+    "cat": "cafe",
+    "name": "Las Violetas",
+    "barrio": "Almagro",
+    "lat": -34.611274,
+    "lng": -58.420917,
+    "desc": "Confitería de 1884 con vitrales franceses y mesa de masas finas. Pedí la merienda completa.",
+    "src": "osm direccion (0.16 km)"
+  },
+  {
+    "id": "la-biela",
+    "cat": "cafe",
+    "name": "La Biela",
+    "barrio": "Recoleta",
+    "lat": -34.587873,
+    "lng": -58.390825,
+    "desc": "Terraza bajo el gomero gigante de Recoleta. Café caro pero el lugar lo justifica.",
+    "src": "osm (0.16 km)"
+  },
+  {
+    "id": "london-city",
+    "cat": "cafe",
+    "name": "London City",
+    "barrio": "Monserrat",
+    "lat": -34.608465,
+    "lng": -58.374905,
+    "desc": "Café notable donde Cortázar escribió Los premios. Esquina de Avenida de Mayo y Perú.",
+    "src": "osm direccion (0.10 km)"
+  },
+  {
+    "id": "el-gato-negro",
+    "cat": "cafe",
+    "name": "El Gato Negro",
+    "barrio": "San Nicolás",
+    "lat": -34.604145,
+    "lng": -58.390352,
+    "desc": "Casa de especias y té de 1927 sobre Corrientes. Frascos de madera hasta el techo.",
+    "src": "osm (0.23 km)"
+  },
+  {
+    "id": "heladeria-cadore",
+    "cat": "cafe",
+    "name": "Heladería Cadore",
+    "barrio": "San Nicolás",
+    "lat": -34.604173,
+    "lng": -58.390652,
+    "desc": "Helado artesanal desde 1957, elegido entre los mejores del mundo. Probá el dulce de leche.",
+    "src": "osm (0.29 km)"
+  },
+  {
+    "id": "rapanui",
+    "cat": "cafe",
+    "name": "Rapanui",
+    "barrio": "Recoleta",
+    "lat": -34.594185,
+    "lng": -58.399632,
+    "desc": "Chocolatería y heladería patagónica. El chocolate caliente es espeso de verdad.",
+    "src": "osm (0.72 km)"
+  },
+  {
+    "id": "cafe-rivas",
+    "cat": "cafe",
+    "name": "Café Rivas",
+    "barrio": "San Telmo",
+    "lat": -34.618497,
+    "lng": -58.370255,
+    "desc": "Bistró de esquina con ventanales, perfecto para desayuno o brunch antes de la feria.",
+    "src": "osm (0.22 km)"
+  },
+  {
+    "id": "lattente",
+    "cat": "cafe",
+    "name": "Lattente",
+    "barrio": "Palermo",
+    "lat": -34.586166,
+    "lng": -58.428024,
+    "desc": "Café de especialidad pionero en la ciudad. Pequeño, para llevar o quedarse en la vereda.",
+    "src": "osm (0.31 km)"
+  },
+  {
+    "id": "don-julio",
+    "cat": "restaurant",
+    "name": "Don Julio",
+    "barrio": "Palermo",
+    "lat": -34.586323,
+    "lng": -58.42433,
+    "desc": "La parrilla más premiada de la ciudad. Reservar con semanas de anticipación o hacer fila con una copa de espumante.",
+    "src": "osm direccion (0.29 km)"
+  },
+  {
+    "id": "la-cabrera",
+    "cat": "restaurant",
+    "name": "La Cabrera",
+    "barrio": "Palermo",
+    "lat": -34.589379,
+    "lng": -58.432887,
+    "desc": "Parrilla clásica con porciones enormes y guarniciones gratis. Happy hour con 40% de descuento a las 18:30.",
+    "src": "osm direccion (0.23 km)"
+  },
+  {
+    "id": "el-preferido-de-palermo",
+    "cat": "restaurant",
+    "name": "El Preferido de Palermo",
+    "barrio": "Palermo",
+    "lat": -34.585443,
+    "lng": -58.425388,
+    "desc": "Bodegón rosado de 1952 renovado. Milanesas, fiambres de la casa y tortilla babé.",
+    "src": "osm (0.23 km)"
+  },
+  {
+    "id": "pizzeria-guerrin",
+    "cat": "restaurant",
+    "name": "Pizzería Güerrín",
+    "barrio": "San Nicolás",
+    "lat": -34.604105,
+    "lng": -58.385995,
+    "desc": "Institución porteña de 1932 en Corrientes. Porción de muzzarella con fainá, de parado en la barra.",
+    "src": "osm direccion (0.02 km)"
+  },
+  {
+    "id": "el-cuartito",
+    "cat": "restaurant",
+    "name": "El Cuartito",
+    "barrio": "San Nicolás",
+    "lat": -34.597824,
+    "lng": -58.385465,
+    "desc": "Pizzería de 1934 con paredes llenas de fotos de boxeadores y futbolistas. Fugazzeta imperdible.",
+    "src": "osm direccion (0.17 km)"
+  },
+  {
+    "id": "la-brigada",
+    "cat": "restaurant",
+    "name": "La Brigada",
+    "barrio": "San Telmo",
+    "lat": -34.618444,
+    "lng": -58.372742,
+    "desc": "Parrilla donde cortan la carne con cuchara para demostrar su ternura. Decoración futbolera.",
+    "src": "osm (0.17 km)"
+  },
+  {
+    "id": "cafe-san-juan",
+    "cat": "restaurant",
+    "name": "Café San Juan",
+    "barrio": "San Telmo",
+    "lat": -34.622004,
+    "lng": -58.37218,
+    "desc": "Cocina de autor en un bodegón de barrio. Pulpo a la gallega y porciones para compartir.",
+    "src": "osm (0.26 km)"
+  },
+  {
+    "id": "parrilla-pena",
+    "cat": "restaurant",
+    "name": "Parrilla Peña",
+    "barrio": "San Nicolás",
+    "lat": -34.600825,
+    "lng": -58.391466,
+    "desc": "Parrilla de barrio sin pretensiones, carne excelente y precios justos. Cerca del Teatro Colón.",
+    "src": "osm (0.06 km)"
+  },
+  {
+    "id": "el-obrero",
+    "cat": "restaurant",
+    "name": "El Obrero",
+    "barrio": "La Boca",
+    "lat": -34.629681,
+    "lng": -58.356834,
+    "desc": "Bodegón de 1954 con camisetas de fútbol en las paredes. Visitado por Bono y Bourdain.",
+    "src": "osm direccion (0.84 km)"
+  },
+  {
+    "id": "chui",
+    "cat": "restaurant",
+    "name": "Chuí",
+    "barrio": "Villa Crespo",
+    "lat": -34.590048,
+    "lng": -58.440867,
+    "desc": "Restaurante vegetariano en una casona con patio y horno de barro. Reservar.",
+    "src": "osm (0.74 km)"
+  },
+  {
+    "id": "mishiguene",
+    "cat": "restaurant",
+    "name": "Mishiguene",
+    "barrio": "Palermo",
+    "lat": -34.576958,
+    "lng": -58.412207,
+    "desc": "Cocina judía contemporánea, entre los 50 mejores de Latinoamérica. Pastrón ahumado.",
+    "src": "osm direccion (1.18 km)"
+  },
+  {
+    "id": "sacro",
+    "cat": "restaurant",
+    "name": "Sacro",
+    "barrio": "Palermo",
+    "lat": -34.579023,
+    "lng": -58.439388,
+    "desc": "Alta cocina basada en plantas, menú por pasos y coctelería.",
+    "src": "osm (0.94 km)"
+  },
+  {
+    "id": "pizzeria-banchero",
+    "cat": "restaurant",
+    "name": "Pizzería Banchero",
+    "barrio": "La Boca",
+    "lat": -34.635467,
+    "lng": -58.358643,
+    "desc": "Aquí se inventó la fugazzeta en 1932. Esquina de Almirante Brown y Suárez.",
+    "src": "osm direccion (0.49 km)"
+  },
+  {
+    "id": "la-mezzetta",
+    "cat": "restaurant",
+    "name": "La Mezzetta",
+    "barrio": "Villa Ortúzar",
+    "lat": -34.578113,
+    "lng": -58.460926,
+    "desc": "Pizza de parado desde 1939. Solo mostrador, solo efectivo, fugazzeta rellena legendaria.",
+    "src": "osm direccion (1.06 km)"
+  },
+  {
+    "id": "siga-la-vaca",
+    "cat": "restaurant",
+    "name": "Siga la Vaca",
+    "barrio": "Puerto Madero",
+    "lat": -34.618641,
+    "lng": -58.365137,
+    "desc": "Tenedor libre de parrilla con vista al dique. Precio fijo con bebida y postre.",
+    "src": "osm (0.69 km)"
+  },
+  {
+    "id": "pizzeria-angelin",
+    "cat": "restaurant",
+    "name": "Pizzería Angelín",
+    "barrio": "Villa Crespo",
+    "lat": -34.589915,
+    "lng": -58.436999,
+    "desc": "Pizza canchera de 1938 cocida al horno de leña. Poca muzzarella, mucha salsa.",
+    "src": "osm (1.45 km)"
+  },
+  {
+    "id": "los-infernales-de-guemes",
+    "cat": "restaurant",
+    "name": "Los Infernales de Güemes",
+    "barrio": "Palermo",
+    "lat": -34.583145,
+    "lng": -58.421289,
+    "desc": "Comida salteña: empanadas, humita y locro. Barato y abundante.",
+    "src": "osm direccion (0.20 km)"
+  },
+  {
+    "id": "floreria-atlantico",
+    "cat": "bar",
+    "name": "Florería Atlántico",
+    "barrio": "Retiro",
+    "lat": -34.591822,
+    "lng": -58.379343,
+    "desc": "Bar escondido detrás de una florería, entre los mejores del mundo. Gin propio y cocina de mar.",
+    "src": "osm (0.15 km)"
+  },
+  {
+    "id": "los-galgos",
+    "cat": "bar",
+    "name": "Los Galgos",
+    "barrio": "San Nicolás",
+    "lat": -34.603005,
+    "lng": -58.392251,
+    "desc": "Bar notable de 1930 restaurado. Vermut con soda y picada en la esquina de Callao y Lavalle.",
+    "src": "osm (0.11 km)"
+  },
+  {
+    "id": "presidente-bar",
+    "cat": "bar",
+    "name": "Presidente Bar",
+    "barrio": "Recoleta",
+    "lat": -34.590963,
+    "lng": -58.386799,
+    "desc": "Coctelería elegante en una casona de Recoleta, con biblioteca y salón de fumadores.",
+    "src": "osm (0.12 km)"
+  },
+  {
+    "id": "tres-monos",
+    "cat": "bar",
+    "name": "Tres Monos",
+    "barrio": "Palermo",
+    "lat": -34.584874,
+    "lng": -58.426203,
+    "desc": "Coctelería joven y ruidosa con tragos creativos y precios razonables.",
+    "src": "osm (0.60 km)"
+  },
+  {
+    "id": "cafe-san-bernardo",
+    "cat": "bar",
+    "name": "Café San Bernardo",
+    "barrio": "Villa Crespo",
+    "lat": -34.597863,
+    "lng": -58.441135,
+    "desc": "Bar de barrio de 1900 con mesas de ping pong, pool y metegol. Abre hasta la madrugada.",
+    "src": "osm direccion (0.20 km)"
+  },
+  {
+    "id": "boticario",
+    "cat": "bar",
+    "name": "Boticario",
+    "barrio": "Palermo",
+    "lat": -34.587245,
+    "lng": -58.432204,
+    "desc": "Bar ambientado como botica antigua. Tragos con hierbas y tinturas.",
+    "src": "osm (0.44 km)"
+  },
+  {
+    "id": "verne-club",
+    "cat": "bar",
+    "name": "Verne Club",
+    "barrio": "Palermo",
+    "lat": -34.5987,
+    "lng": -58.4199,
+    "desc": "Coctelería inspirada en Julio Verne, del bartender Fede Cuco.",
+    "src": "manual (Av. Medrano 1475)"
+  },
+  {
+    "id": "bar-britanico",
+    "cat": "bar",
+    "name": "Bar Británico",
+    "barrio": "San Telmo",
+    "lat": -34.625264,
+    "lng": -58.370966,
+    "desc": "Bar notable frente al Parque Lezama donde Sabato escribió Sobre héroes y tumbas.",
+    "src": "osm (0.06 km)"
+  },
+  {
+    "id": "la-poesia",
+    "cat": "bar",
+    "name": "La Poesía",
+    "barrio": "San Telmo",
+    "lat": -34.616083,
+    "lng": -58.373279,
+    "desc": "Café bar de 1982 con libros, picadas y vermut. Esquina de Chile y Bolívar.",
+    "src": "osm direccion (0.36 km)"
+  },
+  {
+    "id": "bar-sur",
+    "cat": "bar",
+    "name": "Bar Sur",
+    "barrio": "San Telmo",
+    "lat": -34.618363,
+    "lng": -58.37009,
+    "desc": "Show de tango íntimo en un bar de 1967. Sin escenario, los bailarines pasan entre las mesas.",
+    "src": "osm direccion (0.33 km)"
+  },
+  {
+    "id": "uptown",
+    "cat": "bar",
+    "name": "Uptown",
+    "barrio": "Palermo",
+    "lat": -34.578023,
+    "lng": -58.437279,
+    "desc": "Bar secreto que imita una estación de subte de Nueva York. Entrás por un vagón.",
+    "src": "osm (0.30 km)"
+  },
+  {
+    "id": "cafe-paulin",
+    "cat": "bar",
+    "name": "Café Paulin",
+    "barrio": "San Nicolás",
+    "lat": -34.604535,
+    "lng": -58.3756,
+    "desc": "Barra de sándwiches tostados desde 1940 en pleno Microcentro. Mediodía de oficinistas.",
+    "src": "osm direccion (0.23 km)"
+  },
+  {
+    "id": "centro-cultural-kirchner",
+    "cat": "culture",
+    "name": "Centro Cultural Kirchner",
+    "barrio": "San Nicolás",
+    "lat": -34.603557,
+    "lng": -58.369484,
+    "desc": "Antiguo Palacio de Correos convertido en el centro cultural más grande de Latinoamérica. Entrada gratuita.",
+    "src": "osm (0.03 km)"
+  },
+  {
+    "id": "centro-cultural-recoleta",
+    "cat": "culture",
+    "name": "Centro Cultural Recoleta",
+    "barrio": "Recoleta",
+    "lat": -34.586298,
+    "lng": -58.392513,
+    "desc": "Ex convento con muestras, terraza y actividades gratuitas para jóvenes. Junto al cementerio.",
+    "src": "osm (0.31 km)"
+  },
+  {
+    "id": "teatro-san-martin",
+    "cat": "culture",
+    "name": "Teatro San Martín",
+    "barrio": "San Nicolás",
+    "lat": -34.604541,
+    "lng": -58.388527,
+    "desc": "Complejo teatral público sobre Corrientes con tres salas y entradas accesibles.",
+    "src": "osm (0.26 km)"
+  },
+  {
+    "id": "fundacion-proa",
+    "cat": "culture",
+    "name": "Fundación Proa",
+    "barrio": "La Boca",
+    "lat": -34.639897,
+    "lng": -58.362102,
+    "desc": "Arte contemporáneo frente al Riachuelo. La terraza con café tiene la mejor vista de La Boca.",
+    "src": "osm (0.17 km)"
+  },
+  {
+    "id": "ciudad-cultural-konex",
+    "cat": "culture",
+    "name": "Ciudad Cultural Konex",
+    "barrio": "Balvanera",
+    "lat": -34.606047,
+    "lng": -58.410271,
+    "desc": "Ex fábrica de aceite con recitales y La Bomba de Tiempo, la fiesta de percusión de los lunes.",
+    "src": "osm (0.28 km)"
+  },
+  {
+    "id": "biblioteca-nacional",
+    "cat": "culture",
+    "name": "Biblioteca Nacional",
+    "barrio": "Recoleta",
+    "lat": -34.584392,
+    "lng": -58.397966,
+    "desc": "Edificio brutalista sobre pilotes donde Borges fue director. Muestras y visitas guiadas gratis.",
+    "src": "osm (0.10 km)"
+  },
+  {
+    "id": "usina-del-arte",
+    "cat": "culture",
+    "name": "Usina del Arte",
+    "barrio": "La Boca",
+    "lat": -34.628761,
+    "lng": -58.357116,
+    "desc": "Antigua usina eléctrica transformada en sala sinfónica. Programación gratuita los fines de semana.",
+    "src": "osm (0.42 km)"
+  },
+  {
+    "id": "milonga-la-catedral",
+    "cat": "culture",
+    "name": "Milonga La Catedral",
+    "barrio": "Almagro",
+    "lat": -34.60495,
+    "lng": -58.421972,
+    "desc": "Milonga bohemia en un galpón con clases para principiantes cada noche. Ambiente relajado.",
+    "src": "osm (0.12 km)"
+  },
+  {
+    "id": "teatro-gran-rex",
+    "cat": "culture",
+    "name": "Teatro Gran Rex",
+    "barrio": "San Nicolás",
+    "lat": -34.603139,
+    "lng": -58.378957,
+    "desc": "Teatro art déco de 1937 sobre Corrientes, el principal escenario de recitales de la ciudad.",
+    "src": "osm (0.05 km)"
+  },
+  {
+    "id": "malba",
+    "cat": "museum",
+    "name": "MALBA",
+    "barrio": "Palermo",
+    "lat": -34.576882,
+    "lng": -58.403392,
+    "desc": "Arte latinoamericano del siglo XX: Frida Kahlo, Berni, Xul Solar. Miércoles con descuento.",
+    "src": "osm direccion (0.04 km)"
+  },
+  {
+    "id": "museo-nacional-de-bellas-artes",
+    "cat": "museum",
+    "name": "Museo Nacional de Bellas Artes",
+    "barrio": "Recoleta",
+    "lat": -34.583915,
+    "lng": -58.392915,
+    "desc": "La mayor colección de arte del país, de Goya a Cándido López. Entrada gratuita.",
+    "src": "osm (0.01 km)"
+  },
+  {
+    "id": "museo-evita",
+    "cat": "museum",
+    "name": "Museo Evita",
+    "barrio": "Palermo",
+    "lat": -34.580745,
+    "lng": -58.414739,
+    "desc": "Vida de Eva Perón en una casona de 1923 que fue hogar de tránsito. Tiene restaurante con patio.",
+    "src": "osm (0.16 km)"
+  },
+  {
+    "id": "museo-de-arte-decorativo",
+    "cat": "museum",
+    "name": "Museo de Arte Decorativo",
+    "barrio": "Palermo",
+    "lat": -34.582611,
+    "lng": -58.401076,
+    "desc": "Palacio Errázuriz, mansión francesa de 1917 con sus muebles originales. Café en el jardín.",
+    "src": "osm (0.22 km)"
+  },
+  {
+    "id": "museo-historico-nacional",
+    "cat": "museum",
+    "name": "Museo Histórico Nacional",
+    "barrio": "San Telmo",
+    "lat": -34.627011,
+    "lng": -58.37058,
+    "desc": "Historia argentina desde la colonia en el Parque Lezama. Sable corvo de San Martín.",
+    "src": "osm (0.01 km)"
+  },
+  {
+    "id": "museo-del-bicentenario",
+    "cat": "museum",
+    "name": "Museo del Bicentenario",
+    "barrio": "Monserrat",
+    "lat": -34.608206,
+    "lng": -58.369564,
+    "desc": "Bajo la Casa Rosada, en la antigua aduana. Objetos presidenciales y el mural de Siqueiros.",
+    "src": "osm (0.03 km)"
+  },
+  {
+    "id": "museo-de-arte-moderno",
+    "cat": "museum",
+    "name": "Museo de Arte Moderno",
+    "barrio": "San Telmo",
+    "lat": -34.622066,
+    "lng": -58.370745,
+    "desc": "Arte argentino moderno y contemporáneo en una antigua tabacalera de San Telmo.",
+    "src": "osm (0.08 km)"
+  },
+  {
+    "id": "museo-quinquela-martin",
+    "cat": "museum",
+    "name": "Museo Quinquela Martín",
+    "barrio": "La Boca",
+    "lat": -34.638983,
+    "lng": -58.361368,
+    "desc": "Casa taller del pintor de La Boca, con terraza de esculturas sobre el Riachuelo.",
+    "src": "osm (0.22 km)"
+  },
+  {
+    "id": "museo-larreta",
+    "cat": "museum",
+    "name": "Museo Larreta",
+    "barrio": "Belgrano",
+    "lat": -34.560793,
+    "lng": -58.455542,
+    "desc": "Arte español en una casona colonial con jardín andaluz, el más lindo de la ciudad.",
+    "src": "osm (0.19 km)"
+  },
+  {
+    "id": "museo-fernandez-blanco",
+    "cat": "museum",
+    "name": "Museo Fernández Blanco",
+    "barrio": "Retiro",
+    "lat": -34.590797,
+    "lng": -58.380116,
+    "desc": "Platería colonial y arte hispanoamericano en el Palacio Noel, con jardín escondido.",
+    "src": "osm (0.42 km)"
+  },
+  {
+    "id": "museo-xul-solar",
+    "cat": "museum",
+    "name": "Museo Xul Solar",
+    "barrio": "Recoleta",
+    "lat": -34.594733,
+    "lng": -58.407894,
+    "desc": "Universo del pintor místico amigo de Borges, en su propia casa.",
+    "src": "osm (0.72 km)"
+  },
+  {
+    "id": "bosques-de-palermo",
+    "cat": "park",
+    "name": "Bosques de Palermo",
+    "barrio": "Palermo",
+    "lat": -34.5746,
+    "lng": -58.407941,
+    "desc": "Los grandes parques de la ciudad: lagos, botes, bicis y el Rosedal con 18.000 rosales.",
+    "src": "osm (0.96 km)"
+  },
+  {
+    "id": "jardin-japones",
+    "cat": "park",
+    "name": "Jardín Japonés",
+    "barrio": "Palermo",
+    "lat": -34.57514,
+    "lng": -58.409263,
+    "desc": "Jardín con lago de carpas, puentes rojos y casa de té. Uno de los más grandes fuera de Japón.",
+    "src": "osm (0.11 km)"
+  },
+  {
+    "id": "jardin-botanico",
+    "cat": "park",
+    "name": "Jardín Botánico",
+    "barrio": "Palermo",
+    "lat": -34.582593,
+    "lng": -58.417256,
+    "desc": "Siete hectáreas con 1.500 especies, invernaderos art nouveau y muchos gatos. Entrada gratuita.",
+    "src": "osm (0.08 km)"
+  },
+  {
+    "id": "reserva-ecologica",
+    "cat": "park",
+    "name": "Reserva Ecológica",
+    "barrio": "Puerto Madero",
+    "lat": -34.606949,
+    "lng": -58.352742,
+    "desc": "350 hectáreas de humedal frente al Río de la Plata. Caminos para bici y aves a minutos del centro.",
+    "src": "osm (0.79 km)"
+  },
+  {
+    "id": "parque-lezama",
+    "cat": "park",
+    "name": "Parque Lezama",
+    "barrio": "San Telmo",
+    "lat": -34.627121,
+    "lng": -58.369279,
+    "desc": "Barranca con palmeras donde se dice que se fundó la ciudad. Feria los fines de semana.",
+    "src": "osm (0.08 km)"
+  },
+  {
+    "id": "plaza-san-martin",
+    "cat": "park",
+    "name": "Plaza San Martín",
+    "barrio": "Retiro",
+    "lat": -34.594639,
+    "lng": -58.375905,
+    "desc": "Plaza sobre la barranca de Retiro con gomeros centenarios y jacarandás en noviembre.",
+    "src": "osm (0.10 km)"
+  },
+  {
+    "id": "parque-centenario",
+    "cat": "park",
+    "name": "Parque Centenario",
+    "barrio": "Caballito",
+    "lat": -34.606516,
+    "lng": -58.435569,
+    "desc": "Parque circular con lago y feria de libros usados los fines de semana. Centro geográfico de la ciudad.",
+    "src": "osm (0.08 km)"
+  },
+  {
+    "id": "ecoparque",
+    "cat": "park",
+    "name": "Ecoparque",
+    "barrio": "Palermo",
+    "lat": -34.577508,
+    "lng": -58.415736,
+    "desc": "El antiguo zoológico convertido en parque. Edificios históricos y carpinchos sueltos.",
+    "src": "osm (0.17 km)"
+  },
+  {
+    "id": "plaza-francia",
+    "cat": "park",
+    "name": "Plaza Francia",
+    "barrio": "Recoleta",
+    "lat": -34.584848,
+    "lng": -58.393212,
+    "desc": "Lomas de césped con feria de artesanos los fines de semana, frente al cementerio.",
+    "src": "osm (0.11 km)"
+  },
+  {
+    "id": "parque-las-heras",
+    "cat": "park",
+    "name": "Parque Las Heras",
+    "barrio": "Palermo",
+    "lat": -34.583975,
+    "lng": -58.408634,
+    "desc": "Parque de barrio muy usado por vecinos para correr y tomar mate. Ambiente local.",
+    "src": "osm (0.13 km)"
+  },
+  {
+    "id": "el-ateneo-grand-splendid",
+    "cat": "shop",
+    "name": "El Ateneo Grand Splendid",
+    "barrio": "Recoleta",
+    "lat": -34.595983,
+    "lng": -58.394262,
+    "desc": "Librería en un teatro de 1919 con palcos y café en el escenario. Elegida la más linda del mundo.",
+    "src": "osm (0.02 km)"
+  },
+  {
+    "id": "galerias-pacifico",
+    "cat": "shop",
+    "name": "Galerías Pacífico",
+    "barrio": "Retiro",
+    "lat": -34.599244,
+    "lng": -58.374763,
+    "desc": "Shopping en un edificio de 1889 con cúpula pintada por Berni y Spilimbergo. Centro Cultural Borges arriba.",
+    "src": "osm (0.03 km)"
+  },
+  {
+    "id": "mercado-de-san-telmo",
+    "cat": "shop",
+    "name": "Mercado de San Telmo",
+    "barrio": "San Telmo",
+    "lat": -34.619049,
+    "lng": -58.372512,
+    "desc": "Mercado de 1897 con estructura de hierro: antigüedades, puestos de comida y café de especialidad.",
+    "src": "osm (0.09 km)"
+  },
+  {
+    "id": "feria-de-mataderos",
+    "cat": "shop",
+    "name": "Feria de Mataderos",
+    "barrio": "Mataderos",
+    "lat": -34.662457,
+    "lng": -58.500029,
+    "desc": "Feria gaucha de los domingos con folklore, destrezas a caballo y comidas regionales. Lejos pero única.",
+    "src": "osm (0.43 km)"
+  },
+  {
+    "id": "libros-del-pasaje",
+    "cat": "shop",
+    "name": "Libros del Pasaje",
+    "barrio": "Palermo",
+    "lat": -34.586878,
+    "lng": -58.429752,
+    "desc": "Librería con café en Palermo, ideal para una tarde de lluvia.",
+    "src": "osm (0.24 km)"
+  },
+  {
+    "id": "patio-bullrich",
+    "cat": "shop",
+    "name": "Patio Bullrich",
+    "barrio": "Recoleta",
+    "lat": -34.588577,
+    "lng": -58.383791,
+    "desc": "Antiguo mercado de remates ganaderos convertido en shopping elegante.",
+    "src": "osm (0.23 km)"
+  },
+  {
+    "id": "distrito-arcos",
+    "cat": "shop",
+    "name": "Distrito Arcos",
+    "barrio": "Palermo",
+    "lat": -34.581239,
+    "lng": -58.428508,
+    "desc": "Outlet al aire libre bajo los arcos del ferrocarril, con cafés y plaza.",
+    "src": "osm (0.48 km)"
+  },
+  {
+    "id": "mercado-de-abasto",
+    "cat": "shop",
+    "name": "Mercado de Abasto",
+    "barrio": "Balvanera",
+    "lat": -34.603062,
+    "lng": -58.410922,
+    "desc": "Ex mercado mayorista art déco de 1934, hoy shopping. Barrio de Gardel con el Museo Carlos Gardel a dos cuadras.",
+    "src": "osm (0.08 km)"
+  },
+  {
+    "id": "paseo-en-bici-por-puerto-madero",
+    "cat": "activity",
+    "name": "Paseo en bici por Puerto Madero",
+    "barrio": "Puerto Madero",
+    "lat": -34.607932,
+    "lng": -58.359564,
+    "desc": "Bicisenda plana y segura por los diques y la Costanera Sur. Alquiler de bicis en la zona.",
+    "src": "osm (0.95 km)"
+  },
+  {
+    "id": "clase-de-tango-en-confiteria-ideal",
+    "cat": "activity",
+    "name": "Clase de tango en Confitería Ideal",
+    "barrio": "San Nicolás",
+    "lat": -34.603893,
+    "lng": -58.379726,
+    "desc": "Clases para principiantes todas las tardes, seguidas de milonga. No hace falta pareja.",
+    "src": "osm (0.12 km)"
+  },
+  {
+    "id": "la-bomba-de-tiempo",
+    "cat": "activity",
+    "name": "La Bomba de Tiempo",
+    "barrio": "Balvanera",
+    "lat": -34.606047,
+    "lng": -58.410271,
+    "desc": "Fiesta de percusión improvisada cada lunes a las 19 en el Konex. Comprar entradas online.",
+    "src": "osm (0.28 km)"
+  },
+  {
+    "id": "paseo-en-bote-en-el-rosedal",
+    "cat": "activity",
+    "name": "Paseo en bote en el Rosedal",
+    "barrio": "Palermo",
+    "lat": -34.570952,
+    "lng": -58.417238,
+    "desc": "Botes a remo en el lago del Rosedal. Mejor temprano los fines de semana.",
+    "src": "osm (0.07 km)"
+  },
+  {
+    "id": "free-walking-tour-del-centro",
+    "cat": "tours",
+    "name": "Free walking tour del centro",
+    "barrio": "Monserrat",
+    "lat": -34.608445,
+    "lng": -58.372179,
+    "desc": "Recorridos a la gorra que salen de Plaza de Mayo y del Congreso. Reservar online.",
+    "src": "osm (0.02 km)"
+  },
+  {
+    "id": "visita-guiada-al-teatro-colon",
+    "cat": "tours",
+    "name": "Visita guiada al Teatro Colón",
+    "barrio": "San Nicolás",
+    "lat": -34.601086,
+    "lng": -58.383187,
+    "desc": "Tour de 50 minutos por el foyer, los palcos y la sala. Salidas cada 15 minutos.",
+    "src": "osm (0.01 km)"
+  },
+  {
+    "id": "mirador-del-palacio-barolo",
+    "cat": "tours",
+    "name": "Mirador del Palacio Barolo",
+    "barrio": "Monserrat",
+    "lat": -34.609662,
+    "lng": -58.385728,
+    "desc": "Subida guiada al faro, mejor en la visita nocturna con copa de vino.",
+    "src": "osm (0.04 km)"
+  },
+  {
+    "id": "excursion-al-delta-del-tigre",
+    "cat": "tours",
+    "name": "Excursión al Delta del Tigre",
+    "barrio": "Tigre",
+    "lat": -34.422009,
+    "lng": -58.58028,
+    "desc": "Tren Mitre desde Retiro hasta Tigre en una hora, luego lancha colectiva por el delta.",
+    "src": "osm (0.45 km)"
+  }
+]

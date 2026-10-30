@@ -1,0 +1,47 @@
+import { X, Navigation, ExternalLink, Footprints } from 'lucide-react';
+import { CATEGORIA_POR_ID } from '../data/categorias';
+import { formatoDistancia, minutosCaminando, urlComoLlegar } from '../lib/geo';
+import type { Lugar, Posicion } from '../types';
+
+interface Props {
+  lugar: Lugar;
+  posicion: Posicion | null;
+  distanciaKm: number | null;
+  onCerrar: () => void;
+}
+
+export default function DetalleLugar({ lugar, posicion, distanciaKm, onCerrar }: Props) {
+  const cat = CATEGORIA_POR_ID[lugar.cat];
+  const Icon = cat.Icon;
+  const verEnMaps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lugar.name + ', Buenos Aires')}`;
+  return (
+    <aside className="detalle" aria-label={`Detalle de ${lugar.name}`}>
+      <div className="detalle__barra" style={{ background: cat.color }} />
+      <button type="button" className="detalle__cerrar" onClick={onCerrar} aria-label="Cerrar detalle">
+        <X size={20} aria-hidden="true" />
+      </button>
+      <div className="detalle__meta">
+        <span className="detalle__cat" style={{ color: cat.color }}>
+          <Icon size={16} aria-hidden="true" /> {cat.label}
+        </span>
+        <span>{lugar.barrio}</span>
+      </div>
+      <h2 className="detalle__titulo">{lugar.name}</h2>
+      <p className="detalle__desc">{lugar.desc}</p>
+      {distanciaKm !== null && (
+        <p className="detalle__dist">
+          <Footprints size={16} aria-hidden="true" />
+          A {formatoDistancia(distanciaKm)} de vos, unos {minutosCaminando(distanciaKm)} min caminando.
+        </p>
+      )}
+      <div className="detalle__acciones">
+        <a className="btn btn--primario" href={urlComoLlegar(lugar.lat, lugar.lng, posicion ?? undefined)} target="_blank" rel="noopener noreferrer">
+          <Navigation size={18} aria-hidden="true" /> Cómo llegar
+        </a>
+        <a className="btn" href={verEnMaps} target="_blank" rel="noopener noreferrer">
+          <ExternalLink size={18} aria-hidden="true" /> Ver en Google Maps
+        </a>
+      </div>
+    </aside>
+  );
+}

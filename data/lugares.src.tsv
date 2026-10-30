@@ -1,0 +1,116 @@
+cat	name	barrio	q	lat	lng	desc
+sightseeing	Obelisco	Microcentro	Obelisco de Buenos Aires	-34.6037	-58.3816	El ícono de la ciudad en el cruce de Corrientes y 9 de Julio. Ideal al atardecer, cuando se encienden las luces de la avenida.
+sightseeing	Casa Rosada	Monserrat	Casa Rosada	-34.6081	-58.3703	Sede del Gobierno nacional. Visitas guiadas gratuitas los fines de semana con reserva previa.
+sightseeing	Plaza de Mayo	Monserrat	Plaza de Mayo	-34.6083	-58.3722	Corazón político e histórico de la Argentina desde 1580. Pirámide de Mayo y pañuelos de las Madres pintados en el suelo.
+sightseeing	Catedral Metropolitana	Monserrat	Catedral Metropolitana de Buenos Aires	-34.6076	-58.3733	Fachada neoclásica que parece un templo griego. Dentro está el mausoleo del general San Martín.
+sightseeing	Cabildo	Monserrat	Cabildo de Buenos Aires	-34.6087	-58.3736	Edificio colonial de 1725, testigo de la Revolución de Mayo. Museo gratuito y patio con feria de artesanos.
+sightseeing	Teatro Colón	San Nicolás	Teatro Colón	-34.6010	-58.3831	Uno de los teatros líricos con mejor acústica del mundo. Las visitas guiadas duran 50 minutos.
+sightseeing	Caminito	La Boca	Caminito La Boca	-34.6392	-58.3628	Calle museo de casas de chapa pintadas, tango en la vereda y artistas. Ir de día y mantenerse en la zona turística.
+sightseeing	La Bombonera	La Boca	Estadio Alberto J. Armando	-34.6356	-58.3647	Estadio de Boca Juniors. El museo y el tour al campo de juego valen la pena aunque no seas fanático.
+sightseeing	Cementerio de la Recoleta	Recoleta	Cementerio de la Recoleta	-34.5875	-58.3932	Laberinto de bóvedas y esculturas. Aquí descansa Eva Perón. Entrada paga para extranjeros.
+sightseeing	Floralis Genérica	Recoleta	Floralis Generica	-34.5818	-58.3937	Flor de acero de 23 metros que abre sus pétalos de día y los cierra de noche. Plaza Naciones Unidas.
+sightseeing	Puente de la Mujer	Puerto Madero	Puente de la Mujer	-34.6085	-58.3630	Puente giratorio de Calatrava inspirado en una pareja bailando tango. Vista perfecta de los diques.
+sightseeing	Palacio Barolo	Monserrat	Palacio Barolo	-34.6094	-58.3860	Rascacielos de 1923 inspirado en la Divina Comedia. Subí al faro para ver la ciudad desde los 100 metros.
+sightseeing	Congreso de la Nación	Balvanera	Congreso de la Nación Argentina	-34.6097	-58.3925	Palacio con cúpula de 80 metros frente a la plaza del Congreso. Visitas guiadas gratuitas de lunes a viernes.
+sightseeing	Basílica del Pilar	Recoleta	Basílica Nuestra Señora del Pilar	-34.5880	-58.3925	Iglesia colonial de 1732 junto al cementerio. Claustros con museo y vista a la plaza.
+sightseeing	Torre Monumental	Retiro	Torre Monumental	-34.5918	-58.3741	La antigua Torre de los Ingleses, regalo de la comunidad británica en 1916. Plaza Fuerza Aérea Argentina.
+sightseeing	Fragata Sarmiento	Puerto Madero	Fragata ARA Presidente Sarmiento	-34.6073	-58.3643	Buque escuela de 1897 convertido en museo flotante. Dique 3.
+sightseeing	Monumento a los Españoles	Palermo	Monumento a la Carta Magna y las Cuatro Regiones Argentinas	-34.5760	-58.4052	Monumento de mármol y bronce en la rotonda de Libertador y Sarmiento. Punto de partida para los Bosques.
+sightseeing	Planetario Galileo Galilei	Palermo	Planetario Galileo Galilei	-34.5698	-58.4117	Edificio futurista de 1966 en medio de los Bosques de Palermo. Funciones de domo y meteorito real en la entrada.
+sightseeing	Palacio Paz	Retiro	Palacio Paz	-34.5955	-58.3757	La residencia privada más grande de la ciudad, estilo francés, hoy sede del Círculo Militar. Frente a Plaza San Martín.
+sightseeing	Manzana de las Luces	Monserrat	Manzana de las Luces	-34.6098	-58.3738	Conjunto jesuita del siglo XVII con túneles coloniales. Visitas guiadas los fines de semana.
+sightseeing	Estadio Monumental	Núñez	Estadio Monumental	-34.5453	-58.4498	Estadio de River Plate y el más grande del país. Museo y tour por vestuarios y túnel.
+sightseeing	Galería Güemes	San Nicolás	Galería Güemes	-34.6045	-58.3760	Pasaje art nouveau de 1915 entre Florida y San Martín. Tiene un mirador en el piso 14.
+sightseeing	Confitería Ideal	San Nicolás	Confitería Ideal	-34.6050	-58.3795	Confitería de 1912 restaurada con sus vitrales y mármoles originales. Clases y milongas de tango arriba.
+photospot	Pasaje Lanín	Barracas	Pasaje Lanín	-34.6465	-58.3775	Dos cuadras de fachadas intervenidas con mosaicos de colores por el artista Marino Santa María.
+photospot	Mirador de Galería Güemes	San Nicolás	Galería Güemes	-34.6045	-58.3760	Vista 360 del Microcentro desde el piso 14, mucho menos concurrido que el Barolo.
+photospot	Barrancas de Belgrano	Belgrano	Barrancas de Belgrano	-34.5604	-58.4507	Plaza en pendiente diseñada por Thays, con glorieta donde se baila tango los fines de semana.
+area	Plaza Dorrego y feria de San Telmo	San Telmo	Plaza Dorrego	-34.6205	-58.3716	Los domingos la calle Defensa se llena de antigüedades, artesanos y tango callejero. Llegar temprano.
+area	Palermo Soho	Palermo	Plaza Serrano	-34.5886	-58.4303	Calles de casas bajas con tiendas de diseño, bares y murales alrededor de Plaza Serrano.
+area	Barrio Chino	Belgrano	Barrio Chino Buenos Aires	-34.5580	-58.4495	Tres cuadras de la calle Arribeños con supermercados asiáticos, restaurantes y el arco de entrada.
+area	Puerto Madero	Puerto Madero	Puerto Madero	-34.6107	-58.3637	Antiguos docks de ladrillo convertidos en paseo gastronómico junto al agua. Caminata ideal al atardecer.
+area	Villa Crespo	Villa Crespo	Villa Crespo	-34.5990	-58.4395	Barrio de outlets de ropa y bodegones tradicionales, vecino de Palermo y más barato.
+cafe	Café Tortoni	Monserrat	Café Tortoni	-34.6085	-58.3785	El café más antiguo de la ciudad, de 1858. Churros con chocolate y show de tango en el subsuelo.
+cafe	Las Violetas	Almagro	Confitería Las Violetas	-34.6098	-58.4208	Confitería de 1884 con vitrales franceses y mesa de masas finas. Pedí la merienda completa.
+cafe	La Biela	Recoleta	La Biela	-34.5878	-58.3926	Terraza bajo el gomero gigante de Recoleta. Café caro pero el lugar lo justifica.
+cafe	London City	Monserrat	London City Café	-34.6085	-58.3760	Café notable donde Cortázar escribió Los premios. Esquina de Avenida de Mayo y Perú.
+cafe	El Gato Negro	San Nicolás	El Gato Negro Corrientes	-34.6042	-58.3878	Casa de especias y té de 1927 sobre Corrientes. Frascos de madera hasta el techo.
+cafe	Heladería Cadore	San Nicolás	Heladería Cadore	-34.6043	-58.3875	Helado artesanal desde 1957, elegido entre los mejores del mundo. Probá el dulce de leche.
+cafe	Rapanui	Recoleta	Rapanui Recoleta	-34.5890	-58.3950	Chocolatería y heladería patagónica. El chocolate caliente es espeso de verdad.
+cafe	Café Rivas	San Telmo	Café Rivas	-34.6200	-58.3687	Bistró de esquina con ventanales, perfecto para desayuno o brunch antes de la feria.
+cafe	Lattente	Palermo	Lattente Palermo	-34.5888	-58.4290	Café de especialidad pionero en la ciudad. Pequeño, para llevar o quedarse en la vereda.
+restaurant	Don Julio	Palermo	Don Julio Parrilla	-34.5862	-58.4275	La parrilla más premiada de la ciudad. Reservar con semanas de anticipación o hacer fila con una copa de espumante.
+restaurant	La Cabrera	Palermo	La Cabrera Parrilla	-34.5873	-58.4330	Parrilla clásica con porciones enormes y guarniciones gratis. Happy hour con 40% de descuento a las 18:30.
+restaurant	El Preferido de Palermo	Palermo	El Preferido de Palermo	-34.5861	-58.4278	Bodegón rosado de 1952 renovado. Milanesas, fiambres de la casa y tortilla babé.
+restaurant	Pizzería Güerrín	San Nicolás	Pizzería Güerrín	-34.6040	-58.3862	Institución porteña de 1932 en Corrientes. Porción de muzzarella con fainá, de parado en la barra.
+restaurant	El Cuartito	San Nicolás	Pizzería El Cuartito	-34.5993	-58.3852	Pizzería de 1934 con paredes llenas de fotos de boxeadores y futbolistas. Fugazzeta imperdible.
+restaurant	La Brigada	San Telmo	La Brigada San Telmo	-34.6197	-58.3717	Parrilla donde cortan la carne con cuchara para demostrar su ternura. Decoración futbolera.
+restaurant	Café San Juan	San Telmo	Café San Juan	-34.6215	-58.3750	Cocina de autor en un bodegón de barrio. Pulpo a la gallega y porciones para compartir.
+restaurant	Parrilla Peña	San Nicolás	Parrilla Peña	-34.6005	-58.3920	Parrilla de barrio sin pretensiones, carne excelente y precios justos. Cerca del Teatro Colón.
+restaurant	El Obrero	La Boca	Bodegón El Obrero	-34.6368	-58.3598	Bodegón de 1954 con camisetas de fútbol en las paredes. Visitado por Bono y Bourdain.
+restaurant	Chuí	Villa Crespo	Chuí Restaurante	-34.5962	-58.4440	Restaurante vegetariano en una casona con patio y horno de barro. Reservar.
+restaurant	Mishiguene	Palermo	Mishiguene	-34.5760	-58.4250	Cocina judía contemporánea, entre los 50 mejores de Latinoamérica. Pastrón ahumado.
+restaurant	Sacro	Palermo	Sacro Restaurante	-34.5866	-58.4349	Alta cocina basada en plantas, menú por pasos y coctelería.
+restaurant	Pizzería Banchero	La Boca	Pizzería Banchero La Boca	-34.6350	-58.3640	Aquí se inventó la fugazzeta en 1932. Esquina de Almirante Brown y Suárez.
+restaurant	La Mezzetta	Villa Ortúzar	Pizzería La Mezzetta	-34.5810	-58.4720	Pizza de parado desde 1939. Solo mostrador, solo efectivo, fugazzeta rellena legendaria.
+restaurant	Siga la Vaca	Puerto Madero	Siga la Vaca Puerto Madero	-34.6135	-58.3610	Tenedor libre de parrilla con vista al dique. Precio fijo con bebida y postre.
+restaurant	Pizzería Angelín	Villa Crespo	Pizzería Angelín	-34.5960	-58.4510	Pizza canchera de 1938 cocida al horno de leña. Poca muzzarella, mucha salsa.
+restaurant	Los Infernales de Güemes	Palermo	Los Infernales de Güemes	-34.5847	-58.4203	Comida salteña: empanadas, humita y locro. Barato y abundante.
+bar	Florería Atlántico	Retiro	Florería Atlántico	-34.5928	-58.3782	Bar escondido detrás de una florería, entre los mejores del mundo. Gin propio y cocina de mar.
+bar	Los Galgos	San Nicolás	Bar Los Galgos	-34.6038	-58.3930	Bar notable de 1930 restaurado. Vermut con soda y picada en la esquina de Callao y Lavalle.
+bar	Presidente Bar	Recoleta	Presidente Bar	-34.5920	-58.3870	Coctelería elegante en una casona de Recoleta, con biblioteca y salón de fumadores.
+bar	Tres Monos	Palermo	Tres Monos Bar	-34.5880	-58.4315	Coctelería joven y ruidosa con tragos creativos y precios razonables.
+bar	Café San Bernardo	Villa Crespo	Café San Bernardo	-34.5990	-58.4395	Bar de barrio de 1900 con mesas de ping pong, pool y metegol. Abre hasta la madrugada.
+bar	Boticario	Palermo	Boticario Bar	-34.5855	-58.4365	Bar ambientado como botica antigua. Tragos con hierbas y tinturas.
+bar	Verne Club	Palermo	Verne Cocktail Club	-34.5899	-58.4120	Coctelería inspirada en Julio Verne, del bartender Fede Cuco.
+bar	Bar Británico	San Telmo	Bar Británico	-34.6254	-58.3703	Bar notable frente al Parque Lezama donde Sabato escribió Sobre héroes y tumbas.
+bar	La Poesía	San Telmo	Bar La Poesía	-34.6191	-58.3718	Café bar de 1982 con libros, picadas y vermut. Esquina de Chile y Bolívar.
+bar	Bar Sur	San Telmo	Bar Sur Tango	-34.6213	-58.3709	Show de tango íntimo en un bar de 1967. Sin escenario, los bailarines pasan entre las mesas.
+bar	Uptown	Palermo	Uptown Bar Palermo	-34.5805	-58.4360	Bar secreto que imita una estación de subte de Nueva York. Entrás por un vagón.
+bar	Café Paulin	San Nicolás	Café Paulin	-34.6025	-58.3755	Barra de sándwiches tostados desde 1940 en pleno Microcentro. Mediodía de oficinistas.
+culture	Centro Cultural Kirchner	San Nicolás	Centro Cultural Kirchner	-34.6034	-58.3697	Antiguo Palacio de Correos convertido en el centro cultural más grande de Latinoamérica. Entrada gratuita.
+culture	Centro Cultural Recoleta	Recoleta	Centro Cultural Recoleta	-34.5836	-58.3932	Ex convento con muestras, terraza y actividades gratuitas para jóvenes. Junto al cementerio.
+culture	Teatro San Martín	San Nicolás	Teatro General San Martín	-34.6040	-58.3858	Complejo teatral público sobre Corrientes con tres salas y entradas accesibles.
+culture	Fundación Proa	La Boca	Fundación Proa	-34.6388	-58.3608	Arte contemporáneo frente al Riachuelo. La terraza con café tiene la mejor vista de La Boca.
+culture	Ciudad Cultural Konex	Balvanera	Ciudad Cultural Konex	-34.6035	-58.4105	Ex fábrica de aceite con recitales y La Bomba de Tiempo, la fiesta de percusión de los lunes.
+culture	Biblioteca Nacional	Recoleta	Biblioteca Nacional Mariano Moreno	-34.5836	-58.3975	Edificio brutalista sobre pilotes donde Borges fue director. Muestras y visitas guiadas gratis.
+culture	Usina del Arte	La Boca	Usina del Arte	-34.6325	-58.3580	Antigua usina eléctrica transformada en sala sinfónica. Programación gratuita los fines de semana.
+culture	Milonga La Catedral	Almagro	La Catedral Club Almagro	-34.6040	-58.4225	Milonga bohemia en un galpón con clases para principiantes cada noche. Ambiente relajado.
+culture	Teatro Gran Rex	San Nicolás	Teatro Gran Rex	-34.6032	-58.3795	Teatro art déco de 1937 sobre Corrientes, el principal escenario de recitales de la ciudad.
+museum	MALBA	Palermo	MALBA Museo de Arte Latinoamericano	-34.5772	-58.4036	Arte latinoamericano del siglo XX: Frida Kahlo, Berni, Xul Solar. Miércoles con descuento.
+museum	Museo Nacional de Bellas Artes	Recoleta	Museo Nacional de Bellas Artes	-34.5838	-58.3930	La mayor colección de arte del país, de Goya a Cándido López. Entrada gratuita.
+museum	Museo Evita	Palermo	Museo Evita	-34.5810	-58.4130	Vida de Eva Perón en una casona de 1923 que fue hogar de tránsito. Tiene restaurante con patio.
+museum	Museo de Arte Decorativo	Palermo	Museo Nacional de Arte Decorativo	-34.5808	-58.4001	Palacio Errázuriz, mansión francesa de 1917 con sus muebles originales. Café en el jardín.
+museum	Museo Histórico Nacional	San Telmo	Museo Histórico Nacional	-34.6270	-58.3705	Historia argentina desde la colonia en el Parque Lezama. Sable corvo de San Martín.
+museum	Museo del Bicentenario	Monserrat	Museo Casa Rosada	-34.6080	-58.3697	Bajo la Casa Rosada, en la antigua aduana. Objetos presidenciales y el mural de Siqueiros.
+museum	Museo de Arte Moderno	San Telmo	Museo de Arte Moderno de Buenos Aires	-34.6218	-58.3715	Arte argentino moderno y contemporáneo en una antigua tabacalera de San Telmo.
+museum	Museo Quinquela Martín	La Boca	Museo Benito Quinquela Martín	-34.6385	-58.3590	Casa taller del pintor de La Boca, con terraza de esculturas sobre el Riachuelo.
+museum	Museo Larreta	Belgrano	Museo de Arte Español Enrique Larreta	-34.5613	-58.4536	Arte español en una casona colonial con jardín andaluz, el más lindo de la ciudad.
+museum	Museo Fernández Blanco	Retiro	Museo de Arte Hispanoamericano Isaac Fernández Blanco	-34.5931	-58.3765	Platería colonial y arte hispanoamericano en el Palacio Noel, con jardín escondido.
+museum	Museo Xul Solar	Recoleta	Museo Xul Solar	-34.5950	-58.4000	Universo del pintor místico amigo de Borges, en su propia casa.
+park	Bosques de Palermo	Palermo	Parque Tres de Febrero	-34.5710	-58.4175	Los grandes parques de la ciudad: lagos, botes, bicis y el Rosedal con 18.000 rosales.
+park	Jardín Japonés	Palermo	Jardín Japonés de Buenos Aires	-34.5760	-58.4098	Jardín con lago de carpas, puentes rojos y casa de té. Uno de los más grandes fuera de Japón.
+park	Jardín Botánico	Palermo	Jardín Botánico Carlos Thays	-34.5822	-58.4165	Siete hectáreas con 1.500 especies, invernaderos art nouveau y muchos gatos. Entrada gratuita.
+park	Reserva Ecológica	Puerto Madero	Reserva Ecológica Costanera Sur	-34.6140	-58.3520	350 hectáreas de humedal frente al Río de la Plata. Caminos para bici y aves a minutos del centro.
+park	Parque Lezama	San Telmo	Parque Lezama	-34.6275	-58.3700	Barranca con palmeras donde se dice que se fundó la ciudad. Feria los fines de semana.
+park	Plaza San Martín	Retiro	Plaza San Martín Retiro	-34.5955	-58.3755	Plaza sobre la barranca de Retiro con gomeros centenarios y jacarandás en noviembre.
+park	Parque Centenario	Caballito	Parque Centenario	-34.6060	-58.4350	Parque circular con lago y feria de libros usados los fines de semana. Centro geográfico de la ciudad.
+park	Ecoparque	Palermo	Ecoparque Buenos Aires	-34.5760	-58.4160	El antiguo zoológico convertido en parque. Edificios históricos y carpinchos sueltos.
+park	Plaza Francia	Recoleta	Plaza Francia	-34.5840	-58.3925	Lomas de césped con feria de artesanos los fines de semana, frente al cementerio.
+park	Parque Las Heras	Palermo	Parque Las Heras	-34.5850	-58.4080	Parque de barrio muy usado por vecinos para correr y tomar mate. Ambiente local.
+shop	El Ateneo Grand Splendid	Recoleta	El Ateneo Grand Splendid	-34.5958	-58.3943	Librería en un teatro de 1919 con palcos y café en el escenario. Elegida la más linda del mundo.
+shop	Galerías Pacífico	Retiro	Galerías Pacífico	-34.5990	-58.3747	Shopping en un edificio de 1889 con cúpula pintada por Berni y Spilimbergo. Centro Cultural Borges arriba.
+shop	Mercado de San Telmo	San Telmo	Mercado de San Telmo	-34.6197	-58.3730	Mercado de 1897 con estructura de hierro: antigüedades, puestos de comida y café de especialidad.
+shop	Feria de Mataderos	Mataderos	Feria de Mataderos	-34.6598	-58.5035	Feria gaucha de los domingos con folklore, destrezas a caballo y comidas regionales. Lejos pero única.
+shop	Libros del Pasaje	Palermo	Libros del Pasaje	-34.5890	-58.4300	Librería con café en Palermo, ideal para una tarde de lluvia.
+shop	Patio Bullrich	Recoleta	Patio Bullrich	-34.5905	-58.3830	Antiguo mercado de remates ganaderos convertido en shopping elegante.
+shop	Distrito Arcos	Palermo	Distrito Arcos	-34.5790	-58.4330	Outlet al aire libre bajo los arcos del ferrocarril, con cafés y plaza.
+shop	Mercado de Abasto	Balvanera	Abasto Shopping	-34.6038	-58.4108	Ex mercado mayorista art déco de 1934, hoy shopping. Barrio de Gardel con el Museo Carlos Gardel a dos cuadras.
+activity	Paseo en bici por Puerto Madero	Puerto Madero	Costanera Sur Buenos Aires	-34.6160	-58.3560	Bicisenda plana y segura por los diques y la Costanera Sur. Alquiler de bicis en la zona.
+activity	Clase de tango en Confitería Ideal	San Nicolás	Confitería Ideal	-34.6050	-58.3795	Clases para principiantes todas las tardes, seguidas de milonga. No hace falta pareja.
+activity	La Bomba de Tiempo	Balvanera	Ciudad Cultural Konex	-34.6035	-58.4105	Fiesta de percusión improvisada cada lunes a las 19 en el Konex. Comprar entradas online.
+activity	Paseo en bote en el Rosedal	Palermo	Rosedal de Palermo	-34.5712	-58.4165	Botes a remo en el lago del Rosedal. Mejor temprano los fines de semana.
+tours	Free walking tour del centro	Monserrat	Plaza de Mayo	-34.6083	-58.3722	Recorridos a la gorra que salen de Plaza de Mayo y del Congreso. Reservar online.
+tours	Visita guiada al Teatro Colón	San Nicolás	Teatro Colón	-34.6010	-58.3831	Tour de 50 minutos por el foyer, los palcos y la sala. Salidas cada 15 minutos.
+tours	Mirador del Palacio Barolo	Monserrat	Palacio Barolo	-34.6094	-58.3860	Subida guiada al faro, mejor en la visita nocturna con copa de vino.
+tours	Excursión al Delta del Tigre	Tigre	Estación Fluvial Tigre	-34.4260	-58.5796	Tren Mitre desde Retiro hasta Tigre en una hora, luego lancha colectiva por el delta.
