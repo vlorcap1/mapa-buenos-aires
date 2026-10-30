@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { LocateFixed, Loader2, Search, ArrowDownUp, List, Map as MapIcon, Download, Share, SquarePlus, X, MoreVertical } from 'lucide-react';
 import { useInstalacion } from './hooks/useInstalacion';
 import Mapa from './components/Mapa';
@@ -7,7 +7,7 @@ import TarjetaLugar from './components/TarjetaLugar';
 import DetalleLugar from './components/DetalleLugar';
 import Carrusel from './components/Carrusel';
 import { useGeolocalizacion } from './hooks/useGeolocalizacion';
-import { LUGARES } from './data/lugares';
+import { LUGARES, CENTRO_BUENOS_AIRES } from './data/lugares';
 import { distanciaKm } from './lib/geo';
 import type { CategoriaId, Lugar } from './types';
 
@@ -32,6 +32,27 @@ export default function App() {
   const [guiaInstalacion, setGuiaInstalacion] = useState(false);
   const { estado, posicion, activar } = useGeolocalizacion();
   const instalacion = useInstalacion();
+  const [avisoLejos, setAvisoLejos] = useState<string | null>(null);
+  const yaCentrado = useRef(false);
+
+  // Pedir la ubicación apenas abre la app, para mostrar dónde está la persona sin que tenga que tocar nada.
+  useEffect(() => {
+    const t = window.setTimeout(activar, 600);
+    return () => window.clearTimeout(t);
+  }, [activar]);
+
+  // Con la primera posición: si está en Buenos Aires, centrar el mapa; si no, avisar a qué distancia queda.
+  useEffect(() => {
+    if (!posicion || yaCentrado.current) return;
+    yaCentrado.current = true;
+    const enBuenosAires = posicion.lat > -34.95 && posicion.lat < -34.35 && posicion.lng > -58.95 && posicion.lng < -58.2;
+    if (enBuenosAires) setCentrarEnUsuario((n) => n + 1);
+    else {
+      const km = distanciaKm(posicion.lat, posicion.lng, CENTRO_BUENOS_AIRES[0], CENTRO_BUENOS_AIRES[1]);
+      setAvisoLejos(`Estás a ${km >= 100 ? Math.round(km).toLocaleString('es-AR') : km.toFixed(1)} km de Buenos Aires. El mapa muestra la ciudad; tu punto azul aparece al alejar el zoom.`);
+      window.setTimeout(() => setAvisoLejos(null), 9000);
+    }
+  }, [posicion]);
 
   const onInstalar = async () => {
     const abrioDialogo = await instalacion.instalar();
@@ -212,7 +233,8 @@ export default function App() {
 
           {avisoOffline && <div className="toast toast--ok" role="status">Mapa y fotos guardados: la app ya funciona sin conexión.</div>}
           {estado !== 'inactivo' && estado !== 'activo' && <div className="toast" role="status">{MENSAJE_GPS[estado]}</div>}
-          {gpsActivo && posicion && (
+          {avisoLejos && <div className="toast" role="status">{avisoLejos}</div>}
+          {!avisoLejos && !avisoOffline && gpsActivo && posicion && (
             <div className="toast toast--ok" role="status">
               Ubicación activa · precisión ±{Math.round(posicion.precision)} m
             </div>

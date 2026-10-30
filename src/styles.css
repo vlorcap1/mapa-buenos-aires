@@ -242,8 +242,18 @@ button { cursor: pointer; }
 .zoom-medio .pin svg { transform: scale(0.8); }
 .zoom-lejos .pin svg { transform: scale(0.62); }
 .zoom-medio .pin--activo svg, .zoom-lejos .pin--activo svg { transform: scale(1); }
-/* Posición del usuario */
-.yo { width: 16px; height: 16px; border-radius: 50%; background: #1d6fd1; border: 3px solid #fff; box-shadow: 0 0 0 2px rgba(29, 111, 209, 0.35), 0 1px 4px rgba(0, 0, 0, 0.3); }
+/* Posición del usuario: punto azul con halo que late y etiqueta */
+.yo { position: relative; width: 18px; height: 18px; }
+.yo__punto { position: absolute; inset: 0; border-radius: 50%; background: #1d6fd1; border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35); }
+.yo__halo { position: absolute; inset: -14px; border-radius: 50%; background: rgba(29, 111, 209, 0.3); animation: latir 2s ease-out infinite; }
+.yo__etiqueta {
+  position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%);
+  padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+  background: #1d6fd1; color: #fff; font-size: 12px; font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+.yo__etiqueta::after { content: ''; position: absolute; left: 50%; top: 100%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: #1d6fd1; }
+@keyframes latir { 0% { transform: scale(0.5); opacity: 0.9; } 100% { transform: scale(1.6); opacity: 0; } }
 
 .btn-gps {
   position: absolute;
@@ -434,6 +444,6 @@ button { cursor: pointer; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .girar { animation: none; }
+  .girar, .yo__halo { animation: none; }
   .pin, .tarjeta, .chip { transition: none; }
 }

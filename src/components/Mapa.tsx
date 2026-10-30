@@ -158,6 +158,8 @@ export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, onSe
     if (!marcadorYo.current) {
       const el = document.createElement('div');
       el.className = 'yo';
+      el.innerHTML = '<span class="yo__halo"></span><span class="yo__punto"></span><span class="yo__etiqueta">Estás aquí</span>';
+      el.style.zIndex = '20';
       marcadorYo.current = new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat([posicion.lng, posicion.lat]).addTo(m);
     } else marcadorYo.current.setLngLat([posicion.lng, posicion.lat]);
     const pintar = () => {
