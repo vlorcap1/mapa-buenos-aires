@@ -1508,5 +1508,15 @@
     "archivo": "https://rockyarte.com/bond-street-y-la-luz-se-hizo-sobre-la-galeria/",
     "titulo": "buscador: Bond Street: Historia Y Cultura Under En Buenos Aires | Rock Y Arte",
     "fuente": "buscador de imágenes"
+  },
+  "teatro-nacional": {
+    "url": "fotos/teatro-nacional.jpg",
+    "ancho": 900,
+    "alto": 563,
+    "autor": "elnacionalsancorseguros.com",
+    "licencia": "",
+    "archivo": "https://elnacionalsancorseguros.com/nuestro-teatro/",
+    "titulo": "buscador: NUESTRO TEATRO - El Nacional Sancor Seguros",
+    "fuente": "buscador de imágenes"
   }
 }

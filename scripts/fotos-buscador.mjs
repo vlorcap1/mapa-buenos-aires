@@ -27,7 +27,7 @@ const CONSULTAS = {
   'verne-club': 'Verne Cocktail Club Palermo Buenos Aires',
   uptown: 'Uptown BA bar Arévalo Palermo vagón subte Nueva York',
   'milonga-la-catedral': 'La Catedral Club milonga Almagro Buenos Aires',
-  'teatro-nacional': 'Teatro Nacional Buenos Aires Avenida Corrientes fachada',
+  'teatro-nacional': '"Teatro El Nacional" Corrientes 960 Buenos Aires fachada',
   'patio-del-liceo': 'Patio del Liceo Santa Fe Buenos Aires',
   'centro-cultural-matienzo': 'Club Cultural Matienzo terraza Pringles',
   'niceto-club': 'Niceto Club Buenos Aires',

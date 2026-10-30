@@ -28,8 +28,9 @@ Para agregar un lugar: añadí una fila al TSV, corré `npm run geocode` (solo p
 - `npm run fotos` (`scripts/fotos.mjs`): imagen principal del artículo de Wikipedia en español o búsqueda en Wikimedia Commons, con autor y licencia. Escribe `data/fotos.json`. Mapas `ARTICULOS`, `BUSQUEDAS`, `ARCHIVOS_FIJOS` y `SIN_BUSCAR` para afinar casos; `--rehacer=id1,id2` repite lugares puntuales.
 - `scripts/fotos-web.mjs`: para locales sin foto libre, toma la foto más grande del sitio oficial (lista candidatas; `--aplicar` las guarda con crédito "sitio oficial de …" y enlace al sitio). Son imágenes promocionales de cada local, no libres: se usan como vista previa con enlace, igual que una red social.
 - `scripts/openverse.mjs`: búsqueda alternativa de fotos Creative Commons (Flickr y otras fuentes) vía Openverse.
+- `scripts/fotos-buscador.mjs <carpeta>`: último recurso, buscador de imágenes (DuckDuckGo). Descarga tres candidatas por lugar para revisarlas a ojo; con `--aplicar` copia la elegida (según `data/buscador.elegidas.json`) redimensionada a `public/fotos/<id>.jpg` y acredita el dominio de origen con enlace. Son fotos de terceros (prensa, guías, sitios de los locales), no libres.
 
-Las fotos se muestran desde su origen (hotlink), no se copian al repositorio.
+Las fotos de Wikimedia y de sitios oficiales se muestran desde su origen (hotlink); las del buscador se guardan en `public/fotos/`. Revisar siempre a ojo: los buscadores devuelven logos, collages con marca de agua y lugares homónimos.
 
 ## Publicar en GitHub Pages
 
