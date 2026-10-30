@@ -121,7 +121,50 @@ const ARTICULOS = {
   'museo-nacional-de-bellas-artes': 'Museo Nacional de Bellas Artes (Argentina)',
   'parque-lezama': 'Parque Lezama',
   'galerias-pacifico': 'Galerías Pacífico',
+  'el-nino-gordo': null,
+  napoles: null,
+  microteatro: null,
+  'teatro-opera': 'Teatro Ópera (Buenos Aires)',
+  'teatro-nacional': 'Teatro Nacional (Buenos Aires)',
+  'teatro-broadway': 'Teatro Broadway (Buenos Aires)',
+  'teatro-lola-membrives': 'Teatro Lola Membrives',
+  multiteatro: 'Multiteatro',
+  'teatro-metropolitan': 'Teatro Metropolitan (Buenos Aires)',
+  'teatro-apolo': 'Teatro Apolo (Buenos Aires)',
+  'teatro-politeama': 'Teatro Politeama (Buenos Aires)',
+  'teatro-astral': 'Teatro Astral',
+  'paseo-la-plaza': 'Paseo La Plaza',
+  'teatro-maipo': 'Teatro Maipo',
 };
+
+// Búsqueda personalizada en Commons cuando la imagen del artículo es un logo o la búsqueda por nombre falla.
+const BUSQUEDAS = {
+  cabildo: 'Cabildo de Buenos Aires Plaza de Mayo fachada',
+  'manzana-de-las-luces': 'Manzana de las Luces Buenos Aires',
+  'museo-de-arte-decorativo': 'Palacio Errázuriz Buenos Aires',
+  'la-brigada': 'La Brigada parrilla San Telmo',
+  'pizzeria-banchero': 'Pizzería Banchero Almirante Brown',
+  'floreria-atlantico': 'Florería Atlántico Arroyo Retiro',
+  'villa-crespo': 'Villa Crespo Avenida Corrientes Buenos Aires',
+  'catedral-metropolitana': 'Catedral Metropolitana de Buenos Aires fachada',
+  'teatro-nacional': 'Teatro Nacional Avenida Corrientes Buenos Aires',
+};
+// Palabras del nombre que deben aparecer en el título del archivo para aceptarlo (evita fotos de otra cosa).
+const normalizar = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const PALABRAS_CLAVE = {
+  cabildo: ['cabildo'], 'manzana-de-las-luces': ['manzana'], 'museo-de-arte-decorativo': ['errazuriz', 'decorativo'],
+  'la-brigada': ['brigada'], 'pizzeria-banchero': ['banchero'], 'floreria-atlantico': ['floreria', 'atlantico'],
+  'villa-crespo': ['villa crespo', 'crespo'], 'catedral-metropolitana': ['catedral'],
+  'teatro-nacional': ['teatro nacional'], napoles: ['napoles'], 'el-nino-gordo': ['nino gordo'],
+};
+const esRelevante = (lugar, tituloArchivo) => {
+  const t = normalizar(tituloArchivo);
+  const claves = PALABRAS_CLAVE[lugar.id] ?? normalizar(lugar.name).split(/[^a-z0-9]+/).filter((w) => w.length > 3);
+  return claves.length === 0 || claves.some((w) => t.includes(w));
+};
+// Lugares para los que ninguna búsqueda da una foto correcta (nombres demasiado genéricos): mejor sin foto que con una ajena.
+const SIN_BUSCAR = new Set(['sacro', 'napoles', 'la-brigada', 'presidente-bar', 'boticario', 'uptown']);
+const REHACER = new Set((process.argv.find((a) => a.startsWith('--rehacer='))?.slice(10) ?? '').split(',').filter(Boolean));
 
 const UA = { 'User-Agent': 'mapa-buenos-aires-dev/1.0 (fotos para mapa turistico; contacto via GitHub)' };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -155,8 +198,13 @@ async function datosArchivo(nombreArchivo) {
 
 // Plan B: buscar el archivo directamente en Commons por nombre del lugar (locales sin artículo en Wikipedia).
 async function fotoEnCommons(lugar) {
-  const b = await api('commons.wikimedia.org', { action: 'query', generator: 'search', gsrsearch: `"${lugar.name}" Buenos Aires`, gsrnamespace: '6', gsrlimit: '5', prop: 'imageinfo', iiprop: 'mime' });
-  const archivos = (b.query?.pages ?? []).filter((p) => /^image\/(jpeg|png|webp)$/.test(p.imageinfo?.[0]?.mime ?? ''));
+  const consulta = BUSQUEDAS[lugar.id] ?? `"${lugar.name}" Buenos Aires`;
+  const b = await api('commons.wikimedia.org', { action: 'query', generator: 'search', gsrsearch: consulta, gsrnamespace: '6', gsrlimit: '8', prop: 'imageinfo', iiprop: 'mime|size' });
+  const archivos = (b.query?.pages ?? [])
+    .filter((p) => /^image\/(jpeg|png|webp)$/.test(p.imageinfo?.[0]?.mime ?? ''))
+    .filter((p) => esRelevante(lugar, p.title))
+    .filter((p) => !/logo|escudo|emblem|mapa|map_|plano|bandera|flag/i.test(p.title))
+    .sort((a, b) => (b.imageinfo[0].width ?? 0) - (a.imageinfo[0].width ?? 0)); // la más grande suele ser la mejor foto
   for (const p of archivos) {
     const f = await datosArchivo(p.title.replace(/^File:/, ''));
     if (f) return { ...f, titulo: `Commons: ${p.title}`, articulo: f.archivo };
@@ -166,7 +214,7 @@ async function fotoEnCommons(lugar) {
 
 async function imagenPrincipal(lugar) {
   const titulo = ARTICULOS[lugar.id] === undefined ? `${lugar.name} (Buenos Aires)` : ARTICULOS[lugar.id];
-  if (titulo === null) return fotoEnCommons(lugar);
+  if (titulo === null || BUSQUEDAS[lugar.id]) return fotoEnCommons(lugar);
   // 1) Artículo por título exacto; si no existe, búsqueda.
   let pagina;
   const porTitulo = await api('es.wikipedia.org', { action: 'query', titles: titulo, prop: 'pageimages|info', piprop: 'name', inprop: 'url', redirects: '1' });
@@ -175,6 +223,7 @@ async function imagenPrincipal(lugar) {
     const b = await api('es.wikipedia.org', { action: 'query', generator: 'search', gsrsearch: `${lugar.name} Buenos Aires`, gsrlimit: '1', prop: 'pageimages|info', piprop: 'name', inprop: 'url' });
     pagina = b.query?.pages?.[0];
   }
+  if (pagina?.pageimage && /logo|escudo|emblem|mapa|plano|bandera|flag/i.test(pagina.pageimage)) pagina.pageimage = undefined; // la imagen del artículo es un logo: buscar foto
   if (!pagina?.pageimage) {
     const plan = await fotoEnCommons(lugar);
     return plan ?? (pagina ? { articulo: pagina.fullurl, sinImagen: true, titulo: pagina.title } : null);
@@ -188,7 +237,8 @@ async function imagenPrincipal(lugar) {
 const fotos = {};
 let ok = 0;
 for (const l of lugares) {
-  if (previas[l.id]?.url && !process.argv.includes('--forzar')) { fotos[l.id] = previas[l.id]; ok++; console.log(`cache      ${l.name}`); continue; }
+  if (SIN_BUSCAR.has(l.id)) { console.log(`omitido    ${l.name}`); continue; }
+  if (previas[l.id]?.url && !process.argv.includes('--forzar') && !REHACER.has(l.id)) { fotos[l.id] = previas[l.id]; ok++; console.log(`cache      ${l.name}`); continue; }
   try {
     const f = await imagenPrincipal(l);
     if (f?.url) { fotos[l.id] = f; ok++; console.log(`ok         ${l.name}  ←  ${f.titulo}  [${f.licencia}]`); }

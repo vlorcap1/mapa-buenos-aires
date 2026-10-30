@@ -171,6 +171,18 @@ button { cursor: pointer; }
   width: 36px; height: 36px; border-radius: 10px;
   display: grid; place-items: center; color: #fff;
 }
+.tarjeta__foto {
+  position: relative;
+  width: 84px; height: 84px;
+  border-radius: 10px; overflow: hidden;
+  background: var(--borde);
+}
+.tarjeta__foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tarjeta__icono--sobre {
+  position: absolute; left: 4px; bottom: 4px;
+  width: 24px; height: 24px; border-radius: 7px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
 .tarjeta__cuerpo { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .tarjeta__meta { display: flex; gap: 6px; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--texto-suave); }
 .tarjeta__nombre { font-family: var(--fuente-titulo); font-weight: 600; font-size: 16px; line-height: 1.2; }
@@ -237,7 +249,23 @@ button { cursor: pointer; }
   box-shadow: var(--sombra);
   padding: 16px 16px 16px 20px;
   overflow: hidden;
+  max-height: calc(100% - 24px);
+  display: flex; flex-direction: column;
 }
+.detalle--con-foto { padding: 0; }
+.detalle--con-foto .detalle__contenido { padding: 12px 16px 16px; overflow-y: auto; }
+.detalle__foto { position: relative; margin: 0; flex: 0 0 auto; background: var(--borde); }
+.detalle__foto img { display: block; width: 100%; height: 190px; object-fit: cover; }
+.detalle__foto figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 18px 10px 6px;
+  font-size: 11px; text-align: right;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+}
+.detalle__foto figcaption a { color: rgba(255, 255, 255, 0.9); text-decoration: none; }
+.detalle__foto figcaption a:hover { text-decoration: underline; }
+.detalle--con-foto .detalle__cerrar { background: rgba(0, 0, 0, 0.45); color: #fff; z-index: 1; }
+.detalle--con-foto .detalle__cerrar:hover { background: rgba(0, 0, 0, 0.65); }
 .detalle__barra { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; }
 .detalle__cerrar {
   position: absolute; right: 8px; top: 8px;

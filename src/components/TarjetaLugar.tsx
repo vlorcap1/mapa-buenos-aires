@@ -21,9 +21,18 @@ export default function TarjetaLugar({ lugar, distanciaKm, seleccionado, onSelec
       aria-pressed={seleccionado}
       id={`tarjeta-${lugar.id}`}
     >
-      <span className="tarjeta__icono" style={{ background: cat.color }}>
-        <Icon size={18} aria-hidden="true" />
-      </span>
+      {lugar.foto ? (
+        <span className="tarjeta__foto">
+          <img src={lugar.foto.url} alt="" loading="lazy" decoding="async" width={lugar.foto.ancho} height={lugar.foto.alto} />
+          <span className="tarjeta__icono tarjeta__icono--sobre" style={{ background: cat.color }}>
+            <Icon size={14} aria-hidden="true" />
+          </span>
+        </span>
+      ) : (
+        <span className="tarjeta__icono" style={{ background: cat.color }}>
+          <Icon size={18} aria-hidden="true" />
+        </span>
+      )}
       <span className="tarjeta__cuerpo">
         <span className="tarjeta__meta">
           <span>{cat.label}</span>

@@ -15,32 +15,45 @@ export default function DetalleLugar({ lugar, posicion, distanciaKm, onCerrar }:
   const Icon = cat.Icon;
   const verEnMaps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lugar.name + ', Buenos Aires')}`;
   return (
-    <aside className="detalle" aria-label={`Detalle de ${lugar.name}`}>
-      <div className="detalle__barra" style={{ background: cat.color }} />
+    <aside className={`detalle ${lugar.foto ? 'detalle--con-foto' : ''}`} aria-label={`Detalle de ${lugar.name}`}>
+      {!lugar.foto && <div className="detalle__barra" style={{ background: cat.color }} />}
       <button type="button" className="detalle__cerrar" onClick={onCerrar} aria-label="Cerrar detalle">
         <X size={20} aria-hidden="true" />
       </button>
-      <div className="detalle__meta">
-        <span className="detalle__cat" style={{ color: cat.color }}>
-          <Icon size={16} aria-hidden="true" /> {cat.label}
-        </span>
-        <span>{lugar.barrio}</span>
-      </div>
-      <h2 className="detalle__titulo">{lugar.name}</h2>
-      <p className="detalle__desc">{lugar.desc}</p>
-      {distanciaKm !== null && (
-        <p className="detalle__dist">
-          <Footprints size={16} aria-hidden="true" />
-          A {formatoDistancia(distanciaKm)} de vos, unos {minutosCaminando(distanciaKm)} min caminando.
-        </p>
+      {lugar.foto && (
+        <figure className="detalle__foto">
+          <img src={lugar.foto.url} alt={lugar.name} width={lugar.foto.ancho} height={lugar.foto.alto} decoding="async" />
+          <figcaption>
+            <a href={lugar.foto.archivo} target="_blank" rel="noopener noreferrer" title="Ver archivo en Wikimedia Commons">
+              Foto: {lugar.foto.autor}
+              {lugar.foto.licencia ? ` · ${lugar.foto.licencia}` : ''}
+            </a>
+          </figcaption>
+        </figure>
       )}
-      <div className="detalle__acciones">
-        <a className="btn btn--primario" href={urlComoLlegar(lugar.lat, lugar.lng, posicion ?? undefined)} target="_blank" rel="noopener noreferrer">
-          <Navigation size={18} aria-hidden="true" /> Cómo llegar
-        </a>
-        <a className="btn" href={verEnMaps} target="_blank" rel="noopener noreferrer">
-          <ExternalLink size={18} aria-hidden="true" /> Ver en Google Maps
-        </a>
+      <div className="detalle__contenido">
+        <div className="detalle__meta">
+          <span className="detalle__cat" style={{ color: cat.color }}>
+            <Icon size={16} aria-hidden="true" /> {cat.label}
+          </span>
+          <span>{lugar.barrio}</span>
+        </div>
+        <h2 className="detalle__titulo">{lugar.name}</h2>
+        <p className="detalle__desc">{lugar.desc}</p>
+        {distanciaKm !== null && (
+          <p className="detalle__dist">
+            <Footprints size={16} aria-hidden="true" />
+            A {formatoDistancia(distanciaKm)} de vos, unos {minutosCaminando(distanciaKm)} min caminando.
+          </p>
+        )}
+        <div className="detalle__acciones">
+          <a className="btn btn--primario" href={urlComoLlegar(lugar.lat, lugar.lng, posicion ?? undefined)} target="_blank" rel="noopener noreferrer">
+            <Navigation size={18} aria-hidden="true" /> Cómo llegar
+          </a>
+          <a className="btn" href={verEnMaps} target="_blank" rel="noopener noreferrer">
+            <ExternalLink size={18} aria-hidden="true" /> Ver en Google Maps
+          </a>
+        </div>
       </div>
     </aside>
   );
