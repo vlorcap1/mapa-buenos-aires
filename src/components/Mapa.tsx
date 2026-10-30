@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { MapContainer, TileLayer, Marker, Circle, CircleMarker, useMap, ZoomControl } from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-cluster';
 import L from 'leaflet';
 import { CATEGORIA_POR_ID, trazosSvg, type Categoria } from '../data/categorias';
 import { CENTRO_BUENOS_AIRES } from '../data/lugares';
@@ -13,12 +14,14 @@ interface Props {
   onSelect: (l: Lugar) => void;
 }
 
+const ZOOM_SIN_AGRUPAR = 15; // desde este zoom cada lugar muestra su propio pin
+
 // Pin con el ícono de la categoría: gota del color de la categoría, disco blanco y el ícono dentro.
 function iconoPin(cat: Categoria, activo: boolean): L.DivIcon {
-  const w = activo ? 46 : 34; // ancho del pin; alto = ancho * 1.3
+  const w = activo ? 42 : 30; // ancho del pin; alto = ancho * 1.3
   const h = Math.round(w * 1.3);
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 39" width="${w}" height="${h}">
-  <path d="M15 38c-.6 0-1.1-.3-1.4-.8C11.3 33.4 2 21.2 2 14.5 2 7.1 7.8 1 15 1s13 6.1 13 13.5c0 6.7-9.3 18.9-11.6 22.7-.3.5-.8.8-1.4.8Z" fill="${cat.color}" stroke="${activo ? '#14213d' : '#ffffff'}" stroke-width="${activo ? 2 : 1.5}" stroke-linejoin="round"/>
+  <path d="M15 38c-.6 0-1.1-.3-1.4-.8C11.3 33.4 2 21.2 2 14.5 2 7.1 7.8 1 15 1s13 6.1 13 13.5c0 6.7-9.3 18.9-11.6 22.7-.3.5-.8.8-1.4.8Z" fill="${cat.color}" stroke="${activo ? '#14213d' : '#ffffff'}" stroke-width="${activo ? 2 : 1.25}" stroke-linejoin="round"/>
   <circle cx="15" cy="14.5" r="9" fill="#ffffff"/>
   <svg x="9.5" y="9" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="${cat.color}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${trazosSvg(cat.nodo)}</svg>
 </svg>`;
@@ -31,11 +34,18 @@ function iconoPin(cat: Categoria, activo: boolean): L.DivIcon {
   });
 }
 
+// Grupo de pines cercanos: círculo con la cantidad; crece suavemente con el número de lugares.
+function iconoGrupo(cluster: { getChildCount: () => number }): L.DivIcon {
+  const n = cluster.getChildCount();
+  const d = n < 10 ? 34 : n < 30 ? 40 : 46;
+  return L.divIcon({ html: `<span>${n}</span>`, className: 'grupo', iconSize: [d, d], iconAnchor: [d / 2, d / 2] });
+}
+
 function Enfoque({ activo, posicion, centrarEnUsuario }: Pick<Props, 'activo' | 'posicion' | 'centrarEnUsuario'>) {
   const map = useMap();
   useEffect(() => {
     if (!activo) return;
-    const zoom = Math.max(map.getZoom(), 14);
+    const zoom = Math.max(map.getZoom(), ZOOM_SIN_AGRUPAR); // acerca lo suficiente para que el pin salga de su grupo
     // En móvil el carrusel o la hoja de detalle tapan la parte baja del mapa: se corre el centro
     // la mitad de esa altura para que el pin quede en el medio de la zona visible.
     const movil = window.matchMedia('(max-width: 860px)').matches;
@@ -46,7 +56,7 @@ function Enfoque({ activo, posicion, centrarEnUsuario }: Pick<Props, 'activo' | 
     map.flyTo(map.unproject(destino, zoom), zoom, { duration: 0.5 });
   }, [activo, map]);
   useEffect(() => {
-    if (centrarEnUsuario > 0 && posicion) map.flyTo([posicion.lat, posicion.lng], Math.max(map.getZoom(), 15), { duration: 0.6 });
+    if (centrarEnUsuario > 0 && posicion) map.flyTo([posicion.lat, posicion.lng], Math.max(map.getZoom(), ZOOM_SIN_AGRUPAR), { duration: 0.6 });
     // Solo reacciona al pedido explícito de centrar, no a cada actualización del GPS.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [centrarEnUsuario, map]);
@@ -74,20 +84,31 @@ export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, onSe
         maxZoom={19}
       />
       <ZoomControl position="bottomright" />
-      {lugares.map((l) => {
-        const esActivo = activo?.id === l.id;
-        const ic = iconos.get(l.cat)!;
-        return (
-          <Marker
-            key={l.id}
-            position={[l.lat, l.lng]}
-            icon={esActivo ? ic.activo : ic.normal}
-            zIndexOffset={esActivo ? 1000 : 0}
-            eventHandlers={{ click: () => onSelect(l) }}
-            title={l.name}
-          />
-        );
-      })}
+      <MarkerClusterGroup
+        key={lugares.map((l) => l.id).join('|')} // el grupo se rehace cuando cambia el filtro
+        chunkedLoading
+        maxClusterRadius={56}
+        disableClusteringAtZoom={ZOOM_SIN_AGRUPAR}
+        spiderfyOnMaxZoom={false}
+        showCoverageOnHover={false}
+        zoomToBoundsOnClick
+        iconCreateFunction={iconoGrupo}
+      >
+        {lugares.map((l) => {
+          const esActivo = activo?.id === l.id;
+          const ic = iconos.get(l.cat)!;
+          return (
+            <Marker
+              key={l.id}
+              position={[l.lat, l.lng]}
+              icon={esActivo ? ic.activo : ic.normal}
+              zIndexOffset={esActivo ? 1000 : 0}
+              eventHandlers={{ click: () => onSelect(l) }}
+              title={l.name}
+            />
+          );
+        })}
+      </MarkerClusterGroup>
       {posicion && (
         <>
           <Circle center={[posicion.lat, posicion.lng]} radius={posicion.precision} pathOptions={{ color: '#1d6fd1', weight: 1, fillColor: '#1d6fd1', fillOpacity: 0.12 }} />

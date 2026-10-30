@@ -202,11 +202,24 @@ button { cursor: pointer; }
 
 /* Mapa */
 .zona-mapa { position: relative; min-height: 0; }
-.mapa { position: absolute; inset: 0; background: #dfe6ea; }
+.mapa { position: absolute; inset: 0; background: #e9ebe7; }
 .leaflet-container { font-family: var(--fuente-texto); }
-.pin { background: none; border: 0; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.35)); transition: transform 0.15s; }
+/* Mapa base atenuado: los pines de color quedan como protagonistas sobre un fondo casi neutro */
+.leaflet-tile-pane { filter: saturate(0.3) brightness(1.04) contrast(0.96); }
+.pin { background: none; border: 0; filter: drop-shadow(0 1px 2px rgba(20, 33, 61, 0.3)); transition: transform 0.15s; }
 .pin:hover { transform: translateY(-2px); }
-.pin--activo { z-index: 1000 !important; }
+.pin--activo { z-index: 1000 !important; filter: drop-shadow(0 3px 5px rgba(20, 33, 61, 0.4)); }
+/* Grupos de pines: círculo oscuro con la cantidad y un halo suave */
+.grupo {
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--tinta); color: #fff;
+  font-weight: 600; font-size: 13px; font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 0 5px rgba(20, 33, 61, 0.18), 0 2px 6px rgba(20, 33, 61, 0.3);
+  transition: transform 0.15s;
+}
+.grupo:hover { transform: scale(1.06); }
+.leaflet-control-zoom a { color: var(--tinta); }
 
 .btn-gps {
   position: absolute;
@@ -336,10 +349,10 @@ button { cursor: pointer; }
     padding: 0; border: 0; text-align: left;
     border-radius: 16px; overflow: hidden;
     background: var(--superficie); color: var(--texto);
-    box-shadow: 0 8px 24px rgba(20, 33, 61, 0.22);
+    box-shadow: 0 4px 16px rgba(20, 33, 61, 0.16);
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .ficha--activa { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(20, 33, 61, 0.32), 0 0 0 2px var(--acento); }
+  .ficha--activa { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(20, 33, 61, 0.24), 0 0 0 1.5px var(--acento); }
   .ficha__foto { position: relative; display: block; height: 118px; }
   .ficha__foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .ficha__cat {
