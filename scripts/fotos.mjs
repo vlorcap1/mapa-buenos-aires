@@ -162,6 +162,11 @@ const esRelevante = (lugar, tituloArchivo) => {
   const claves = PALABRAS_CLAVE[lugar.id] ?? normalizar(lugar.name).split(/[^a-z0-9]+/).filter((w) => w.length > 3);
   return claves.length === 0 || claves.some((w) => t.includes(w));
 };
+// Archivos de Commons elegidos a mano (encontrados en categorías; la búsqueda por texto no los devolvía).
+const ARCHIVOS_FIJOS = {
+  'la-cabrera': 'Parilla La Cabrera.jpg',
+  'la-mezzetta': 'LaMezzetta marzo2016.JPG',
+};
 // Lugares para los que ninguna búsqueda da una foto correcta (nombres demasiado genéricos): mejor sin foto que con una ajena.
 const SIN_BUSCAR = new Set(['sacro', 'napoles', 'la-brigada', 'presidente-bar', 'boticario', 'uptown']);
 const REHACER = new Set((process.argv.find((a) => a.startsWith('--rehacer='))?.slice(10) ?? '').split(',').filter(Boolean));
@@ -213,6 +218,10 @@ async function fotoEnCommons(lugar) {
 }
 
 async function imagenPrincipal(lugar) {
+  if (ARCHIVOS_FIJOS[lugar.id]) {
+    const f = await datosArchivo(ARCHIVOS_FIJOS[lugar.id]);
+    return f ? { ...f, titulo: `Commons (fijo): ${ARCHIVOS_FIJOS[lugar.id]}`, articulo: f.archivo } : null;
+  }
   const titulo = ARTICULOS[lugar.id] === undefined ? `${lugar.name} (Buenos Aires)` : ARTICULOS[lugar.id];
   if (titulo === null || BUSQUEDAS[lugar.id]) return fotoEnCommons(lugar);
   // 1) Artículo por título exacto; si no existe, búsqueda.

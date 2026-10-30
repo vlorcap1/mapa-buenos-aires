@@ -469,6 +469,16 @@
     "titulo": "Commons: File:Outdoor Cafe (Unsplash).jpg",
     "articulo": "https://commons.wikimedia.org/wiki/File:Outdoor_Cafe_(Unsplash).jpg"
   },
+  "la-mezzetta": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/LaMezzetta_marzo2016.JPG/960px-LaMezzetta_marzo2016.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "ancho": 900,
+    "alto": 672,
+    "autor": "Marianobarraco",
+    "licencia": "CC BY-SA 4.0",
+    "archivo": "https://commons.wikimedia.org/wiki/File:LaMezzetta_marzo2016.JPG",
+    "titulo": "Commons (fijo): LaMezzetta marzo2016.JPG",
+    "articulo": "https://commons.wikimedia.org/wiki/File:LaMezzetta_marzo2016.JPG"
+  },
   "pizzeria-angelin": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Pizza_de_Cancha_%28estilo_argentino%29_en_caja.jpg/960px-Pizza_de_Cancha_%28estilo_argentino%29_en_caja.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "ancho": 900,
@@ -528,16 +538,6 @@
     "archivo": "https://commons.wikimedia.org/wiki/File:Avenida_de_Mayo_Caf%C3%A9_Tortoni.jpg",
     "articulo": "https://es.wikipedia.org/wiki/Bares_notables",
     "titulo": "Bares notables"
-  },
-  "uptown": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Av_Alvear_-_Recoleta_%284728842941%29.jpg/960px-Av_Alvear_-_Recoleta_%284728842941%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "ancho": 900,
-    "alto": 598,
-    "autor": "Jorge Láscar from Australia",
-    "licencia": "CC BY 2.0",
-    "archivo": "https://commons.wikimedia.org/wiki/File:Av_Alvear_-_Recoleta_(4728842941).jpg",
-    "titulo": "Commons: File:Av Alvear - Recoleta (4728842941).jpg",
-    "articulo": "https://commons.wikimedia.org/wiki/File:Av_Alvear_-_Recoleta_(4728842941).jpg"
   },
   "cafe-paulin": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Caf%C3%A9_Paulin.jpg/960px-Caf%C3%A9_Paulin.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
