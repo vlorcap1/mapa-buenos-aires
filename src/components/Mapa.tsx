@@ -55,10 +55,9 @@ export default function Mapa({ lugares, seleccionado, posicion, centrarEnUsuario
   return (
     <MapContainer center={CENTRO_BUENOS_AIRES} zoom={13} minZoom={10} zoomControl={false} className="mapa" attributionControl>
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-        subdomains="abcd"
-        maxZoom={20}
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">colaboradores de OpenStreetMap</a>'
+        url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+        maxZoom={19}
       />
       <ZoomControl position="bottomright" />
       {lugares.map((l) => {
