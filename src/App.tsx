@@ -4,6 +4,7 @@ import Mapa from './components/Mapa';
 import Filtros from './components/Filtros';
 import TarjetaLugar from './components/TarjetaLugar';
 import DetalleLugar from './components/DetalleLugar';
+import Carrusel from './components/Carrusel';
 import { useGeolocalizacion } from './hooks/useGeolocalizacion';
 import { LUGARES } from './data/lugares';
 import { distanciaKm } from './lib/geo';
@@ -21,7 +22,8 @@ const MENSAJE_GPS: Record<string, string> = {
 export default function App() {
   const [activas, setActivas] = useState<Set<CategoriaId>>(new Set());
   const [busqueda, setBusqueda] = useState('');
-  const [seleccionado, setSeleccionado] = useState<Lugar | null>(null);
+  const [seleccionado, setSeleccionado] = useState<Lugar | null>(null); // detalle abierto
+  const [resaltado, setResaltado] = useState<Lugar | null>(null); // pin resaltado desde el carrusel (móvil)
   const [ordenarPorCercania, setOrdenarPorCercania] = useState(false);
   const [centrarEnUsuario, setCentrarEnUsuario] = useState(0);
   const [vistaMovil, setVistaMovil] = useState<'mapa' | 'lista'>('mapa');
@@ -50,14 +52,16 @@ export default function App() {
     return lista;
   }, [conDistancia, activas, busqueda, ordenarPorCercania, posicion]);
 
+  const activo = seleccionado ?? resaltado;
   const distSeleccionado = seleccionado && posicion ? distanciaKm(posicion.lat, posicion.lng, seleccionado.lat, seleccionado.lng) : null;
 
-  // Si el lugar seleccionado deja de estar visible por el filtro, se cierra el detalle.
+  // Si el lugar activo deja de estar visible por el filtro, se cierra el detalle y se quita el resaltado.
   useEffect(() => {
     if (seleccionado && !visibles.some((v) => v.lugar.id === seleccionado.id)) setSeleccionado(null);
-  }, [visibles, seleccionado]);
+    if (resaltado && !visibles.some((v) => v.lugar.id === resaltado.id)) setResaltado(null);
+  }, [visibles, seleccionado, resaltado]);
 
-  // Al seleccionar desde el mapa, la tarjeta correspondiente se desplaza a la vista.
+  // Al seleccionar desde el mapa, la tarjeta correspondiente de la lista se desplaza a la vista.
   useEffect(() => {
     if (seleccionado) document.getElementById(`tarjeta-${seleccionado.id}`)?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }, [seleccionado]);
@@ -78,13 +82,14 @@ export default function App() {
 
   const onSelect = (l: Lugar) => {
     setSeleccionado(l);
+    setResaltado(l);
     setVistaMovil('mapa');
   };
 
   const gpsActivo = estado === 'activo' && posicion;
 
   return (
-    <div className={`app app--${vistaMovil}`}>
+    <div className={`app app--${vistaMovil} ${seleccionado ? 'app--detalle' : ''}`}>
       <header className="cabecera">
         <div className="cabecera__marca">
           <MapPin size={22} aria-hidden="true" />
@@ -139,7 +144,7 @@ export default function App() {
         </section>
 
         <section className="zona-mapa" aria-label="Mapa">
-          <Mapa lugares={visibles.map((v) => v.lugar)} seleccionado={seleccionado} posicion={posicion} centrarEnUsuario={centrarEnUsuario} onSelect={onSelect} />
+          <Mapa lugares={visibles.map((v) => v.lugar)} activo={activo} posicion={posicion} centrarEnUsuario={centrarEnUsuario} onSelect={onSelect} />
 
           <button
             type="button"
@@ -158,6 +163,8 @@ export default function App() {
             </div>
           )}
 
+          <Carrusel items={visibles} activoId={activo?.id ?? null} onResaltar={setResaltado} onAbrir={onSelect} />
+
           {seleccionado && <DetalleLugar lugar={seleccionado} posicion={posicion} distanciaKm={distSeleccionado} onCerrar={() => setSeleccionado(null)} />}
         </section>
       </main>
@@ -168,6 +175,7 @@ export default function App() {
         </button>
         <button type="button" className={vistaMovil === 'lista' ? 'on' : ''} onClick={() => setVistaMovil('lista')}>
           <List size={20} aria-hidden="true" /> Lista
+          <span className="barra-movil__n">{visibles.length}</span>
         </button>
       </nav>
     </div>
