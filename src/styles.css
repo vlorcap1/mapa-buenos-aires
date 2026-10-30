@@ -300,11 +300,10 @@ button { cursor: pointer; }
 
 @media (max-width: 860px) {
   .app { grid-template-rows: auto auto minmax(0, 1fr) auto; }
-  .cabecera { flex-direction: column; align-items: stretch; gap: 8px; padding-block: 8px; }
-  .cabecera__marca h1 { font-size: 18px; }
-  .cabecera__marca svg { width: 20px; height: 20px; }
+  /* En el celular la cabecera es solo el buscador; el título queda para la pestaña del navegador */
+  .cabecera { padding-block: 6px; }
+  .cabecera__marca { display: none; }
   .buscador { flex: 1 1 auto; padding: 6px 12px; }
-  .cabecera__marca p { display: none; }
   .filtros { padding-block: 8px; }
   .chip { padding: 5px 10px; font-size: 13px; }
   .cuerpo { grid-template-columns: minmax(0, 1fr); }
