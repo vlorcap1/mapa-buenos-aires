@@ -30,6 +30,7 @@ export interface Lugar {
   lng: number;
   desc: string;
   foto?: Foto;
+  web?: string; // sitio oficial o artículo de Wikipedia para "Más información"
 }
 
 export interface Posicion {
