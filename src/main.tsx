@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'leaflet/dist/leaflet.css';
-import 'react-leaflet-cluster/lib/assets/MarkerCluster.css'; // solo las animaciones de agrupar; el estilo es propio
 import './styles.css';
 import App from './App';
 

@@ -209,16 +209,11 @@ button { cursor: pointer; }
 .pin { background: none; border: 0; filter: drop-shadow(0 1px 2px rgba(20, 33, 61, 0.3)); transition: transform 0.15s; }
 .pin:hover { transform: translateY(-2px); }
 .pin--activo { z-index: 1000 !important; filter: drop-shadow(0 3px 5px rgba(20, 33, 61, 0.4)); }
-/* Grupos de pines: círculo oscuro con la cantidad y un halo suave */
-.grupo {
-  display: grid; place-items: center;
-  border-radius: 50%;
-  background: var(--tinta); color: #fff;
-  font-weight: 600; font-size: 13px; font-variant-numeric: tabular-nums;
-  box-shadow: 0 0 0 5px rgba(20, 33, 61, 0.18), 0 2px 6px rgba(20, 33, 61, 0.3);
-  transition: transform 0.15s;
-}
-.grupo:hover { transform: scale(1.06); }
+/* Con el mapa alejado los pines se achican (la punta queda fija en su lugar); al acercar vuelven a su tamaño */
+.pin svg { display: block; transform-origin: 50% 100%; transition: transform 0.25s; }
+.zoom-medio .pin svg { transform: scale(0.8); }
+.zoom-lejos .pin svg { transform: scale(0.62); }
+.zoom-medio .pin--activo svg, .zoom-lejos .pin--activo svg { transform: scale(1); }
 .leaflet-control-zoom a { color: var(--tinta); }
 
 .btn-gps {
