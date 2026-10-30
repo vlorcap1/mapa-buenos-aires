@@ -21,7 +21,15 @@ npm run preview    # sirve dist/ en http://localhost:4177
 - `npm run geocode`: verifica cada coordenada contra Nominatim (OpenStreetMap) y escribe `data/lugares.json`, que es lo que carga la app.
 - `scripts/geocode-retry.mjs`: segundo intento por dirección postal para los que no se encontraron por nombre.
 
-Para agregar un lugar: añadí una fila al TSV, corré `npm run geocode` y volvé a compilar.
+Para agregar un lugar: añadí una fila al TSV, corré `npm run geocode` (solo procesa las filas nuevas; `--todo` rehace todas) y volvé a compilar.
+
+## Fotos
+
+- `npm run fotos` (`scripts/fotos.mjs`): imagen principal del artículo de Wikipedia en español o búsqueda en Wikimedia Commons, con autor y licencia. Escribe `data/fotos.json`. Mapas `ARTICULOS`, `BUSQUEDAS`, `ARCHIVOS_FIJOS` y `SIN_BUSCAR` para afinar casos; `--rehacer=id1,id2` repite lugares puntuales.
+- `scripts/fotos-web.mjs`: para locales sin foto libre, toma la foto más grande del sitio oficial (lista candidatas; `--aplicar` las guarda con crédito "sitio oficial de …" y enlace al sitio). Son imágenes promocionales de cada local, no libres: se usan como vista previa con enlace, igual que una red social.
+- `scripts/openverse.mjs`: búsqueda alternativa de fotos Creative Commons (Flickr y otras fuentes) vía Openverse.
+
+Las fotos se muestran desde su origen (hotlink), no se copian al repositorio.
 
 ## Publicar en GitHub Pages
 

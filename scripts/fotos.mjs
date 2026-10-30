@@ -135,6 +135,29 @@ const ARTICULOS = {
   'teatro-astral': 'Teatro Astral',
   'paseo-la-plaza': 'Paseo La Plaza',
   'teatro-maipo': 'Teatro Maipo',
+  'cementerio-de-la-chacarita': 'Cementerio de la Chacarita',
+  'el-zanjon-de-granados': 'El Zanjón de Granados',
+  'casa-minima': 'Casa Mínima',
+  'palacio-de-aguas-corrientes': 'Palacio de Aguas Corrientes',
+  'parque-de-la-memoria': 'Parque de la Memoria',
+  'mercado-de-las-pulgas': 'Mercado de las Pulgas (Buenos Aires)',
+  'parque-chas': 'Parque Chas',
+  'pasaje-rivarola': 'Pasaje Rivarola',
+  'patio-del-liceo': null,
+  'barrio-rawson': 'Barrio Rawson',
+  'tranvia-historico-de-caballito': 'Tranvía Histórico de Buenos Aires',
+  'basilica-maria-auxiliadora-y-san-carlos': 'Basílica de María Auxiliadora y San Carlos',
+  'museo-casa-carlos-gardel': 'Museo Casa Carlos Gardel',
+  'pasaje-roverano': 'Pasaje Roverano',
+  'mercado-de-belgrano': 'Mercado de Belgrano',
+  'bar-de-cao': 'Bar de Cao',
+  'confiteria-del-molino': 'Confitería del Molino',
+  'centro-cultural-matienzo': null,
+  'niceto-club': 'Niceto Club',
+  'los-36-billares': 'Los 36 Billares',
+  'galeria-bond-street': 'Galería Bond Street',
+  'mirador-comega': 'Edificio Comega',
+  'museo-de-arte-popular-jose-hernandez': 'Museo de Arte Popular José Hernández',
 };
 
 // Búsqueda personalizada en Commons cuando la imagen del artículo es un logo o la búsqueda por nombre falla.
@@ -148,6 +171,12 @@ const BUSQUEDAS = {
   'villa-crespo': 'Villa Crespo Avenida Corrientes Buenos Aires',
   'catedral-metropolitana': 'Catedral Metropolitana de Buenos Aires fachada',
   'teatro-nacional': 'Teatro Nacional Avenida Corrientes Buenos Aires',
+  'tranvia-historico-de-caballito': 'Tranvía histórico Caballito Buenos Aires',
+  'mercado-de-belgrano': 'Mercado de Belgrano Juramento Buenos Aires',
+  'bar-de-cao': 'Bar de Cao Independencia Buenos Aires',
+  'niceto-club': 'Niceto Club Palermo Buenos Aires',
+  'patio-del-liceo': 'Patio del Liceo Santa Fe Buenos Aires',
+  'galeria-bond-street': 'Galería Bond Street Buenos Aires',
 };
 // Palabras del nombre que deben aparecer en el título del archivo para aceptarlo (evita fotos de otra cosa).
 const normalizar = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -156,6 +185,8 @@ const PALABRAS_CLAVE = {
   'la-brigada': ['brigada'], 'pizzeria-banchero': ['banchero'], 'floreria-atlantico': ['floreria', 'atlantico'],
   'villa-crespo': ['villa crespo', 'crespo'], 'catedral-metropolitana': ['catedral'],
   'teatro-nacional': ['teatro nacional'], napoles: ['napoles'], 'el-nino-gordo': ['nino gordo'],
+  'tranvia-historico-de-caballito': ['tranvia', 'tramway', 'tram'], 'mercado-de-belgrano': ['mercado de belgrano', 'mercado belgrano'],
+  'bar-de-cao': ['cao'], 'niceto-club': ['niceto'], 'patio-del-liceo': ['liceo'], 'galeria-bond-street': ['bond street', 'bond'],
 };
 const esRelevante = (lugar, tituloArchivo) => {
   const t = normalizar(tituloArchivo);
@@ -166,6 +197,7 @@ const esRelevante = (lugar, tituloArchivo) => {
 const ARCHIVOS_FIJOS = {
   'la-cabrera': 'Parilla La Cabrera.jpg',
   'la-mezzetta': 'LaMezzetta marzo2016.JPG',
+  'tranvia-historico-de-caballito': 'Tranvía Histórico de Buenos Aires 02.jpg',
 };
 // Lugares para los que ninguna búsqueda da una foto correcta (nombres demasiado genéricos): mejor sin foto que con una ajena.
 const SIN_BUSCAR = new Set(['sacro', 'napoles', 'la-brigada', 'presidente-bar', 'boticario', 'uptown']);

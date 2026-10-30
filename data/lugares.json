@@ -1288,5 +1288,235 @@
     "lng": -58.377968,
     "desc": "Templo de la revista porteña desde 1908, a media cuadra de Corrientes. Hoy musicales y conciertos.",
     "src": "osm (0.09 km)"
+  },
+  {
+    "id": "cementerio-de-la-chacarita",
+    "cat": "sightseeing",
+    "name": "Cementerio de la Chacarita",
+    "barrio": "Chacarita",
+    "lat": -34.585999,
+    "lng": -58.458861,
+    "desc": "El cementerio más grande del país, mucho menos visitado que Recoleta: tumbas de Gardel, Cerati, Alfonsina Storni y panteones monumentales bajo tierra.",
+    "src": "osm (0.24 km)"
+  },
+  {
+    "id": "el-zanjon-de-granados",
+    "cat": "sightseeing",
+    "name": "El Zanjón de Granados",
+    "barrio": "San Telmo",
+    "lat": -34.616663,
+    "lng": -58.371798,
+    "desc": "Túneles y cisternas del siglo XVIII descubiertos bajo una casona de 1830. La visita guiada es de las mejor valoradas de la ciudad.",
+    "src": "osm (0.15 km)"
+  },
+  {
+    "id": "casa-minima",
+    "cat": "photospot",
+    "name": "Casa Mínima",
+    "barrio": "San Telmo",
+    "lat": -34.616585,
+    "lng": -58.371095,
+    "desc": "La casa más angosta de Buenos Aires: 2,5 metros de frente en un pasaje empedrado. Se visita junto con el Zanjón.",
+    "src": "osm (0.15 km)"
+  },
+  {
+    "id": "palacio-de-aguas-corrientes",
+    "cat": "sightseeing",
+    "name": "Palacio de Aguas Corrientes",
+    "barrio": "Balvanera",
+    "lat": -34.600484,
+    "lng": -58.394597,
+    "desc": "Un depósito de agua disfrazado de palacio francés con 300.000 cerámicas inglesas. Museo del Agua gratuito en el primer piso.",
+    "src": "osm (0.34 km)"
+  },
+  {
+    "id": "parque-de-la-memoria",
+    "cat": "park",
+    "name": "Parque de la Memoria",
+    "barrio": "Núñez",
+    "lat": -34.539411,
+    "lng": -58.442236,
+    "desc": "Paseo de esculturas junto al río con el Monumento a las Víctimas del Terrorismo de Estado. Silencioso y conmovedor.",
+    "src": "osm (0.25 km)"
+  },
+  {
+    "id": "mercado-de-las-pulgas",
+    "cat": "shop",
+    "name": "Mercado de las Pulgas",
+    "barrio": "Colegiales",
+    "lat": -34.58239,
+    "lng": -58.444626,
+    "desc": "Galpón enorme de antigüedades, muebles y objetos vintage. Ideal para pasear aunque no compres.",
+    "src": "osm (0.23 km)"
+  },
+  {
+    "id": "parque-chas",
+    "cat": "area",
+    "name": "Parque Chas",
+    "barrio": "Parque Chas",
+    "lat": -34.5855,
+    "lng": -58.479,
+    "desc": "Barrio laberinto de calles circulares con nombres de ciudades europeas. Perderse es parte del plan.",
+    "src": "estimada"
+  },
+  {
+    "id": "pasaje-rivarola",
+    "cat": "photospot",
+    "name": "Pasaje Rivarola",
+    "barrio": "San Nicolás",
+    "lat": -34.6075,
+    "lng": -58.391,
+    "desc": "Una cuadra de edificios simétricos de 1926 idénticos a ambos lados, como un decorado de París. Frente a la Plaza del Congreso.",
+    "src": "estimada"
+  },
+  {
+    "id": "patio-del-liceo",
+    "cat": "shop",
+    "name": "Patio del Liceo",
+    "barrio": "Recoleta",
+    "lat": -34.593024,
+    "lng": -58.405329,
+    "desc": "Galería comercial reconvertida en patio de arte: locales de diseño, librería, discos y muestras. Entrada discreta sobre Santa Fe.",
+    "src": "osm (0.17 km)"
+  },
+  {
+    "id": "barrio-rawson",
+    "cat": "area",
+    "name": "Barrio Rawson",
+    "barrio": "Agronomía",
+    "lat": -34.5945,
+    "lng": -58.483,
+    "desc": "Conjunto de casitas de los años 30 entre jardines donde vivió Julio Cortázar. Parece un pueblo dentro de la ciudad.",
+    "src": "estimada"
+  },
+  {
+    "id": "tranvia-historico-de-caballito",
+    "cat": "activity",
+    "name": "Tranvía Histórico de Caballito",
+    "barrio": "Caballito",
+    "lat": -34.6191,
+    "lng": -58.4448,
+    "desc": "Paseo gratuito en tranvías de los años 20 por las calles del Barrio Inglés, los fines de semana por la tarde.",
+    "src": "manual (Emilio Mitre y Directorio, Barrio Inglés)"
+  },
+  {
+    "id": "basilica-maria-auxiliadora-y-san-carlos",
+    "cat": "sightseeing",
+    "name": "Basílica María Auxiliadora y San Carlos",
+    "barrio": "Almagro",
+    "lat": -34.614297,
+    "lng": -58.422892,
+    "desc": "Iglesia de 1910 donde Gardel fue monaguillo, con interior monumental que pocos turistas conocen.",
+    "src": "osm (0.33 km)"
+  },
+  {
+    "id": "museo-casa-carlos-gardel",
+    "cat": "museum",
+    "name": "Museo Casa Carlos Gardel",
+    "barrio": "Balvanera",
+    "lat": -34.601673,
+    "lng": -58.407812,
+    "desc": "La casa que Gardel compró para su madre, en el Abasto. Murales del Zorzal en todo el barrio.",
+    "src": "osm (0.17 km)"
+  },
+  {
+    "id": "pasaje-roverano",
+    "cat": "photospot",
+    "name": "Pasaje Roverano",
+    "barrio": "Monserrat",
+    "lat": -34.608692,
+    "lng": -58.374322,
+    "desc": "Galería de 1878 con acceso directo al subte A y vitrinas de otra época. Parada rápida en Avenida de Mayo.",
+    "src": "osm (0.07 km)"
+  },
+  {
+    "id": "mercado-de-belgrano",
+    "cat": "shop",
+    "name": "Mercado de Belgrano",
+    "barrio": "Belgrano",
+    "lat": -34.562619,
+    "lng": -58.458279,
+    "desc": "Mercado de barrio de 1891 con puestos de pescado, quesos y verduras, y un patio de comidas de calidad.",
+    "src": "osm (0.18 km)"
+  },
+  {
+    "id": "bar-de-cao",
+    "cat": "cafe",
+    "name": "Bar de Cao",
+    "barrio": "San Cristóbal",
+    "lat": -34.618686,
+    "lng": -58.399917,
+    "desc": "Almacén y bar de 1915 con estanterías originales. Picadas y vermut lejos del circuito turístico.",
+    "src": "osm (0.20 km)"
+  },
+  {
+    "id": "confiteria-del-molino",
+    "cat": "sightseeing",
+    "name": "Confitería del Molino",
+    "barrio": "Balvanera",
+    "lat": -34.6093,
+    "lng": -58.392,
+    "desc": "Edificio art nouveau de 1916 frente al Congreso, restaurado tras décadas cerrado. Visitas guiadas gratuitas.",
+    "src": "estimada"
+  },
+  {
+    "id": "centro-cultural-matienzo",
+    "cat": "culture",
+    "name": "Centro Cultural Matienzo",
+    "barrio": "Villa Crespo",
+    "lat": -34.597334,
+    "lng": -58.426255,
+    "desc": "Casa cultural autogestionada con terraza, recitales, ciclos de cine y feria. Programación barata y variada.",
+    "src": "osm (0.19 km)"
+  },
+  {
+    "id": "niceto-club",
+    "cat": "culture",
+    "name": "Niceto Club",
+    "barrio": "Palermo",
+    "lat": -34.587306,
+    "lng": -58.43873,
+    "desc": "Club de música en vivo y fiestas, sede de Club 69 los jueves. Donde salen los porteños.",
+    "src": "osm (0.16 km)"
+  },
+  {
+    "id": "los-36-billares",
+    "cat": "bar",
+    "name": "Los 36 Billares",
+    "barrio": "Monserrat",
+    "lat": -34.6089,
+    "lng": -58.3857,
+    "desc": "Bar notable de 1894 con mesas de billar en el subsuelo y show de tango. Avenida de Mayo auténtica.",
+    "src": "manual (Av. de Mayo 1265)"
+  },
+  {
+    "id": "galeria-bond-street",
+    "cat": "shop",
+    "name": "Galería Bond Street",
+    "barrio": "Recoleta",
+    "lat": -34.595939,
+    "lng": -58.391394,
+    "desc": "Galería de cultura skater, tatuajes y ropa alternativa desde los 80. El lado menos elegante de Recoleta.",
+    "src": "osm (0.05 km)"
+  },
+  {
+    "id": "mirador-comega",
+    "cat": "bar",
+    "name": "Mirador Comega",
+    "barrio": "San Nicolás",
+    "lat": -34.603283,
+    "lng": -58.370537,
+    "desc": "Bar en el piso 19 de un edificio racionalista de 1934, con vista al río y a Puerto Madero. Ideal al atardecer.",
+    "src": "osm (0.09 km)"
+  },
+  {
+    "id": "museo-de-arte-popular-jose-hernandez",
+    "cat": "museum",
+    "name": "Museo de Arte Popular José Hernández",
+    "barrio": "Palermo",
+    "lat": -34.579603,
+    "lng": -58.404872,
+    "desc": "Platería criolla, textiles y artesanías de todo el país en una casona de Palermo Chico. Feria de artesanos los fines de semana.",
+    "src": "osm (0.40 km)"
   }
 ]
