@@ -33,10 +33,12 @@ export const ESTACIONES_GEOJSON: GeoJSON.FeatureCollection<GeoJSON.Point> = {
 };
 
 /** Leyenda: subte y premetro con su letra y color; los trenes van juntos con un solo color. */
-export const LEYENDA = [
+export const LEYENDA: { etiqueta: string; color: string; titulo?: string }[] = [
   ...['A', 'B', 'C', 'D', 'E', 'H'].map((l) => ({ etiqueta: l, color: ESTACIONES.find((e) => e.linea === l)?.color ?? '#888' })),
   { etiqueta: 'P', color: ESTACIONES.find((e) => e.tipo === 'premetro')?.color ?? '#F38733' },
   { etiqueta: 'Tren', color: ESTACIONES.find((e) => e.tipo === 'tren')?.color ?? '#5b6b80' },
+  { etiqueta: 'Tur', color: '#f2b705', titulo: 'Bus turístico amarillo' },
+  { etiqueta: 'Tur', color: '#d62828', titulo: 'Bus turístico rojo' },
 ];
 
 const PRIORIDAD: Record<TipoTransporte, number> = { subte: 0, premetro: 1, tren: 2 };

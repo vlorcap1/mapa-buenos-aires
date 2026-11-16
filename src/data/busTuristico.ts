@@ -1,6 +1,10 @@
-// Atracciones del mapa que son parada de los buses turísticos hop-on hop-off, según la lista oficial de
-// Buenos Aires Travel (turismo.buenosaires.gob.ar/es/article/bus-turistico, consultada en noviembre de 2026).
-// La fuente nombra atracciones, no paradas con dirección: se marcan los lugares del mapa que corresponden a cada una.
+import datos from '../../data/bus-turistico.json';
+import { distanciaKm } from '../lib/geo';
+
+// Buses turísticos hop-on hop-off (data/bus-turistico.json):
+// - amarillo (Buenos Aires Bus): paradas y trazado publicados por el operador en buenosairesbus.com/seguimiento.
+// - rojo (Buenos Aires City Bus): el operador solo publica un mapa en imagen; las paradas están ubicadas por la
+//   atracción o plaza que marca ese mapa (aproximadas) y no hay trazado.
 export interface CircuitoTuristico {
   id: 'amarillo' | 'rojo';
   nombre: string;
@@ -10,22 +14,37 @@ export interface CircuitoTuristico {
   lugarId: string; // punto de partida, cargado como lugar en el mapa
 }
 
+export interface ParadaTuristica { n: number; nombre: string; lat: number; lng: number }
+
 export const CIRCUITOS: CircuitoTuristico[] = [
-  { id: 'amarillo', nombre: 'Bus turístico amarillo', operador: 'Buenos Aires Bus', color: '#face27', texto: '#14213d', lugarId: 'bus-turistico-amarillo' },
+  { id: 'amarillo', nombre: 'Bus turístico amarillo', operador: 'Buenos Aires Bus', color: '#f2b705', texto: '#14213d', lugarId: 'bus-turistico-amarillo' },
   { id: 'rojo', nombre: 'Bus turístico rojo', operador: 'Buenos Aires City Bus', color: '#d62828', texto: '#ffffff', lugarId: 'bus-turistico-rojo' },
 ];
 
-const AMBOS = ['congreso-de-la-nacion', 'confiteria-del-molino', 'plaza-dorrego-y-feria-de-san-telmo', 'la-bombonera', 'caminito', 'museo-quinquela-martin', 'reserva-ecologica', 'puerto-madero', 'fragata-sarmiento', 'puente-de-la-mujer', 'galerias-pacifico', 'plaza-san-martin', 'malba', 'planetario-galileo-galilei', 'monumento-a-los-espanoles', 'museo-nacional-de-bellas-artes', 'teatro-colon', 'visita-guiada-al-teatro-colon'];
-const SOLO_AMARILLO = ['cementerio-de-la-recoleta', 'plaza-francia', 'centro-cultural-recoleta', 'plaza-de-mayo', 'casa-rosada', 'cabildo', 'catedral-metropolitana', 'cafe-tortoni', 'palacio-barolo', 'parque-lezama', 'obelisco', 'ecoparque', 'palermo-soho', 'villa-crespo', 'distrito-arcos', 'bosques-de-palermo', 'paseo-en-bote-en-el-rosedal', 'bus-turistico-amarillo'];
-const SOLO_ROJO = ['usina-del-arte', 'el-ateneo-grand-splendid', 'torre-monumental', 'floralis-generica', 'parque-de-la-memoria', 'estadio-monumental', 'barrio-chino', 'campo-argentino-de-polo', 'museo-de-arte-decorativo', 'bus-turistico-rojo'];
+const DATOS = datos.circuitos as { id: CircuitoTuristico['id']; aproximado?: boolean; paradas: ParadaTuristica[]; trazado?: [number, number][] }[];
 
-const PARADAS = new Map<string, CircuitoTuristico['id'][]>();
-for (const id of AMBOS) PARADAS.set(id, ['amarillo', 'rojo']);
-for (const id of SOLO_AMARILLO) PARADAS.set(id, ['amarillo']);
-for (const id of SOLO_ROJO) PARADAS.set(id, ['rojo']);
+/** Trazado del circuito amarillo y paradas de ambos, como GeoJSON para la capa del mapa. */
+export const BUS_TURISTICO_GEOJSON: GeoJSON.FeatureCollection = {
+  type: 'FeatureCollection',
+  features: DATOS.flatMap((c) => {
+    const color = CIRCUITOS.find((x) => x.id === c.id)!.color;
+    const paradas: GeoJSON.Feature[] = c.paradas.map((p) => ({
+      type: 'Feature',
+      properties: { tipo: 'parada', circuito: c.id, color, n: String(p.n), nombre: p.nombre },
+      geometry: { type: 'Point', coordinates: [p.lng, p.lat] },
+    }));
+    const trazado: GeoJSON.Feature[] = c.trazado ? [{ type: 'Feature', properties: { tipo: 'trazado', circuito: c.id, color }, geometry: { type: 'LineString', coordinates: c.trazado } }] : [];
+    return [...trazado, ...paradas];
+  }),
+};
 
-/** Circuitos de bus turístico que paran en este lugar. */
-export function circuitosEn(lugarId: string): CircuitoTuristico[] {
-  const ids = PARADAS.get(lugarId) ?? [];
-  return CIRCUITOS.filter((c) => ids.includes(c.id));
+const RADIO_KM = 0.35;
+
+/** Para cada circuito, su parada más cercana al lugar si está a menos de 350 m. */
+export function paradasTuristicasCerca(lat: number, lng: number): { circuito: CircuitoTuristico; parada: ParadaTuristica; distKm: number; aproximada: boolean }[] {
+  return DATOS.flatMap((c) => {
+    const [mejor] = c.paradas.map((p) => ({ p, d: distanciaKm(lat, lng, p.lat, p.lng) })).sort((a, b) => a.d - b.d);
+    if (!mejor || mejor.d > RADIO_KM) return [];
+    return [{ circuito: CIRCUITOS.find((x) => x.id === c.id)!, parada: mejor.p, distKm: mejor.d, aproximada: !!c.aproximado }];
+  });
 }

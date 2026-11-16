@@ -3,7 +3,7 @@ import { CATEGORIA_POR_ID } from '../data/categorias';
 import { formatoDistancia, minutosCaminando, urlComoLlegar } from '../lib/geo';
 import { estacionesCercanas } from '../data/transporte';
 import ColectivosDirectos from './ColectivosDirectos';
-import { circuitosEn } from '../data/busTuristico';
+import { paradasTuristicasCerca } from '../data/busTuristico';
 import type { Viaje } from '../lib/colectivos';
 import type { Lugar, Posicion } from '../types';
 
@@ -30,7 +30,7 @@ export default function DetalleLugar({ lugar, posicion, distanciaKm, onCerrar, o
   const masInfo = lugar.web ?? `https://www.google.com/search?q=${encodeURIComponent(lugar.name + ' Buenos Aires')}`;
   const esWikipedia = /wikipedia\.org/.test(masInfo);
   const estaciones = estacionesCercanas(lugar.lat, lugar.lng);
-  const circuitos = circuitosEn(lugar.id);
+  const paradasTur = paradasTuristicasCerca(lugar.lat, lugar.lng);
   return (
     <aside className={`detalle ${lugar.foto ? 'detalle--con-foto' : ''}`} aria-label={`Detalle de ${lugar.name}`}>
       {!lugar.foto && <div className="detalle__barra" style={{ background: cat.color }} />}
@@ -57,19 +57,18 @@ export default function DetalleLugar({ lugar, posicion, distanciaKm, onCerrar, o
         </div>
         <h2 className="detalle__titulo">{lugar.name}</h2>
         <p className="detalle__desc">{lugar.desc}</p>
-        {circuitos.length > 0 && !lugar.id.startsWith('bus-turistico') && (
-          <p className="bus-turistico">
-            Parada del{' '}
-            {circuitos.map((c, i) => (
-              <span key={c.id}>
-                {i > 0 && ' y del '}
-                <span className="bus-turistico__chip" style={{ background: c.color, color: c.texto }} title={c.operador}>
-                  {c.nombre.replace('Bus turístico ', 'bus ')}
-                </span>
-              </span>
-            ))}{' '}
-            (hop-on hop-off)
-          </p>
+        {paradasTur.length > 0 && (
+          <ul className="bus-turistico" aria-label="Bus turístico hop-on hop-off">
+            {paradasTur.map(({ circuito, parada, distKm, aproximada }) => (
+              <li key={circuito.id}>
+                <span className="bus-turistico__chip" style={{ background: circuito.color, color: circuito.texto }} title={circuito.operador}>
+                  {circuito.nombre.replace('Bus turístico ', 'Bus ')} · parada {parada.n}
+                </span>{' '}
+                {parada.nombre}
+                {distKm >= 0.05 ? `, a ${aproximada ? '~' : ''}${formatoDistancia(distKm)}` : ''}
+              </li>
+            ))}
+          </ul>
         )}
         {distanciaKm !== null && (
           <p className="detalle__dist">

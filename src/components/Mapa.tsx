@@ -5,6 +5,7 @@ import { CATEGORIA_POR_ID, trazosSvg, type Categoria } from '../data/categorias'
 import { CENTRO_BUENOS_AIRES } from '../data/lugares';
 import { crearEstilo, registrarProtocolo } from '../lib/mapaOffline';
 import { ESTACIONES_GEOJSON, LINEAS_TRANSPORTE } from '../data/transporte';
+import { BUS_TURISTICO_GEOJSON } from '../data/busTuristico';
 import type { Lugar, Posicion } from '../types';
 import type { Viaje } from '../lib/colectivos';
 
@@ -42,7 +43,7 @@ function circulo(lng: number, lat: number, radio: number): GeoJSON.Feature<GeoJS
   return { type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [pts] } };
 }
 
-const CAPAS_TRANSPORTE = ['tr-trenes', 'tr-subte-borde', 'tr-subte', 'tr-estaciones', 'tr-nombres'];
+const CAPAS_TRANSPORTE = ['tr-trenes', 'tr-subte-borde', 'tr-subte', 'tr-estaciones', 'tr-nombres', 'bt-trazado-borde', 'bt-trazado', 'bt-paradas', 'bt-numeros'];
 
 // Capa de transporte: líneas debajo de los nombres de calles del mapa base; estaciones y sus nombres encima.
 function agregarCapaTransporte(m: maplibregl.Map, visible: boolean) {
@@ -67,6 +68,30 @@ function agregarCapaTransporte(m: maplibregl.Map, visible: boolean) {
     layout: { visibility, 'line-cap': 'round', 'line-join': 'round' },
     paint: { 'line-color': ['get', 'color'], 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1.5, 14, 4, 17, 7] },
   }, debajoDeEtiquetas);
+  // Bus turístico: trazado del amarillo (el rojo no publica recorrido) y paradas numeradas de ambos circuitos.
+  m.addSource('bus-turistico', { type: 'geojson', data: BUS_TURISTICO_GEOJSON });
+  const esTrazado = ['==', ['get', 'tipo'], 'trazado'] as maplibregl.FilterSpecification;
+  const esParada = ['==', ['get', 'tipo'], 'parada'] as maplibregl.FilterSpecification;
+  m.addLayer({
+    id: 'bt-trazado-borde', type: 'line', source: 'bus-turistico', filter: esTrazado,
+    layout: { visibility, 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': '#7a5b00', 'line-opacity': 0.35, 'line-width': ['interpolate', ['linear'], ['zoom'], 11, 3.5, 15, 7.5] },
+  }, debajoDeEtiquetas);
+  m.addLayer({
+    id: 'bt-trazado', type: 'line', source: 'bus-turistico', filter: esTrazado,
+    layout: { visibility, 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': ['get', 'color'], 'line-width': ['interpolate', ['linear'], ['zoom'], 11, 2, 15, 4.5], 'line-dasharray': [2, 1] },
+  }, debajoDeEtiquetas);
+  m.addLayer({
+    id: 'bt-paradas', type: 'circle', source: 'bus-turistico', filter: esParada, minzoom: 11.5,
+    layout: { visibility },
+    paint: { 'circle-color': ['get', 'color'], 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1.5, 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 5, 15, 9] },
+  });
+  m.addLayer({
+    id: 'bt-numeros', type: 'symbol', source: 'bus-turistico', filter: esParada, minzoom: 13,
+    layout: { visibility, 'text-field': ['get', 'n'], 'text-font': ['Noto Sans Medium'], 'text-size': 10.5, 'text-allow-overlap': true },
+    paint: { 'text-color': ['case', ['==', ['get', 'circuito'], 'amarillo'], '#14213d', '#ffffff'] },
+  });
   m.addLayer({
     id: 'tr-estaciones', type: 'circle', source: 'tr-estaciones', minzoom: 11.5,
     filter: ['any', noEsTren, ['>=', ['zoom'], 13]] as maplibregl.FilterSpecification,

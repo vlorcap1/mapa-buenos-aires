@@ -274,8 +274,9 @@ button { cursor: pointer; }
   position: absolute; z-index: 800;
   right: calc(64px + env(safe-area-inset-right, 0px));
   bottom: calc(152px + env(safe-area-inset-bottom, 0px));
-  display: flex; gap: 4px; padding: 5px 6px;
-  background: var(--superficie); border: 1px solid var(--borde); border-radius: 999px; box-shadow: var(--sombra);
+  display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px; padding: 5px 6px;
+  max-width: calc(100% - 84px);
+  background: var(--superficie); border: 1px solid var(--borde); border-radius: 16px; box-shadow: var(--sombra);
 }
 .leyenda__item, .linea {
   display: inline-grid; place-items: center;
@@ -284,7 +285,7 @@ button { cursor: pointer; }
 }
 
 /* Bus turístico */
-.bus-turistico { margin: -4px 0 12px; font-size: 13px; color: var(--texto-suave); }
+.bus-turistico { list-style: none; margin: -4px 0 12px; padding: 0; display: grid; gap: 4px; font-size: 13px; color: var(--texto-suave); }
 .bus-turistico__chip { display: inline-block; padding: 1px 8px; border-radius: 999px; font-weight: 700; font-size: 12px; }
 
 /* Colectivos */

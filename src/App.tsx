@@ -247,15 +247,15 @@ export default function App() {
             className={`btn-gps btn-capa ${transporte ? 'btn-capa--on' : ''}`}
             onClick={toggleTransporte}
             aria-pressed={transporte}
-            aria-label="Mostrar subte y trenes"
-            title={transporte ? 'Ocultar subte y trenes' : 'Mostrar subte y trenes'}
+            aria-label="Mostrar subte, trenes y bus turístico"
+            title={transporte ? 'Ocultar subte, trenes y bus turístico' : 'Mostrar subte, trenes y bus turístico'}
           >
             <TrainFront size={22} aria-hidden="true" />
           </button>
           {transporte && (
             <div className="leyenda" aria-label="Líneas de subte y tren">
               {LEYENDA.map((l) => (
-                <span key={l.etiqueta} className="leyenda__item" style={{ background: l.color, color: l.etiqueta === 'H' ? '#14213d' : '#fff' }}>
+                <span key={`${l.etiqueta}-${l.color}`} className="leyenda__item" title={l.titulo} style={{ background: l.color, color: l.etiqueta === 'H' || l.color === '#f2b705' ? '#14213d' : '#fff' }}>
                   {l.etiqueta}
                 </span>
               ))}
