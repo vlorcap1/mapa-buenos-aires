@@ -52,7 +52,6 @@ const CONSULTAS = {
   'la-viruta': "La Viruta milonga Armenia Palermo tango",
   'crizia': "Crizia restaurante Palermo barra de ostras",
   'la-carniceria': "La Carnicería parrilla Thames Palermo",
-  'proper': "Proper restaurante Aráoz Palermo",
   'gran-dabbang': "Gran Dabbang restaurante Scalabrini Ortiz Palermo",
   'la-mar': "La Mar cebichería Palermo Buenos Aires Arévalo",
   'las-pizarras': "Las Pizarras bistró Thames Palermo",

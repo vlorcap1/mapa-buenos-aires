@@ -1674,10 +1674,10 @@
     "cat": "restaurant",
     "name": "Crizia",
     "barrio": "Palermo",
-    "lat": -34.58842,
-    "lng": -58.432556,
+    "lat": -34.583252,
+    "lng": -58.435176,
     "desc": "Restaurante de mariscos y pescados con barra de ostras, entre los 50 mejores de América Latina. Cocina de autor con producto argentino de temporada.",
-    "src": "osm (0.11 km)"
+    "src": "osm direccion Fitz Roy 1819 (manual)"
   },
   {
     "id": "la-carniceria",
@@ -1688,16 +1688,6 @@
     "lng": -58.423746,
     "desc": "Parrilla moderna y chica, con cortes madurados y achuras bien trabajadas. Muy buscada: conviene reservar.",
     "src": "osm direccion (manual)"
-  },
-  {
-    "id": "proper",
-    "cat": "restaurant",
-    "name": "Proper",
-    "barrio": "Palermo",
-    "lat": -34.590966,
-    "lng": -58.42354,
-    "desc": "Cocina a las brasas en un antiguo taller mecánico. Platos para compartir con verduras de estación y vinos naturales.",
-    "src": "osm (0.19 km)"
   },
   {
     "id": "gran-dabbang",

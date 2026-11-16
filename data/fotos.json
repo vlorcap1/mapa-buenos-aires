@@ -1810,5 +1810,125 @@
     "archivo": "https://www.flickr.com/photos/24470821@N04/27011423774",
     "titulo": "Openverse: Burger Joint, Palermo Soho, Buenos Aires",
     "urlOriginal": "https://live.staticflickr.com/7576/27011423774_c4a2c3ed97_b.jpg"
+  },
+  "obrador-florida": {
+    "url": "fotos/obrador-florida.jpg",
+    "ancho": 900,
+    "alto": 1350,
+    "autor": "timeout.com",
+    "licencia": "",
+    "archivo": "https://www.timeout.com/es/buenos-aires/obrador-florida-heladeria-tendencia-palermo-mercedes-roman",
+    "titulo": "web: timeout.com",
+    "fuente": "página web del local o nota de prensa"
+  },
+  "antiche-tentazioni": {
+    "url": "fotos/antiche-tentazioni.jpg",
+    "ancho": 900,
+    "alto": 674,
+    "autor": "forbesargentina.com",
+    "licencia": "",
+    "archivo": "https://www.forbesargentina.com/lifestyle/el-maestro-italiano-le-pone-arte-helados-argentinos-n13154",
+    "titulo": "web: forbesargentina.com",
+    "fuente": "página web del local o nota de prensa"
+  },
+  "victor-audio-bar": {
+    "url": "fotos/victor-audio-bar.jpg",
+    "ancho": 900,
+    "alto": 600,
+    "autor": "bairessecreta.com",
+    "licencia": "",
+    "archivo": "https://bairessecreta.com/en/listening-bar-victor-audio-bar-palermo-en/",
+    "titulo": "web: bairessecreta.com",
+    "fuente": "página web del local o nota de prensa"
+  },
+  "crizia": {
+    "url": "fotos/crizia.jpg",
+    "ancho": 900,
+    "alto": 506,
+    "autor": "noticias.perfil.com",
+    "licencia": "",
+    "archivo": "https://noticias.perfil.com/noticias/restaurante/puro-mar-la-travesia-gastronomica-que-define-a-crizia.phtml",
+    "titulo": "web: noticias.perfil.com",
+    "fuente": "página web del local o nota de prensa"
+  },
+  "la-carniceria": {
+    "url": "fotos/la-carniceria.jpg",
+    "ancho": 900,
+    "alto": 1125,
+    "autor": "enprimeurclub.com",
+    "licencia": "",
+    "archivo": "https://www.enprimeurclub.com/restaurants/la-carniceria-buenos-aires-restaurant",
+    "titulo": "web: enprimeurclub.com",
+    "fuente": "página web del local o nota de prensa"
+  },
+  "gran-dabbang": {
+    "url": "fotos/gran-dabbang.jpg",
+    "ancho": 900,
+    "alto": 600,
+    "autor": "timeout.com",
+    "licencia": "",
+    "archivo": "https://www.timeout.com/buenos-aires/mariano-ramon-chef-gran-dabbang-restaurant-palermo-celebrates-10-years",
+    "titulo": "web: timeout.com",
+    "fuente": "página web del local o nota de prensa"
+  },
+  "la-mar": {
+    "url": "fotos/la-mar.jpg",
+    "ancho": 900,
+    "alto": 600,
+    "autor": "lamarcebicheria.com",
+    "licencia": "",
+    "archivo": "https://lamarcebicheria.com/buenos-aires/",
+    "titulo": "web: lamarcebicheria.com",
+    "fuente": "página web del local o nota de prensa"
+  },
+  "las-pizarras": {
+    "url": "fotos/las-pizarras.jpg",
+    "ancho": 900,
+    "alto": 900,
+    "autor": "enprimeurclub.com",
+    "licencia": "",
+    "archivo": "https://www.enprimeurclub.com/restaurants/las-pizarras-buenos-aires-restaurant",
+    "titulo": "web: enprimeurclub.com",
+    "fuente": "página web del local o nota de prensa"
+  },
+  "fogon-asado": {
+    "url": "fotos/fogon-asado.jpg",
+    "ancho": 900,
+    "alto": 900,
+    "autor": "guide.michelin.com",
+    "licencia": "",
+    "archivo": "https://guide.michelin.com/ie/en/ciudad-autonoma-de-buenos-aires/buenos-aires_777009/restaurant/fogon-asado",
+    "titulo": "web: guide.michelin.com",
+    "fuente": "página web del local o nota de prensa"
+  },
+  "el-legado": {
+    "url": "fotos/el-legado.jpg",
+    "ancho": 900,
+    "alto": 506,
+    "autor": "lanacion.com.ar",
+    "licencia": "",
+    "archivo": "https://www.lanacion.com.ar/sabado/el-regreso-del-piano-bar-a-la-noche-portena-nid03062025/",
+    "titulo": "web: lanacion.com.ar",
+    "fuente": "página web del local o nota de prensa"
+  },
+  "lucrecia-vinos": {
+    "url": "fotos/lucrecia-vinos.jpg",
+    "ancho": 900,
+    "alto": 600,
+    "autor": "lanacion.com.ar",
+    "licencia": "",
+    "archivo": "https://www.lanacion.com.ar/sabado/el-regreso-del-piano-bar-a-la-noche-portena-nid03062025/",
+    "titulo": "web: lanacion.com.ar",
+    "fuente": "página web del local o nota de prensa"
+  },
+  "aldo-s": {
+    "url": "fotos/aldo-s.jpg",
+    "ancho": 900,
+    "alto": 600,
+    "autor": "forbesargentina.com",
+    "licencia": "",
+    "archivo": "https://www.forbesargentina.com/lifestyle/50-vinos-copa-propuesta-restaurante-palermitano-lidera-uno-primeros-sommeliers-pais-n53446",
+    "titulo": "web: forbesargentina.com",
+    "fuente": "página web del local o nota de prensa"
   }
 }
