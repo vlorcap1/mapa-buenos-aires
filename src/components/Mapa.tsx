@@ -15,6 +15,7 @@ interface Props {
   posicion: Posicion | null;
   centrarEnUsuario: number; // contador: cada incremento vuelve a centrar en el usuario
   transporte: boolean; // capa de Subte, Premetro y trenes visible
+  ocultas: string[]; // líneas apagadas desde la leyenda (claves de LEYENDA)
   viaje: { viaje: Viaje; origen: [number, number]; destino: [number, number] } | null; // colectivo elegido para dibujar
   onSelect: (l: Lugar) => void;
 }
@@ -136,11 +137,33 @@ function agregarCapaViaje(m: maplibregl.Map) {
   });
 }
 
+// Filtros de cada capa de transporte: el filtro base de la capa más las líneas que la persona apagó.
+function aplicarOcultas(m: maplibregl.Map, ocultas: string[]) {
+  const sinTren = ocultas.includes('Tren');
+  const letras = ocultas.filter((c) => c !== 'Tren' && c !== 'amarillo' && c !== 'rojo');
+  const circuitos = ocultas.filter((c) => c === 'amarillo' || c === 'rojo');
+  const fuera = (prop: string, lista: string[]) => ['!', ['in', ['get', prop], ['literal', lista]]];
+  const tipo = (t: string) => ['==', ['get', 'tipo'], t];
+  const noTipo = (t: string) => ['!=', ['get', 'tipo'], t];
+  const F: Record<string, unknown[]> = {
+    'tr-trenes': ['all', tipo('tren'), sinTren ? false : true],
+    'tr-subte-borde': ['all', noTipo('tren'), fuera('ref', letras)],
+    'tr-subte': ['all', noTipo('tren'), fuera('ref', letras)],
+    'tr-estaciones': ['all', ['any', noTipo('tren'), ['>=', ['zoom'], 13]], fuera('linea', letras), sinTren ? noTipo('tren') : true],
+    'tr-nombres': ['all', fuera('linea', letras), sinTren ? noTipo('tren') : true],
+    'bt-trazado-borde': ['all', tipo('trazado'), fuera('circuito', circuitos)],
+    'bt-trazado': ['all', tipo('trazado'), fuera('circuito', circuitos)],
+    'bt-paradas': ['all', tipo('parada'), fuera('circuito', circuitos)],
+    'bt-numeros': ['all', tipo('parada'), fuera('circuito', circuitos)],
+  };
+  for (const [id, f] of Object.entries(F)) if (m.getLayer(id)) m.setFilter(id, f as maplibregl.FilterSpecification);
+}
+
 function claseDeZoom(z: number): string {
   return z <= 12 ? 'zoom-lejos' : z <= 14 ? 'zoom-medio' : '';
 }
 
-export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, transporte, viaje, onSelect }: Props) {
+export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, transporte, ocultas, viaje, onSelect }: Props) {
   const contenedor = useRef<HTMLDivElement>(null);
   const mapa = useRef<maplibregl.Map | null>(null);
   const listo = useRef(false);
@@ -150,6 +173,8 @@ export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, tran
   onSelectRef.current = onSelect;
   const transporteRef = useRef(transporte);
   transporteRef.current = transporte;
+  const ocultasRef = useRef(ocultas);
+  ocultasRef.current = ocultas;
   const pintarViajeRef = useRef<() => void>(() => {});
 
   // Crear el mapa una sola vez.
@@ -192,6 +217,7 @@ export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, tran
           m.addLayer({ id: 'yo-precision', type: 'fill', source: 'yo-precision', paint: { 'fill-color': '#1d6fd1', 'fill-opacity': 0.12 } });
           m.addLayer({ id: 'yo-precision-borde', type: 'line', source: 'yo-precision', paint: { 'line-color': '#1d6fd1', 'line-width': 1 } });
           agregarCapaTransporte(m, transporteRef.current);
+          aplicarOcultas(m, ocultasRef.current);
           agregarCapaViaje(m);
           pintarViajeRef.current();
         });
@@ -247,6 +273,11 @@ export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, tran
     if (!m || !listo.current) return;
     for (const id of CAPAS_TRANSPORTE) if (m.getLayer(id)) m.setLayoutProperty(id, 'visibility', transporte ? 'visible' : 'none');
   }, [transporte]);
+
+  useEffect(() => {
+    const m = mapa.current;
+    if (m && listo.current) aplicarOcultas(m, ocultas);
+  }, [ocultas]);
 
   // Dibujar el viaje en colectivo elegido y encuadrarlo.
   useEffect(() => {

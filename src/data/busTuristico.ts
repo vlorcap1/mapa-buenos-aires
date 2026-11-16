@@ -3,8 +3,8 @@ import { distanciaKm } from '../lib/geo';
 
 // Buses turísticos hop-on hop-off (data/bus-turistico.json):
 // - amarillo (Buenos Aires Bus): paradas y trazado publicados por el operador en buenosairesbus.com/seguimiento.
-// - rojo (Buenos Aires City Bus): el operador solo publica un mapa en imagen; las paradas están ubicadas por la
-//   atracción o plaza que marca ese mapa (aproximadas) y no hay trazado.
+// - rojo (Buenos Aires City Bus): el operador solo publica un mapa en imagen; el trazado es una transcripción de
+//   ese mapa unida por calles (scripts/bus-rojo.mjs) y las paradas están sobre ese trazado: todo aproximado.
 export interface CircuitoTuristico {
   id: 'amarillo' | 'rojo';
   nombre: string;
@@ -23,7 +23,7 @@ export const CIRCUITOS: CircuitoTuristico[] = [
 
 const DATOS = datos.circuitos as { id: CircuitoTuristico['id']; aproximado?: boolean; paradas: ParadaTuristica[]; trazado?: [number, number][] }[];
 
-/** Trazado del circuito amarillo y paradas de ambos, como GeoJSON para la capa del mapa. */
+/** Trazados y paradas de ambos circuitos, como GeoJSON para la capa del mapa. */
 export const BUS_TURISTICO_GEOJSON: GeoJSON.FeatureCollection = {
   type: 'FeatureCollection',
   features: DATOS.flatMap((c) => {

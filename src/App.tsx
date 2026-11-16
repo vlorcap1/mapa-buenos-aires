@@ -42,6 +42,16 @@ export default function App() {
   });
   // Viaje en colectivo elegido en el detalle: se dibuja en el mapa con un aviso arriba.
   const [viajeActivo, setViajeActivo] = useState<{ viaje: Viaje; origen: [number, number]; destino: [number, number]; lugar: Lugar } | null>(null);
+  // Líneas apagadas desde la leyenda (se recuerdan en este navegador).
+  const [ocultas, setOcultas] = useState<string[]>(() => {
+    try { return JSON.parse(localStorage.getItem('lineas-ocultas') ?? '[]'); } catch { return []; }
+  });
+  const toggleLinea = (clave: string) =>
+    setOcultas((prev) => {
+      const n = prev.includes(clave) ? prev.filter((c) => c !== clave) : [...prev, clave];
+      try { localStorage.setItem('lineas-ocultas', JSON.stringify(n)); } catch { /* sin almacenamiento */ }
+      return n;
+    });
   const toggleTransporte = () =>
     setTransporte((v) => {
       try { localStorage.setItem('capa-transporte', v ? '0' : '1'); } catch { /* sin almacenamiento */ }
@@ -240,7 +250,7 @@ export default function App() {
         </section>
 
         <section className="zona-mapa" aria-label="Mapa">
-          <Mapa lugares={visibles.map((v) => v.lugar)} activo={activo} posicion={posicion} centrarEnUsuario={centrarEnUsuario} transporte={transporte} viaje={viajeActivo} onSelect={onSelect} />
+          <Mapa lugares={visibles.map((v) => v.lugar)} activo={activo} posicion={posicion} centrarEnUsuario={centrarEnUsuario} transporte={transporte} ocultas={ocultas} viaje={viajeActivo} onSelect={onSelect} />
 
           <button
             type="button"
@@ -253,12 +263,23 @@ export default function App() {
             <TrainFront size={22} aria-hidden="true" />
           </button>
           {transporte && (
-            <div className="leyenda" aria-label="Líneas de subte y tren">
-              {LEYENDA.map((l) => (
-                <span key={`${l.etiqueta}-${l.color}`} className="leyenda__item" title={l.titulo} style={{ background: l.color, color: l.etiqueta === 'H' || l.color === '#f2b705' ? '#14213d' : '#fff' }}>
-                  {l.etiqueta}
-                </span>
-              ))}
+            <div className="leyenda" role="group" aria-label="Prender o apagar líneas">
+              {LEYENDA.map((l) => {
+                const visible = !ocultas.includes(l.clave);
+                return (
+                  <button
+                    key={l.clave}
+                    type="button"
+                    className={`leyenda__item ${visible ? '' : 'leyenda__item--off'}`}
+                    aria-pressed={visible}
+                    title={`${visible ? 'Ocultar' : 'Mostrar'} ${l.titulo}`}
+                    onClick={() => toggleLinea(l.clave)}
+                    style={visible ? { background: l.color, color: l.clave === 'H' || l.clave === 'amarillo' ? '#14213d' : '#fff' } : { borderColor: l.color, color: l.color }}
+                  >
+                    {l.etiqueta}
+                  </button>
+                );
+              })}
             </div>
           )}
 

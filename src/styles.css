@@ -283,6 +283,8 @@ button { cursor: pointer; }
   min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px;
   font-size: 12px; font-weight: 700; line-height: 1;
 }
+.leyenda__item { border: 2px solid transparent; cursor: pointer; font-family: inherit; min-width: 26px; height: 26px; }
+.leyenda__item--off { background: var(--superficie); text-decoration: line-through; opacity: 0.75; }
 
 /* Bus turístico */
 .bus-turistico { list-style: none; margin: -4px 0 12px; padding: 0; display: grid; gap: 4px; font-size: 13px; color: var(--texto-suave); }
