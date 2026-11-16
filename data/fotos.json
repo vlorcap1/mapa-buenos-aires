@@ -1650,5 +1650,165 @@
     "archivo": "https://elnacionalsancorseguros.com/nuestro-teatro/",
     "titulo": "buscador: NUESTRO TEATRO - El Nacional Sancor Seguros",
     "fuente": "buscador de imágenes"
+  },
+  "palermo-hollywood": {
+    "url": "fotos/palermo-hollywood.jpg",
+    "ancho": 900,
+    "alto": 469,
+    "autor": "aguiarbuenosaires.com",
+    "licencia": "",
+    "archivo": "https://aguiarbuenosaires.com/palermo-hollywood/",
+    "titulo": "buscador: Palermo Hollywood: descolado e cheio de estilo - Aguiar Turismo Buenos ...",
+    "fuente": "buscador de imágenes"
+  },
+  "ninina": {
+    "url": "fotos/ninina.jpg",
+    "ancho": 900,
+    "alto": 600,
+    "autor": "tecontonavolta.com.br",
+    "licencia": "",
+    "archivo": "https://www.tecontonavolta.com.br/ninina-bakery-uma-deliciosa-padaria/",
+    "titulo": "buscador: Ninina Bakery - uma deliciosa padaria gourmet em Palermo Soho!",
+    "fuente": "buscador de imágenes"
+  },
+  "hobby-cafe": {
+    "url": "fotos/hobby-cafe.jpg",
+    "ancho": 900,
+    "alto": 600,
+    "autor": "archdaily.mx",
+    "licencia": "",
+    "archivo": "https://www.archdaily.mx/mx/1032294/hobby-malabia-cafe-cupla-arquitectura-lucia-vallve-and-tomas-mielnikowicz/6852b054538ec3000116a103-hobby-malabia-cafe-cupla-arquitectura-lucia-vallve-and-tomas-mielnikowicz-foto",
+    "titulo": "buscador: Galería de Hobby Malabia Café / Cupla Arquitectura - Lucia Vallve ...",
+    "fuente": "buscador de imágenes"
+  },
+  "lab-tostadores-de-cafe": {
+    "url": "fotos/lab-tostadores-de-cafe.jpg",
+    "ancho": 900,
+    "alto": 598,
+    "autor": "buenosairesconnect.com",
+    "licencia": "",
+    "archivo": "https://buenosairesconnect.com/lab-cafe-palermo-hollywood-2/",
+    "titulo": "buscador: Lab, el café como experiencia científica",
+    "fuente": "buscador de imágenes"
+  },
+  "cuervo-cafe": {
+    "url": "fotos/cuervo-cafe.jpg",
+    "ancho": 889,
+    "alto": 640,
+    "autor": "buenosairesconnect.com",
+    "licencia": "",
+    "archivo": "https://buenosairesconnect.com/cuervo-cafe-palermo/",
+    "titulo": "buscador: Cuervo, el café de la ventana mágica",
+    "fuente": "buscador de imágenes"
+  },
+  "full-city-coffee-house": {
+    "url": "fotos/full-city-coffee-house.jpg",
+    "ancho": 653,
+    "alto": 450,
+    "autor": "stayunico.com",
+    "licencia": "",
+    "archivo": "https://stayunico.com/blog/but-first-coffee/",
+    "titulo": "buscador: But First, Coffee. Stay Unico Apartments in Buenos Aires",
+    "fuente": "buscador de imágenes"
+  },
+  "hipodromo-de-palermo": {
+    "url": "fotos/hipodromo-de-palermo.jpg",
+    "ancho": 900,
+    "alto": 427,
+    "autor": "Johannacodutti",
+    "licencia": "CC BY-SA 4.0",
+    "archivo": "https://commons.wikimedia.org/wiki/File:Hip%C3%B3dromo_Argentino_de_Palermo.jpg",
+    "titulo": "Commons: File:Hipódromo Argentino de Palermo.jpg",
+    "urlOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Hip%C3%B3dromo_Argentino_de_Palermo.jpg/960px-Hip%C3%B3dromo_Argentino_de_Palermo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "campo-argentino-de-polo": {
+    "url": "fotos/campo-argentino-de-polo.jpg",
+    "ancho": 900,
+    "alto": 506,
+    "autor": "Danirepe",
+    "licencia": "CC BY-SA 3.0",
+    "archivo": "https://commons.wikimedia.org/wiki/File:Campo_Polo.jpg",
+    "titulo": "Commons: File:Campo Polo.jpg",
+    "urlOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Campo_Polo.jpg/960px-Campo_Polo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "museo-sivori": {
+    "url": "fotos/museo-sivori.jpg",
+    "ancho": 900,
+    "alto": 700,
+    "autor": "Unknown authorUnknown author",
+    "licencia": "CC BY 2.5 ar",
+    "archivo": "https://commons.wikimedia.org/wiki/File:Museo_sivori_gcba.jpg",
+    "titulo": "Commons: File:Museo sivori gcba.jpg",
+    "urlOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Museo_sivori_gcba.jpg/960px-Museo_sivori_gcba.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "feria-de-plaza-armenia": {
+    "url": "fotos/feria-de-plaza-armenia.jpg",
+    "ancho": 900,
+    "alto": 675,
+    "autor": "Jp",
+    "licencia": "CC BY-SA 2.0",
+    "archivo": "https://commons.wikimedia.org/wiki/File:Carousel_in_Plaza_Armenia.jpg",
+    "titulo": "Commons: File:Carousel in Plaza Armenia.jpg",
+    "urlOriginal": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Carousel_in_Plaza_Armenia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "mercado-de-pulgas": {
+    "url": "fotos/mercado-de-pulgas.jpg",
+    "ancho": 900,
+    "alto": 600,
+    "autor": "Defensoría del Pueblo de la Ciudad de Buenos Aires",
+    "licencia": "CC BY-SA 4.0",
+    "archivo": "https://commons.wikimedia.org/wiki/File:DefPuebloCABA_-_Mercado_de_las_Pulgas_(3).jpg",
+    "titulo": "Commons: File:DefPuebloCABA - Mercado de las Pulgas (3).jpg",
+    "urlOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/DefPuebloCABA_-_Mercado_de_las_Pulgas_%283%29.jpg/960px-DefPuebloCABA_-_Mercado_de_las_Pulgas_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "la-viruta": {
+    "url": "fotos/la-viruta.jpg",
+    "ancho": 900,
+    "alto": 522,
+    "autor": "La Viruta Tango Club",
+    "licencia": "CC BY-SA 4.0",
+    "archivo": "https://commons.wikimedia.org/wiki/File:La_Viruta_Tango_Club.jpg",
+    "titulo": "Commons: File:La Viruta Tango Club.jpg",
+    "urlOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/La_Viruta_Tango_Club.jpg/960px-La_Viruta_Tango_Club.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "victoria-brown": {
+    "url": "fotos/victoria-brown.jpg",
+    "ancho": 900,
+    "alto": 675,
+    "autor": "benontherun.com",
+    "licencia": "CC BY-NC-SA 2.0",
+    "archivo": "https://www.flickr.com/photos/82526837@N00/24960219833",
+    "titulo": "Openverse: Bar Victoria Brown",
+    "urlOriginal": "https://live.staticflickr.com/1558/24960219833_76bf1a2c93_b.jpg"
+  },
+  "frank-s-bar": {
+    "url": "fotos/frank-s-bar.jpg",
+    "ancho": 900,
+    "alto": 900,
+    "autor": "amymaura",
+    "licencia": "CC BY-NC-ND 2.0",
+    "archivo": "https://www.flickr.com/photos/22835457@N00/25656132803",
+    "titulo": "Openverse: Frank's Bar, Buenos Aires",
+    "urlOriginal": "https://live.staticflickr.com/1690/25656132803_df27922d5b_b.jpg"
+  },
+  "thelonious-club": {
+    "url": "fotos/thelonious-club.jpg",
+    "ancho": 900,
+    "alto": 673,
+    "autor": "buenos-aires",
+    "licencia": "CC BY-ND 2.0",
+    "archivo": "https://www.flickr.com/photos/75976747@N00/779846396",
+    "titulo": "Openverse: Jazz Band at Thelonious Club, Buenos Aires",
+    "urlOriginal": "https://live.staticflickr.com/1420/779846396_5c2aa15e28_b.jpg"
+  },
+  "burger-joint": {
+    "url": "fotos/burger-joint.jpg",
+    "ancho": 900,
+    "alto": 675,
+    "autor": "Andrew Milligan sumo",
+    "licencia": "CC BY 2.0",
+    "archivo": "https://www.flickr.com/photos/24470821@N04/27011423774",
+    "titulo": "Openverse: Burger Joint, Palermo Soho, Buenos Aires",
+    "urlOriginal": "https://live.staticflickr.com/7576/27011423774_c4a2c3ed97_b.jpg"
   }
 }
