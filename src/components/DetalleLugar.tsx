@@ -1,21 +1,36 @@
-import { X, Navigation, Info, Footprints } from 'lucide-react';
+import { X, Info, Footprints, BusFront, TrainFront } from 'lucide-react';
 import { CATEGORIA_POR_ID } from '../data/categorias';
 import { formatoDistancia, minutosCaminando, urlComoLlegar } from '../lib/geo';
+import { estacionesCercanas } from '../data/transporte';
+import ColectivosDirectos from './ColectivosDirectos';
+import { circuitosEn } from '../data/busTuristico';
+import type { Viaje } from '../lib/colectivos';
 import type { Lugar, Posicion } from '../types';
+
+// Texto oscuro sobre colores claros (línea H amarilla), blanco sobre el resto.
+function colorTexto(hex: string): string {
+  const n = parseInt(hex.replace('#', ''), 16);
+  const [r, g, b] = [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  return 0.299 * r + 0.587 * g + 0.114 * b > 170 ? '#14213d' : '#ffffff';
+}
 
 interface Props {
   lugar: Lugar;
   posicion: Posicion | null;
   distanciaKm: number | null;
   onCerrar: () => void;
+  onActivarGps: () => void;
+  onVerViaje: (v: Viaje) => void;
 }
 
-export default function DetalleLugar({ lugar, posicion, distanciaKm, onCerrar }: Props) {
+export default function DetalleLugar({ lugar, posicion, distanciaKm, onCerrar, onActivarGps, onVerViaje }: Props) {
   const cat = CATEGORIA_POR_ID[lugar.cat];
   const Icon = cat.Icon;
   // Sitio oficial o Wikipedia; si no hay ninguno, una búsqueda del lugar.
   const masInfo = lugar.web ?? `https://www.google.com/search?q=${encodeURIComponent(lugar.name + ' Buenos Aires')}`;
   const esWikipedia = /wikipedia\.org/.test(masInfo);
+  const estaciones = estacionesCercanas(lugar.lat, lugar.lng);
+  const circuitos = circuitosEn(lugar.id);
   return (
     <aside className={`detalle ${lugar.foto ? 'detalle--con-foto' : ''}`} aria-label={`Detalle de ${lugar.name}`}>
       {!lugar.foto && <div className="detalle__barra" style={{ background: cat.color }} />}
@@ -42,15 +57,69 @@ export default function DetalleLugar({ lugar, posicion, distanciaKm, onCerrar }:
         </div>
         <h2 className="detalle__titulo">{lugar.name}</h2>
         <p className="detalle__desc">{lugar.desc}</p>
+        {circuitos.length > 0 && !lugar.id.startsWith('bus-turistico') && (
+          <p className="bus-turistico">
+            Parada del{' '}
+            {circuitos.map((c, i) => (
+              <span key={c.id}>
+                {i > 0 && ' y del '}
+                <span className="bus-turistico__chip" style={{ background: c.color, color: c.texto }} title={c.operador}>
+                  {c.nombre.replace('Bus turístico ', 'bus ')}
+                </span>
+              </span>
+            ))}{' '}
+            (hop-on hop-off)
+          </p>
+        )}
         {distanciaKm !== null && (
           <p className="detalle__dist">
             <Footprints size={16} aria-hidden="true" />
             A {formatoDistancia(distanciaKm)} de vos, unos {minutosCaminando(distanciaKm)} min caminando.
           </p>
         )}
+        <ColectivosDirectos lugar={lugar} posicion={posicion} onActivarGps={onActivarGps} onVerViaje={onVerViaje} />
+        {estaciones.length > 0 && (
+          <section className="transporte" aria-label="Estaciones cercanas">
+            <h3 className="transporte__titulo">
+              <TrainFront size={16} aria-hidden="true" /> Subte y tren más cercanos
+            </h3>
+            <ul className="transporte__lista">
+              {estaciones.map((e) => (
+                <li key={e.nombre} className="transporte__estacion">
+                  <span className="transporte__lineas">
+                    {e.lineas.map((l) => (
+                      <span
+                        key={l.linea}
+                        className={`linea linea--${l.tipo}`}
+                        style={{ background: l.color, color: colorTexto(l.color) }}
+                        title={l.tipo === 'subte' ? `Línea ${l.linea}` : l.tipo === 'premetro' ? 'Premetro' : `Tren ${l.linea}`}
+                      >
+                        {l.tipo === 'tren' ? `Tren ${l.linea}` : l.linea}
+                      </span>
+                    ))}
+                  </span>
+                  <span className="transporte__nombre">{e.nombre}</span>
+                  <span className="transporte__dist">
+                    {formatoDistancia(e.distKm)} · {minutosCaminando(e.distKm)} min a pie
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="transporte__nota">Colectivo, subte y tren se pagan con la tarjeta SUBE.</p>
+          </section>
+        )}
         <div className="detalle__acciones">
-          <a className="btn btn--primario" href={urlComoLlegar(lugar.lat, lugar.lng, posicion ?? undefined)} target="_blank" rel="noopener noreferrer">
-            <Navigation size={18} aria-hidden="true" /> Cómo llegar
+          <a
+            className="btn btn--primario"
+            href={urlComoLlegar(lugar.lat, lugar.lng, posicion ?? undefined, 'transit')}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={posicion ? 'Ruta en colectivo, subte o tren desde tu ubicación (Google Maps)' : 'Ruta en colectivo, subte o tren (Google Maps)'}
+          >
+            <BusFront size={18} aria-hidden="true" /> En colectivo o subte
+          </a>
+          <a className="btn" href={urlComoLlegar(lugar.lat, lugar.lng, posicion ?? undefined)} target="_blank" rel="noopener noreferrer" title="Ruta caminando (Google Maps)">
+            <Footprints size={18} aria-hidden="true" /> A pie
           </a>
           <a className="btn" href={masInfo} target="_blank" rel="noopener noreferrer" title={esWikipedia ? 'Artículo en Wikipedia' : lugar.web ? 'Sitio oficial' : 'Buscar en Google'}>
             <Info size={18} aria-hidden="true" /> Más información

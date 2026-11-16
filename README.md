@@ -2,7 +2,7 @@
 
 Mapa turístico interactivo de Buenos Aires inspirado en la estructura de los mapas de viaje de Rexby: lista de lugares a la izquierda, mapa a la derecha, filtros por categoría, búsqueda, detalle de cada lugar y ubicación GPS del visitante con distancias y tiempo caminando.
 
-**Sin alojamientos a propósito.** Las categorías son: atracciones, museos, cultura, parques, cafés, restaurantes, bares, tiendas y ferias, barrios, fotos, actividades y tours. 115 lugares.
+**Sin alojamientos a propósito.** Las categorías son: atracciones, museos, cultura, parques, cafés, restaurantes, bares, tiendas y ferias, barrios, fotos, actividades y tours. 183 lugares.
 
 Stack: React 18 + Vite + TypeScript, MapLibre GL con mosaicos vectoriales de Protomaps/OpenStreetMap empaquetados en el sitio, iconos `lucide-react`. No hay backend: es un sitio estático que funciona en cualquier hosting con HTTPS (necesario para el GPS) y se instala como app (PWA) que funciona sin conexión.
 
@@ -33,6 +33,12 @@ npm run preview    # sirve dist/ en http://localhost:4177/mapa-buenos-aires/
 - `scripts/geocode-retry.mjs`: segundo intento por dirección postal para los que no se encontraron por nombre.
 
 Para agregar un lugar: añadí una fila al TSV, corré `npm run geocode` (solo procesa las filas nuevas; `--todo` rehace todas) y volvé a compilar.
+
+## Transporte público
+
+- **Subte, Premetro y trenes** (`data/transporte.json`, `node scripts/transporte.mjs`): líneas y estaciones desde OpenStreetMap, con los colores oficiales del subte. Se ven con el botón del tren sobre el mapa, y cada ficha muestra las estaciones más cercanas.
+- **Colectivos** (`data/colectivos.json`, `node scripts/colectivos.mjs`): ~970 recorridos de ~190 líneas que pasan por la Ciudad, desde OpenStreetMap (al día, con ramal y sentido), y la línea 99 desde Buenos Aires Data (2019) porque falta en OSM. Con el GPS, la ficha busca **colectivos directos** desde la ubicación de la persona hasta el lugar (`src/lib/colectivos.ts`): el recorrido tiene que pasar a menos de 500 m de ambos puntos, en el sentido correcto (si no hay ninguno, a 800 m). Los tiempos son estimados; no hay horarios. Para viajes con combinación, el botón “En colectivo o subte” abre Google Maps en modo transporte público desde la ubicación.
+- **Bus turístico** (hop-on hop-off): los circuitos amarillo y rojo están como lugares (categoría Tours), y `src/data/busTuristico.ts` marca qué atracciones son parada según la lista oficial de Buenos Aires Travel.
 
 ## Fotos
 

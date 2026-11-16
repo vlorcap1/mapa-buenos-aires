@@ -61,7 +61,6 @@ const CONSULTAS = {
   'campo-argentino-de-polo': "Campo Argentino de Polo Palermo Abierto",
   'museo-sivori': "Museo Sívori Palermo Buenos Aires edificio",
   'feria-de-plaza-armenia': "feria Plaza Armenia Palermo Soho",
-  'mercado-de-pulgas': "Mercado de Pulgas Dorrego Colegiales antigüedades",
   'el-legado': "El Legado piano bar Paraguay Retiro",
   'aldo-s': "Aldo's restaurante vinoteca Arévalo Palermo",
   'lucrecia-vinos': "Lucrecia Vinos Chacarita piano bar",

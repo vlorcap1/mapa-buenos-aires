@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { LocateFixed, Loader2, Search, ArrowDownUp, List, Map as MapIcon, Download, Share, SquarePlus, X, MoreVertical } from 'lucide-react';
+import { LocateFixed, Loader2, TrainFront, Info as InfoIcon, Search, ArrowDownUp, List, Map as MapIcon, Download, Share, SquarePlus, X, MoreVertical } from 'lucide-react';
 import { useInstalacion } from './hooks/useInstalacion';
 import Mapa from './components/Mapa';
 import Filtros from './components/Filtros';
@@ -8,7 +8,9 @@ import DetalleLugar from './components/DetalleLugar';
 import Carrusel from './components/Carrusel';
 import { useGeolocalizacion } from './hooks/useGeolocalizacion';
 import { LUGARES, CENTRO_BUENOS_AIRES } from './data/lugares';
-import { distanciaKm } from './lib/geo';
+import { distanciaKm, formatoDistancia } from './lib/geo';
+import { LEYENDA } from './data/transporte';
+import type { Viaje } from './lib/colectivos';
 import type { CategoriaId, Lugar } from './types';
 
 const normalizar = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -34,6 +36,17 @@ export default function App() {
   const instalacion = useInstalacion();
   const [avisoLejos, setAvisoLejos] = useState<string | null>(null);
   const yaCentrado = useRef(false);
+  // Capa de transporte: se recuerda en este navegador (si el almacenamiento no está disponible, arranca apagada).
+  const [transporte, setTransporte] = useState(() => {
+    try { return localStorage.getItem('capa-transporte') === '1'; } catch { return false; }
+  });
+  // Viaje en colectivo elegido en el detalle: se dibuja en el mapa con un aviso arriba.
+  const [viajeActivo, setViajeActivo] = useState<{ viaje: Viaje; origen: [number, number]; destino: [number, number]; lugar: Lugar } | null>(null);
+  const toggleTransporte = () =>
+    setTransporte((v) => {
+      try { localStorage.setItem('capa-transporte', v ? '0' : '1'); } catch { /* sin almacenamiento */ }
+      return !v;
+    });
 
   // Pedir la ubicación apenas abre la app, para mostrar dónde está la persona sin que tenga que tocar nada.
   useEffect(() => {
@@ -122,7 +135,15 @@ export default function App() {
     setVistaMovil('mapa');
   };
 
+  const onVerViaje = (v: Viaje) => {
+    if (!seleccionado || !posicion) return;
+    setViajeActivo({ viaje: v, origen: [posicion.lng, posicion.lat], destino: [seleccionado.lng, seleccionado.lat], lugar: seleccionado });
+    setSeleccionado(null); // se cierra la ficha para ver el recorrido; el pin del lugar queda resaltado
+    setVistaMovil('mapa');
+  };
+
   const onSelect = (l: Lugar) => {
+    if (viajeActivo && viajeActivo.lugar.id !== l.id) setViajeActivo(null);
     setSeleccionado(l);
     setResaltado(l);
     setVistaMovil('mapa');
@@ -219,7 +240,27 @@ export default function App() {
         </section>
 
         <section className="zona-mapa" aria-label="Mapa">
-          <Mapa lugares={visibles.map((v) => v.lugar)} activo={activo} posicion={posicion} centrarEnUsuario={centrarEnUsuario} onSelect={onSelect} />
+          <Mapa lugares={visibles.map((v) => v.lugar)} activo={activo} posicion={posicion} centrarEnUsuario={centrarEnUsuario} transporte={transporte} viaje={viajeActivo} onSelect={onSelect} />
+
+          <button
+            type="button"
+            className={`btn-gps btn-capa ${transporte ? 'btn-capa--on' : ''}`}
+            onClick={toggleTransporte}
+            aria-pressed={transporte}
+            aria-label="Mostrar subte y trenes"
+            title={transporte ? 'Ocultar subte y trenes' : 'Mostrar subte y trenes'}
+          >
+            <TrainFront size={22} aria-hidden="true" />
+          </button>
+          {transporte && (
+            <div className="leyenda" aria-label="Líneas de subte y tren">
+              {LEYENDA.map((l) => (
+                <span key={l.etiqueta} className="leyenda__item" style={{ background: l.color, color: l.etiqueta === 'H' ? '#14213d' : '#fff' }}>
+                  {l.etiqueta}
+                </span>
+              ))}
+            </div>
+          )}
 
           <button
             type="button"
@@ -234,7 +275,26 @@ export default function App() {
           {avisoOffline && <div className="toast toast--ok" role="status">Mapa y fotos guardados: la app ya funciona sin conexión.</div>}
           {estado !== 'inactivo' && estado !== 'activo' && <div className="toast" role="status">{MENSAJE_GPS[estado]}</div>}
           {avisoLejos && <div className="toast" role="status">{avisoLejos}</div>}
-          {!avisoLejos && !avisoOffline && gpsActivo && posicion && (
+          {viajeActivo && (
+            <div className="viaje-aviso" role="status">
+              <span className="linea linea--colectivo">{viajeActivo.viaje.linea}</span>
+              <div className="viaje-aviso__texto">
+                <strong>
+                  hacia {viajeActivo.viaje.ramal.split('→').pop()?.trim()} · ~{viajeActivo.viaje.minutos} min
+                </strong>
+                <span>
+                  Caminá {formatoDistancia(viajeActivo.viaje.caminarHastaM / 1000)} hasta la parada y bajá a {formatoDistancia(viajeActivo.viaje.caminarDesdeM / 1000)} de {viajeActivo.lugar.name}.
+                </span>
+              </div>
+              <button type="button" className="viaje-aviso__btn" onClick={() => { setSeleccionado(viajeActivo.lugar); setViajeActivo(null); }} aria-label="Volver a la ficha" title="Volver a la ficha">
+                <InfoIcon size={18} aria-hidden="true" />
+              </button>
+              <button type="button" className="viaje-aviso__btn" onClick={() => setViajeActivo(null)} aria-label="Quitar recorrido" title="Quitar recorrido">
+                <X size={18} aria-hidden="true" />
+              </button>
+            </div>
+          )}
+          {!viajeActivo && !avisoLejos && !avisoOffline && gpsActivo && posicion && (
             <div className="toast toast--ok" role="status">
               Ubicación activa · precisión ±{Math.round(posicion.precision)} m
             </div>
@@ -242,7 +302,7 @@ export default function App() {
 
           <Carrusel items={visibles} activoId={activo?.id ?? null} onResaltar={setResaltado} onAbrir={onSelect} />
 
-          {seleccionado && <DetalleLugar lugar={seleccionado} posicion={posicion} distanciaKm={distSeleccionado} onCerrar={() => setSeleccionado(null)} />}
+          {seleccionado && <DetalleLugar lugar={seleccionado} posicion={posicion} distanciaKm={distSeleccionado} onCerrar={() => setSeleccionado(null)} onActivarGps={activar} onVerViaje={onVerViaje} />}
         </section>
       </main>
 

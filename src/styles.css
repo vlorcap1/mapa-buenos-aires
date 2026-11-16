@@ -267,6 +267,56 @@ button { cursor: pointer; }
   box-shadow: var(--sombra);
 }
 .btn-gps--on { color: #1d6fd1; }
+/* Botón de la capa de transporte: encima del de GPS */
+.btn-capa { bottom: calc(148px + env(safe-area-inset-bottom, 0px)); }
+.btn-capa--on { background: var(--tinta); color: #fff; border-color: var(--tinta); }
+.leyenda {
+  position: absolute; z-index: 800;
+  right: calc(64px + env(safe-area-inset-right, 0px));
+  bottom: calc(152px + env(safe-area-inset-bottom, 0px));
+  display: flex; gap: 4px; padding: 5px 6px;
+  background: var(--superficie); border: 1px solid var(--borde); border-radius: 999px; box-shadow: var(--sombra);
+}
+.leyenda__item, .linea {
+  display: inline-grid; place-items: center;
+  min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; line-height: 1;
+}
+
+/* Bus turístico */
+.bus-turistico { margin: -4px 0 12px; font-size: 13px; color: var(--texto-suave); }
+.bus-turistico__chip { display: inline-block; padding: 1px 8px; border-radius: 999px; font-weight: 700; font-size: 12px; }
+
+/* Colectivos */
+.linea--colectivo { background: #c2185b; color: #fff; min-width: 34px; }
+.viaje { display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: center; }
+.viaje__texto { display: grid; min-width: 0; }
+.viaje__ramal { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lineas-cerca { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.transporte__cargando { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 13px; color: var(--texto-suave); }
+.transporte__nota--sin-margen { margin-top: 0; }
+.transporte__gps { margin-top: 8px; }
+.transporte + .transporte { margin-top: -6px; }
+.viaje-aviso {
+  position: absolute; z-index: 850; top: 10px; left: 50%; transform: translateX(-50%);
+  width: min(560px, calc(100% - 24px));
+  display: grid; grid-template-columns: auto 1fr auto auto; gap: 10px; align-items: center;
+  padding: 10px 10px 10px 12px; border-radius: 14px;
+  background: var(--superficie); color: var(--texto); border: 1px solid var(--borde); box-shadow: var(--sombra);
+}
+.viaje-aviso__texto { display: grid; gap: 2px; font-size: 13px; min-width: 0; }
+.viaje-aviso__texto strong { font-size: 14px; }
+.viaje-aviso__btn { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--borde); background: var(--superficie); color: var(--texto); }
+
+/* Estaciones cercanas en el detalle */
+.transporte { margin: 0 0 14px; padding: 10px 12px; border: 1px solid var(--borde); border-radius: 12px; background: var(--papel); }
+.transporte__titulo { display: flex; align-items: center; gap: 6px; margin: 0 0 8px; font-size: 13px; font-weight: 600; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.03em; }
+.transporte__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.transporte__estacion { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: center; }
+.transporte__lineas { display: flex; gap: 3px; flex-wrap: wrap; grid-row: span 2; align-self: start; max-width: 140px; }
+.transporte__nombre { font-weight: 600; }
+.transporte__dist { font-size: 13px; color: var(--texto-suave); }
+.transporte__nota { margin: 8px 0 0; font-size: 12px; color: var(--texto-suave); }
 .girar { animation: girar 1s linear infinite; }
 @keyframes girar { to { transform: rotate(360deg); } }
 
@@ -408,7 +458,9 @@ button { cursor: pointer; }
   .ficha__barrio { font-size: 12px; color: var(--texto-suave); }
 
   .btn-gps { bottom: calc(200px + env(safe-area-inset-bottom, 0px)); right: calc(10px + env(safe-area-inset-right, 0px)); }
-  .app--detalle .btn-gps { display: none; }
+  .btn-capa { bottom: calc(252px + env(safe-area-inset-bottom, 0px)); }
+  .leyenda { bottom: calc(256px + env(safe-area-inset-bottom, 0px)); right: calc(62px + env(safe-area-inset-right, 0px)); }
+  .app--detalle .btn-gps, .app--detalle .leyenda { display: none; }
   .toast { top: 10px; font-size: 12px; }
 
   /* Detalle como hoja inferior */

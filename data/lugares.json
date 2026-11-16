@@ -1780,16 +1780,6 @@
     "src": "osm (0.44 km)"
   },
   {
-    "id": "mercado-de-pulgas",
-    "cat": "shop",
-    "name": "Mercado de Pulgas",
-    "barrio": "Colegiales",
-    "lat": -34.58301,
-    "lng": -58.444379,
-    "desc": "Galpón enorme de antigüedades, muebles, objetos vintage y curiosidades, en el límite entre Palermo y Colegiales.",
-    "src": "osm (0.61 km)"
-  },
-  {
     "id": "el-legado",
     "cat": "bar",
     "name": "El Legado",
@@ -1818,5 +1808,25 @@
     "lng": -58.437416,
     "desc": "Restaurante y vinoteca con una carta de vinos enorme a precio de vinoteca. Los viernes suma piano y micrófono abierto, y en su cava funciona un piano bar.",
     "src": "osm (0.03 km)"
+  },
+  {
+    "id": "bus-turistico-amarillo",
+    "cat": "tours",
+    "name": "Bus turístico amarillo",
+    "barrio": "Recoleta",
+    "lat": -34.587802,
+    "lng": -58.390721,
+    "desc": "Buenos Aires Bus: bus de dos pisos con audioguía, subís y bajás cuantas veces quieras. Recorre Recoleta, el centro, San Telmo, La Boca, Puerto Madero y Palermo, y desde 2026 también Villa Crespo. Todos los días de 9 a 20, cada 15 minutos (última salida 17 h). Pases de 24 o 48 horas.",
+    "src": "osm (0.12 km)"
+  },
+  {
+    "id": "bus-turistico-rojo",
+    "cat": "tours",
+    "name": "Bus turístico rojo",
+    "barrio": "San Nicolás",
+    "lat": -34.606333,
+    "lng": -58.376955,
+    "desc": "Buenos Aires City Bus: hop-on hop-off con audioguía. Recorre el centro, San Telmo, La Boca, Puerto Madero, Retiro, Palermo, el Monumental, el Parque de la Memoria y el Barrio Chino. Todos los días de 9 a 19, cada 30 minutos. Pases de 24 o 48 horas.",
+    "src": "osm (0.15 km)"
   }
 ]

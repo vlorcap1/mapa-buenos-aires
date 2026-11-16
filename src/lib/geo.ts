@@ -20,11 +20,15 @@ export function minutosCaminando(km: number): number {
   return Math.max(1, Math.round((km / 4.5) * 60));
 }
 
-export function urlComoLlegar(lat: number, lng: number, desde?: { lat: number; lng: number }): string {
+/**
+ * Ruta en Google Maps hasta el lugar. Con `desde` (GPS) parte de la ubicación de la persona; sin ella,
+ * Google Maps usa la ubicación del teléfono. `transit` combina colectivo, subte y tren (todo se paga con SUBE).
+ */
+export function urlComoLlegar(lat: number, lng: number, desde?: { lat: number; lng: number }, modo: 'walking' | 'transit' = 'walking'): string {
   const u = new URL('https://www.google.com/maps/dir/');
   u.searchParams.set('api', '1');
   u.searchParams.set('destination', `${lat},${lng}`);
-  u.searchParams.set('travelmode', 'walking');
+  u.searchParams.set('travelmode', modo);
   if (desde) u.searchParams.set('origin', `${desde.lat},${desde.lng}`);
   return u.toString();
 }

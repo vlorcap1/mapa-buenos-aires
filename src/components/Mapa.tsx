@@ -4,13 +4,17 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { CATEGORIA_POR_ID, trazosSvg, type Categoria } from '../data/categorias';
 import { CENTRO_BUENOS_AIRES } from '../data/lugares';
 import { crearEstilo, registrarProtocolo } from '../lib/mapaOffline';
+import { ESTACIONES_GEOJSON, LINEAS_TRANSPORTE } from '../data/transporte';
 import type { Lugar, Posicion } from '../types';
+import type { Viaje } from '../lib/colectivos';
 
 interface Props {
   lugares: Lugar[];
   activo: Lugar | null; // pin resaltado y centrado (seleccionado en detalle o resaltado desde el carrusel)
   posicion: Posicion | null;
   centrarEnUsuario: number; // contador: cada incremento vuelve a centrar en el usuario
+  transporte: boolean; // capa de Subte, Premetro y trenes visible
+  viaje: { viaje: Viaje; origen: [number, number]; destino: [number, number] } | null; // colectivo elegido para dibujar
   onSelect: (l: Lugar) => void;
 }
 
@@ -38,11 +42,80 @@ function circulo(lng: number, lat: number, radio: number): GeoJSON.Feature<GeoJS
   return { type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [pts] } };
 }
 
+const CAPAS_TRANSPORTE = ['tr-trenes', 'tr-subte-borde', 'tr-subte', 'tr-estaciones', 'tr-nombres'];
+
+// Capa de transporte: líneas debajo de los nombres de calles del mapa base; estaciones y sus nombres encima.
+function agregarCapaTransporte(m: maplibregl.Map, visible: boolean) {
+  const visibility = visible ? 'visible' : 'none';
+  const debajoDeEtiquetas = m.getStyle().layers.find((l) => l.type === 'symbol')?.id;
+  m.addSource('tr-lineas', { type: 'geojson', data: LINEAS_TRANSPORTE });
+  m.addSource('tr-estaciones', { type: 'geojson', data: ESTACIONES_GEOJSON });
+  const esTren = ['==', ['get', 'tipo'], 'tren'] as maplibregl.FilterSpecification;
+  const noEsTren = ['!=', ['get', 'tipo'], 'tren'] as maplibregl.FilterSpecification;
+  m.addLayer({
+    id: 'tr-trenes', type: 'line', source: 'tr-lineas', filter: esTren,
+    layout: { visibility, 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': ['get', 'color'], 'line-opacity': 0.75, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1, 14, 2.5, 17, 4], 'line-dasharray': [3, 1.5] },
+  }, debajoDeEtiquetas);
+  m.addLayer({
+    id: 'tr-subte-borde', type: 'line', source: 'tr-lineas', filter: noEsTren,
+    layout: { visibility, 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': '#ffffff', 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 2.5, 14, 6.5, 17, 11] },
+  }, debajoDeEtiquetas);
+  m.addLayer({
+    id: 'tr-subte', type: 'line', source: 'tr-lineas', filter: noEsTren,
+    layout: { visibility, 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': ['get', 'color'], 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1.5, 14, 4, 17, 7] },
+  }, debajoDeEtiquetas);
+  m.addLayer({
+    id: 'tr-estaciones', type: 'circle', source: 'tr-estaciones', minzoom: 11.5,
+    filter: ['any', noEsTren, ['>=', ['zoom'], 13]] as maplibregl.FilterSpecification,
+    layout: { visibility },
+    paint: {
+      'circle-color': '#ffffff',
+      'circle-stroke-color': ['get', 'color'],
+      'circle-stroke-width': ['interpolate', ['linear'], ['zoom'], 12, 1.5, 16, 2.5],
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 2.5, 14, 4.5, 17, 7],
+    },
+  });
+  m.addLayer({
+    id: 'tr-nombres', type: 'symbol', source: 'tr-estaciones', minzoom: 13.5,
+    layout: {
+      visibility,
+      'text-field': ['case', ['==', ['get', 'tipo'], 'tren'], ['concat', ['get', 'nombre'], ' (tren)'], ['concat', ['get', 'nombre'], ' · ', ['get', 'linea']]],
+      'text-font': ['Noto Sans Medium'],
+      'text-size': ['interpolate', ['linear'], ['zoom'], 14, 10.5, 17, 13],
+      'text-anchor': 'top',
+      'text-offset': [0, 0.7],
+      'text-optional': true,
+      'text-max-width': 9,
+    },
+    paint: { 'text-color': '#14213d', 'text-halo-color': '#ffffff', 'text-halo-width': 1.6 },
+  });
+}
+
+const COLOR_COLECTIVO = '#c2185b'; // magenta: no se confunde con ninguna línea de subte
+const VACIO: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: [] };
+
+// Viaje en colectivo: caminata punteada hasta la parada, tramo en colectivo y caminata desde la bajada.
+function agregarCapaViaje(m: maplibregl.Map) {
+  m.addSource('viaje', { type: 'geojson', data: VACIO });
+  m.addLayer({ id: 'viaje-caminar', type: 'line', source: 'viaje', filter: ['==', ['get', 'parte'], 'caminar'], layout: { 'line-cap': 'round' }, paint: { 'line-color': '#14213d', 'line-width': 3, 'line-dasharray': [0.1, 2] } });
+  m.addLayer({ id: 'viaje-colectivo-borde', type: 'line', source: 'viaje', filter: ['==', ['get', 'parte'], 'colectivo'], layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#ffffff', 'line-width': 9 } });
+  m.addLayer({ id: 'viaje-colectivo', type: 'line', source: 'viaje', filter: ['==', ['get', 'parte'], 'colectivo'], layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': COLOR_COLECTIVO, 'line-width': 5 } });
+  m.addLayer({ id: 'viaje-paradas', type: 'circle', source: 'viaje', filter: ['==', ['get', 'parte'], 'parada'], paint: { 'circle-radius': 7, 'circle-color': '#ffffff', 'circle-stroke-color': COLOR_COLECTIVO, 'circle-stroke-width': 3 } });
+  m.addLayer({
+    id: 'viaje-etiquetas', type: 'symbol', source: 'viaje', filter: ['==', ['get', 'parte'], 'parada'],
+    layout: { 'text-field': ['get', 'texto'], 'text-font': ['Noto Sans Medium'], 'text-size': 12, 'text-anchor': 'left', 'text-offset': [0.9, 0], 'text-allow-overlap': true },
+    paint: { 'text-color': COLOR_COLECTIVO, 'text-halo-color': '#ffffff', 'text-halo-width': 2 },
+  });
+}
+
 function claseDeZoom(z: number): string {
   return z <= 12 ? 'zoom-lejos' : z <= 14 ? 'zoom-medio' : '';
 }
 
-export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, onSelect }: Props) {
+export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, transporte, viaje, onSelect }: Props) {
   const contenedor = useRef<HTMLDivElement>(null);
   const mapa = useRef<maplibregl.Map | null>(null);
   const listo = useRef(false);
@@ -50,6 +123,9 @@ export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, onSe
   const marcadorYo = useRef<maplibregl.Marker | null>(null);
   const onSelectRef = useRef(onSelect);
   onSelectRef.current = onSelect;
+  const transporteRef = useRef(transporte);
+  transporteRef.current = transporte;
+  const pintarViajeRef = useRef<() => void>(() => {});
 
   // Crear el mapa una sola vez.
   useEffect(() => {
@@ -83,13 +159,18 @@ export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, onSe
 
     crearEstilo()
       .then((estilo) => {
-        m.setStyle(estilo);
+        // El listener va antes de setStyle, y sin `diff`: aplicado como diferencia sobre el estilo provisorio,
+        // MapLibre no emite 'style.load' y las capas propias (GPS, transporte, viaje) nunca se agregaban.
         m.once('style.load', () => {
           listo.current = true;
           m.addSource('yo-precision', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
           m.addLayer({ id: 'yo-precision', type: 'fill', source: 'yo-precision', paint: { 'fill-color': '#1d6fd1', 'fill-opacity': 0.12 } });
           m.addLayer({ id: 'yo-precision-borde', type: 'line', source: 'yo-precision', paint: { 'line-color': '#1d6fd1', 'line-width': 1 } });
+          agregarCapaTransporte(m, transporteRef.current);
+          agregarCapaViaje(m);
+          pintarViajeRef.current();
         });
+        m.setStyle(estilo, { diff: false });
       })
       .catch((e) => console.error('No se pudo cargar el mapa base', e));
 
@@ -134,6 +215,42 @@ export default function Mapa({ lugares, activo, posicion, centrarEnUsuario, onSe
       reg.el.style.zIndex = esActivo ? '10' : '';
     }
   }, [lugares, activo]);
+
+  // Mostrar u ocultar la capa de transporte.
+  useEffect(() => {
+    const m = mapa.current;
+    if (!m || !listo.current) return;
+    for (const id of CAPAS_TRANSPORTE) if (m.getLayer(id)) m.setLayoutProperty(id, 'visibility', transporte ? 'visible' : 'none');
+  }, [transporte]);
+
+  // Dibujar el viaje en colectivo elegido y encuadrarlo.
+  useEffect(() => {
+    const pintar = () => {
+      const m = mapa.current;
+      const src = m?.getSource('viaje') as maplibregl.GeoJSONSource | undefined;
+      if (!m || !src) return;
+      if (!viaje) { src.setData(VACIO); return; }
+      const { viaje: v, origen, destino } = viaje;
+      const linea = (coords: [number, number][], parte: string): GeoJSON.Feature => ({ type: 'Feature', properties: { parte }, geometry: { type: 'LineString', coordinates: coords } });
+      const parada = (c: [number, number], texto: string): GeoJSON.Feature => ({ type: 'Feature', properties: { parte: 'parada', texto }, geometry: { type: 'Point', coordinates: c } });
+      src.setData({
+        type: 'FeatureCollection',
+        features: [
+          linea([origen, v.subida], 'caminar'),
+          linea(v.tramo, 'colectivo'),
+          linea([v.bajada, destino], 'caminar'),
+          parada(v.subida, `Subí al ${v.linea}`),
+          parada(v.bajada, 'Bajá acá'),
+        ],
+      });
+      const b = new maplibregl.LngLatBounds(origen, origen);
+      for (const c of [...v.tramo, destino]) b.extend(c);
+      const movil = window.matchMedia('(max-width: 860px)').matches;
+      m.fitBounds(b, { padding: movil ? { top: 120, bottom: 230, left: 40, right: 40 } : 80, maxZoom: 16, duration: 700 });
+    };
+    pintarViajeRef.current = pintar;
+    if (listo.current) pintar();
+  }, [viaje]);
 
   // Centrar en el lugar activo; en móvil se corre el centro para que el pin no quede bajo el carrusel o la hoja.
   useEffect(() => {
