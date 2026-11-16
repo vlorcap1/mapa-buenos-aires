@@ -1,9 +1,9 @@
-import { X, Info, Footprints, BusFront, TrainFront } from 'lucide-react';
+import { X, Info, Footprints, BusFront, TrainFront, Ticket } from 'lucide-react';
 import { CATEGORIA_POR_ID } from '../data/categorias';
 import { formatoDistancia, minutosCaminando, urlComoLlegar } from '../lib/geo';
 import { estacionesCercanas } from '../data/transporte';
 import ColectivosDirectos from './ColectivosDirectos';
-import { paradasTuristicasCerca } from '../data/busTuristico';
+import { paradasTuristicasCerca, circuitoDeLugar } from '../data/busTuristico';
 import type { Viaje } from '../lib/colectivos';
 import type { Lugar, Posicion } from '../types';
 
@@ -30,7 +30,8 @@ export default function DetalleLugar({ lugar, posicion, distanciaKm, onCerrar, o
   const masInfo = lugar.web ?? `https://www.google.com/search?q=${encodeURIComponent(lugar.name + ' Buenos Aires')}`;
   const esWikipedia = /wikipedia\.org/.test(masInfo);
   const estaciones = estacionesCercanas(lugar.lat, lugar.lng);
-  const paradasTur = paradasTuristicasCerca(lugar.lat, lugar.lng);
+  const paradasTur = paradasTuristicasCerca(lugar.lat, lugar.lng).filter((p) => p.circuito.lugarId !== lugar.id);
+  const circuitoPropio = circuitoDeLugar(lugar.id);
   return (
     <aside className={`detalle ${lugar.foto ? 'detalle--con-foto' : ''}`} aria-label={`Detalle de ${lugar.name}`}>
       {!lugar.foto && <div className="detalle__barra" style={{ background: cat.color }} />}
@@ -61,11 +62,15 @@ export default function DetalleLugar({ lugar, posicion, distanciaKm, onCerrar, o
           <ul className="bus-turistico" aria-label="Bus turístico hop-on hop-off">
             {paradasTur.map(({ circuito, parada, distKm, aproximada }) => (
               <li key={circuito.id}>
-                <span className="bus-turistico__chip" style={{ background: circuito.color, color: circuito.texto }} title={circuito.operador}>
+                <span className="bus-turistico__chip" style={{ background: circuito.color, color: circuito.texto }} title={`${circuito.operador}: ${circuito.empresas}`}>
                   {circuito.nombre.replace('Bus turístico ', 'Bus ')} · parada {parada.n}
                 </span>{' '}
                 {parada.nombre}
                 {distKm >= 0.05 ? `, a ${aproximada ? '~' : ''}${formatoDistancia(distKm)}` : ''}
+                <span className="bus-turistico__empresa" title={circuito.empresas}> · {circuito.operador}</span>{' '}
+                <a href={circuito.web} target="_blank" rel="noopener noreferrer">
+                  Comprar
+                </a>
               </li>
             ))}
           </ul>
@@ -75,6 +80,27 @@ export default function DetalleLugar({ lugar, posicion, distanciaKm, onCerrar, o
             <Footprints size={16} aria-hidden="true" />
             A {formatoDistancia(distanciaKm)} de vos, unos {minutosCaminando(distanciaKm)} min caminando.
           </p>
+        )}
+        {circuitoPropio && (
+          <section className="transporte" aria-label="Dónde comprar el pasaje">
+            <h3 className="transporte__titulo">
+              <Ticket size={16} aria-hidden="true" /> Dónde comprar el pasaje
+            </h3>
+            <ul className="venta">
+              <li>
+                <a href={circuitoPropio.web} target="_blank" rel="noopener noreferrer">Online en {circuitoPropio.web.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</a>
+              </li>
+              {circuitoPropio.aBordo && <li>A bordo del bus, en cualquiera de sus paradas</li>}
+              {circuitoPropio.venta.map((v) => (
+                <li key={`${v.parada}-${v.donde}`}>
+                  {v.parada && <span className="venta__parada" style={{ background: circuitoPropio.color, color: circuitoPropio.texto }}>Parada {v.parada}</span>}{' '}
+                  {v.nombre ? `${v.nombre}: ` : ''}
+                  {v.donde}
+                </li>
+              ))}
+            </ul>
+            <p className="transporte__nota">Opera {circuitoPropio.empresas}. Datos del operador, noviembre de 2026.</p>
+          </section>
         )}
         <ColectivosDirectos lugar={lugar} posicion={posicion} onActivarGps={onActivarGps} onVerViaje={onVerViaje} />
         {estaciones.length > 0 && (

@@ -8,17 +8,45 @@ import { distanciaKm } from '../lib/geo';
 export interface CircuitoTuristico {
   id: 'amarillo' | 'rojo';
   nombre: string;
-  operador: string;
+  operador: string; // nombre comercial
+  empresas: string; // empresas de la UTE concesionaria (vigente hasta diciembre de 2026)
   color: string;
   texto: string;
   lugarId: string; // punto de partida, cargado como lugar en el mapa
+  web: string; // compra online
+  aBordo: boolean; // se puede comprar arriba del bus
+  venta: { parada?: string; donde: string; nombre?: string }[]; // puntos de venta según el operador (noviembre de 2026)
 }
+
+/** Circuito cuyo punto de partida es este lugar (las fichas de los buses turísticos). */
+export const circuitoDeLugar = (lugarId: string) => CIRCUITOS.find((c) => c.lugarId === lugarId);
 
 export interface ParadaTuristica { n: number; nombre: string; lat: number; lng: number }
 
 export const CIRCUITOS: CircuitoTuristico[] = [
-  { id: 'amarillo', nombre: 'Bus turístico amarillo', operador: 'Buenos Aires Bus', color: '#f2b705', texto: '#14213d', lugarId: 'bus-turistico-amarillo' },
-  { id: 'rojo', nombre: 'Bus turístico rojo', operador: 'Buenos Aires City Bus', color: '#d62828', texto: '#ffffff', lugarId: 'bus-turistico-rojo' },
+  { id: 'amarillo', nombre: 'Bus turístico amarillo', operador: 'Buenos Aires Bus', empresas: 'UTE de Rotamund, Empresa General Urquiza y Empresa de Transportes Sierras de Córdoba', color: '#f2b705', texto: '#14213d', lugarId: 'bus-turistico-amarillo',
+    web: 'https://www.buenosairesbus.com/',
+    aBordo: true,
+    venta: [
+      { parada: '00', donde: 'Av. Manuel Quintana 591, Recoleta' },
+      { parada: '14', donde: 'Av. Córdoba 466' },
+      { donde: 'Florida y Diagonal Norte' },
+    ],
+  },
+  { id: 'rojo', nombre: 'Bus turístico rojo', operador: 'Buenos Aires City Bus (Gray Line)', empresas: 'UTE de División Industrial, AV&MV y Condominios', color: '#d62828', texto: '#ffffff', lugarId: 'bus-turistico-rojo',
+    web: 'https://buenosairescitybus.com/',
+    aBordo: false,
+    venta: [
+      { parada: '0', donde: 'Roque Sáenz Peña 722 y 749, y Cerrito 458' },
+      { parada: '1', donde: 'Rivadavia 1539' },
+      { parada: '6', donde: 'Magallanes 874', nombre: 'Planet Baires' },
+      { parada: '10', donde: 'Córdoba 787' },
+      { parada: '12', donde: 'Av. Santa Fe 808' },
+      { parada: '12', donde: 'Florida y Marcelo T. de Alvear', nombre: 'Centro de Informes' },
+      { parada: '17', donde: 'Aeroparque Jorge Newbery, arribos' },
+      { parada: '20', donde: 'Juramento 1701', nombre: 'Gran Barrio Chino' },
+    ],
+  },
 ];
 
 const DATOS = datos.circuitos as { id: CircuitoTuristico['id']; aproximado?: boolean; paradas: ParadaTuristica[]; trazado?: [number, number][] }[];

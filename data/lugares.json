@@ -1816,7 +1816,7 @@
     "barrio": "Recoleta",
     "lat": -34.587802,
     "lng": -58.390721,
-    "desc": "Buenos Aires Bus: bus de dos pisos con audioguía, subís y bajás cuantas veces quieras. Recorre Recoleta, el centro, San Telmo, La Boca, Puerto Madero y Palermo, y desde 2026 también Villa Crespo. Todos los días de 9 a 20, cada 15 minutos (última salida 17 h). Pases de 24 o 48 horas.",
+    "desc": "Buenos Aires Bus, operado por la UTE de Rotamund, Empresa General Urquiza y Empresa de Transportes Sierras de Córdoba. Bus de dos pisos con audioguía: subís y bajás cuantas veces quieras. Recorre Recoleta, el centro, San Telmo, La Boca, Puerto Madero y Palermo, y desde 2026 también Villa Crespo. Todos los días desde las 9 en la parada 00 (última salida 16:40), cada 10 a 20 minutos. Pases de 24, 48 y 72 horas. La concesión de la Ciudad vence en diciembre de 2026 y está en nueva licitación.",
     "src": "osm (0.12 km)"
   },
   {
@@ -1826,7 +1826,7 @@
     "barrio": "San Nicolás",
     "lat": -34.606333,
     "lng": -58.376955,
-    "desc": "Buenos Aires City Bus: hop-on hop-off con audioguía. Recorre el centro, San Telmo, La Boca, Puerto Madero, Retiro, Palermo, el Monumental, el Parque de la Memoria y el Barrio Chino. Todos los días de 9 a 19, cada 30 minutos. Pases de 24 o 48 horas.",
+    "desc": "Buenos Aires City Bus (Gray Line), operado por la UTE de División Industrial, AV&MV y Condominios. Hop-on hop-off con audioguía. Recorre el centro, San Telmo, La Boca, Puerto Madero, Retiro, Palermo, el Monumental, el Parque de la Memoria y el Barrio Chino. Todos los días de 9:30 a 17 (último bus desde las paradas 0 y 12), cada 30 minutos aproximadamente. Pases de 24, 48 y 72 horas. La concesión de la Ciudad vence en diciembre de 2026 y está en nueva licitación.",
     "src": "osm (0.15 km)"
   }
 ]

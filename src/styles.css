@@ -288,7 +288,13 @@ button { cursor: pointer; }
 
 /* Bus turístico */
 .bus-turistico { list-style: none; margin: -4px 0 12px; padding: 0; display: grid; gap: 4px; font-size: 13px; color: var(--texto-suave); }
+.bus-turistico__empresa { font-style: italic; }
 .bus-turistico__chip { display: inline-block; padding: 1px 8px; border-radius: 999px; font-weight: 700; font-size: 12px; }
+
+/* Venta de pasajes del bus turístico */
+.venta { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
+.venta__parada { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+.bus-turistico a, .venta a { color: var(--acento); font-weight: 600; }
 
 /* Colectivos */
 .linea--colectivo { background: #c2185b; color: #fff; min-width: 34px; }
